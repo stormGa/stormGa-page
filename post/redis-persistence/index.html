@@ -1,0 +1,211 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Redis持久化 | Kohath</title>
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583746007269">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Kohath
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Redis持久化
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-03-09 ·
+                    </time>
+                    
+                        <a href="https://stormga.github.io/tag/zxB1prOE6/" class="post-tags">
+                            # Reids
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>Redis有两种持久化的方式：快照（RDB文件）和追加式文件（AOF文件）：</p>
+<p>RDB持久化方式会在一个特定的间隔保存那个时间点的一个数据快照。<br>
+AOF持久化方式则会记录每一个服务器收到的写操作。在服务启动时，这些记录的操作会逐条执行从而重建出原来的数据。写操作命令记录的格式跟Redis协议一致，以追加的方式进行保存。<br>
+Redis的持久化是可以禁用的，就是说你可以让数据的生命周期只存在于服务器的运行时间里。<br>
+两种方式的持久化是可以同时存在的，但是当Redis重启时，AOF文件会被优先用于重建数据。</p>
+<!-- more -->
+<h1 id="rdb方式">RDB方式</h1>
+<p>Redis Database：就是在指定的时间间隔内将内存中的数据集快照写入磁盘，数据恢复时将快照文件直接再读到内存。<br>
+RDB保存了某一个时间点的数据集，存储在一个二进制文件中，默认名为dump.rdb。RDB技术适合做备份，可以保存最近一个小时，一i谈，一个月的全部数据<br>
+** RDB恢复数据比AOF速度快 **</p>
+<h2 id="rdb如何实现">RDB如何实现</h2>
+<ul>
+<li>在redis.conf文件中配置即可。默认配置是启用的。</li>
+<li>在redis.conf中修改SNAPSHOTTING中的配置</li>
+<li>修改dbfilename mydump.db</li>
+</ul>
+<h2 id="优缺点">优缺点</h2>
+<p>优点：</p>
+<ul>
+<li>存储的是数据快照文件，恢复数据方便，比较快</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>会丢失最后一次快照以后更改的数据，如果你的应用能容忍一定数据的丢失，可以使用rdb。</li>
+<li>rdb会经常操作磁盘，redis会分出一个子进程。如果redis数据库比较大，子进程占用的时间太多的话，可能会影响redis暂停服务（millisecond级别），如果数据库超级大，并且CPU比较弱，可能会达到一秒。</li>
+</ul>
+<h1 id="aof方式">AOF方式</h1>
+<p>Append-only File,Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，读操作不记录），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</p>
+<h2 id="配置方式">配置方式</h2>
+<ul>
+<li>appendonly :默认为no，改为yes即开启了持久化</li>
+<li>appendfilename：指定AOF文件名，默认文件名为appendonly.aof</li>
+<li>dir: RDB,AOF文件存储的目录，默认为./</li>
+<li>appendfsync:配置向aof文件写命令数据的策略
+<ul>
+<li>no：不主动进行同步操作，由操作系统来做（每30s一次），快但是不安全</li>
+<li>always：每次写入都会执行同步，慢一些但是比较安全。</li>
+<li>everysec：每秒执行一次同步操作，比较平衡，介于速度和安全之间。默认项</li>
+</ul>
+</li>
+<li>Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，读操作不记录），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</li>
+</ul>
+<h2 id="优缺点-2">优缺点</h2>
+<ul>
+<li>AOF文件在操作的时候会变得越来越大，例如做100次假发计算，在数据库中会得到最终的值而AOF中会存在100条记录，但99条是没有用的，但是redis支持在不影响服务的前提下后台重构AOF文件。</li>
+<li>可以同时使用这两种方法，redis默认优先加载aof文件（数据最完整）</li>
+</ul>
+<h1 id="性能与实践">性能与实践</h1>
+<h2 id="性能分析">性能分析</h2>
+<p>RDB的快照、AOF的重写都需要fork，这是一个重量级操作，会对Redis造成阻塞。因此为了不影响Redis主进程响应，我们需要尽可能降低阻塞。</p>
+<ol>
+<li>降低fork的频率，比如可以手动来触发RDB生成快照、与AOF重写；</li>
+<li>控制Redis最大使用内存，防止fork耗时过长；</li>
+<li>使用更牛逼的硬件；</li>
+<li>合理配置Linux的内存分配策略，避免因为物理内存不足导致fork失败。</li>
+</ol>
+<h2 id="实践经验">实践经验</h2>
+<ul>
+<li>如果Redis中的数据并不是特别敏感或者可以通过其它方式重写生成数据，可以关闭持久化，如果丢失数据可以通过其它途径补回；</li>
+<li>自己制定策略定期检查Redis的情况，然后可以手动触发备份、重写数据；</li>
+<li>单机如果部署多个实例，要防止多个机器同时运行持久化、重写操作，防止出现内存、CPU、IO资源竞争，让持久化变为串行；</li>
+<li>可以加入主从机器，利用一台从机器进行备份处理，其它机器正常响应客户端的命令；</li>
+<li>RDB持久化与AOF持久化可以同时存在，配合使用。</li>
+</ul>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://stormga.github.io/post/java-jihe/" class="post-title gt-a-link">
+                    Java-集合
+                </a>
+            </div>
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Every 🐦 has an 🦅's dream.</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <a href="www.github.com/stormGa">github</a> | <a href="https://stormga.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+</div>
+</body>
+</html>

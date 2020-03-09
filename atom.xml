@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stormga.github.io/</id>
     <title>Kohath</title>
-    <updated>2020-03-09T09:03:01.719Z</updated>
+    <updated>2020-03-09T09:27:15.774Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stormga.github.io/"/>
     <link rel="self" href="https://stormga.github.io/atom.xml"/>
@@ -10,6 +10,417 @@
     <logo>https://stormga.github.io/images/avatar.png</logo>
     <icon>https://stormga.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Kohath</rights>
+    <entry>
+        <title type="html"><![CDATA[redis五种数据类型的基本操作]]></title>
+        <id>https://stormga.github.io/post/redis-data/</id>
+        <link href="https://stormga.github.io/post/redis-data/">
+        </link>
+        <updated>2020-03-09T09:17:52.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="五种数据类型">五种数据类型</h1>
+<h2 id="字符串string">字符串：string</h2>
+<p>字符串类型是Redis中最基本的数据类型，它能存储任何形式的字符串，包括二进制数据，序列化后的数据，JSON化的对象甚至是一张图片。最大512M。</p>
+<figure data-type="image" tabindex="1"><img src="images%5C1548561308582.png" alt="1548561308582" loading="lazy"></figure>
+<h2 id="哈希类型hash">哈希类型：hash</h2>
+<p>Redis hash 是一个string类型的field和value的映射表，hash特别适合用于存储对象。</p>
+<figure data-type="image" tabindex="2"><img src="images%5C1548561331592.png" alt="1548561331592" loading="lazy"></figure>
+<h2 id="列表类型list">列表类型：list</h2>
+<p>Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
+<figure data-type="image" tabindex="3"><img src="images%5C1548561414546.png" alt="1548561414546" loading="lazy"></figure>
+<h2 id="集合类型set">集合类型：set</h2>
+<p>Redis的Set是string类型的无序集合，集合成员是唯一的，即集合中不能出现重复的数据.</p>
+<figure data-type="image" tabindex="4"><img src="images%5C1548561431538.png" alt="1548561431538" loading="lazy"></figure>
+<h2 id="有序集合类型zsetsorted-set">有序集合类型：zset（sorted set）</h2>
+<p>Redis 有序集合zset和集合set一样也是string类型元素的集合，且不允许重复的成员。</p>
+<p>不同的是zset的每个元素都会关联一个分数（分数可以重复），redis通过分数来为集合中的成员进行从小到大的排序。</p>
+<figure data-type="image" tabindex="5"><img src="images%5C1548561480140.png" alt="1548561480140" loading="lazy"></figure>
+<h1 id="基本操作命令">基本操作命令</h1>
+<h2 id="字符串">字符串</h2>
+<p>（1）将字符串值 value 设置到 key 中，查看已插入的key</p>
+<p>语法：set key value</p>
+<figure data-type="image" tabindex="6"><img src="images%5C1548561624959.png" alt="1548561624959" loading="lazy"></figure>
+<p>（2）获取 key 中设置的字符串值</p>
+<p>语法： get key</p>
+<figure data-type="image" tabindex="7"><img src="images%5C1548561659485.png" alt="1548561659485" loading="lazy"></figure>
+<p>（3）将 key 中储存的数字值加1，如果 key 不存在，则 key 的值先被初始化为 0 再执行 incr 操作（只能对数字类型的数据操作）</p>
+<p>语法：incr key</p>
+<figure data-type="image" tabindex="8"><img src="images%5C1548561725099.png" alt="1548561725099" loading="lazy"></figure>
+<p>（4）将 key 中储存的数字值减1，如果 key 不存在，则么 key 的值先被初始化为 0 再执行 decr  操作（只能对数字类型的数据操作）</p>
+<p>语法：decr key</p>
+<figure data-type="image" tabindex="9"><img src="images%5C1548561761899.png" alt="1548561761899" loading="lazy"></figure>
+<p><strong>incr ，decr 在实现关注人数上，文章的点击数上。</strong></p>
+<p>（5）语法：append key value</p>
+<p>说明：如果 key 存在， 则将 value 追加到 key 原来旧值的末尾</p>
+<p>如果 key 不存在， 则将key 设置值为 value</p>
+<p>返回值：追加字符串之后的总长度</p>
+<figure data-type="image" tabindex="10"><img src="images%5C1548561900420.png" alt="1548561900420" loading="lazy"></figure>
+<ul>
+<li>
+<p>语法：strlen key</p>
+<p>说明：返回 key 所储存的字符串值的长度</p>
+<p>返回值：</p>
+<p>​     ①：如果key存在，返回字符串值的长度</p>
+<p>​     ②：key不存在，返回0</p>
+<figure data-type="image" tabindex="11"><img src="images%5C1548564400282.png" alt="1548564400282" loading="lazy"></figure>
+</li>
+<li>
+<p>语法：getrange key start end</p>
+<p>作用：获取 key 中字符串值从 start 开始 到 end 结束 的子字符串,包括start和end, 负数表示从字符串的末尾开始， -1 表示最后一个字符，-2表示倒数第二个字符。位置从0开始</p>
+<p>返回值：截取的子字符串。</p>
+<figure data-type="image" tabindex="12"><img src="images%5C1548564561755.png" alt="1548564561755" loading="lazy"></figure>
+</li>
+<li>
+<p>语法：setrange key offset value</p>
+<p>说明：用value覆盖（替换）key的存储的值从offset开始,不存在的key做空白字符串。</p>
+<p>返回值：修改后的字符串的长度</p>
+<figure data-type="image" tabindex="13"><img src="images%5C1548564742768.png" alt="1548564742768" loading="lazy"></figure>
+</li>
+<li>
+<p>语法：mset key value [key value…]</p>
+<p>说明：同时设置一个或多个 key-value 对</p>
+<p>返回值： OK</p>
+<figure data-type="image" tabindex="14"><img src="images%5C1548564796144.png" alt="1548564796144" loading="lazy"></figure>
+</li>
+<li>
+<p>语法：mget key [key …]</p>
+<p>作用：获取所有(一个或多个)给定 key 的值</p>
+<p>返回值：包含所有key的列表</p>
+<figure data-type="image" tabindex="15"><img src="images%5C1548564833435.png" alt="1548564833435" loading="lazy"></figure>
+</li>
+</ul>
+<h2 id="哈希类型">哈希类型</h2>
+<ul>
+<li><strong>hset</strong></li>
+</ul>
+<p>语法：hset  hash表的key  field  value</p>
+<p>作用：将哈希表 key 中的域 field 的值设为 value ，如果key不存在，则新建hash表，执行赋值，如果有field ,则覆盖值。</p>
+<p>返回值：</p>
+<p>①如果field是hash表中新field，且设置值成功，返回1</p>
+<p>②如果field已经存在，旧值覆盖新值，返回0</p>
+<figure data-type="image" tabindex="16"><img src="images%5C1548565057765.png" alt="1548565057765" loading="lazy"></figure>
+<ul>
+<li><strong>hget</strong></li>
+</ul>
+<p>语法：hget key field</p>
+<p>作用：获取哈希表 key 中给定域 field 的值</p>
+<p>返回值：field域的值，如果key不存在或者field不存在返回nil</p>
+<figure data-type="image" tabindex="17"><img src="images%5C1548565117165.png" alt="1548565117165" loading="lazy"></figure>
+<ul>
+<li><strong>hmset</strong></li>
+</ul>
+<p>语法：hmset key  field value [field value…]</p>
+<p>说明：同时将多个 field-value (域-值)设置到哈希表 key 中，此命令会覆盖已经存在的field，hash表key不存在，创建空的hash表，执行hmset.</p>
+<p>返回值：设置成功返回ok， 如果失败返回一个错误</p>
+<figure data-type="image" tabindex="18"><img src="images%5C1548565192160.png" alt="1548565192160" loading="lazy"></figure>
+<ul>
+<li><strong>hmget</strong></li>
+</ul>
+<p>语法：hmget key field [field…]</p>
+<p>作用:获取哈希表 key 中一个或多个给定域的值</p>
+<p>返回值：返回和field顺序对应的值，如果field不存在，返回nil</p>
+<figure data-type="image" tabindex="19"><img src="images%5C1548565538725.png" alt="1548565538725" loading="lazy"></figure>
+<ul>
+<li><strong>hgetall</strong></li>
+</ul>
+<p>语法：hgetall key</p>
+<p>作用：获取哈希表 key 中所有的域和值</p>
+<p>返回值：以列表形式返回hash中域和域的值 ，key 不存在，返回空hash</p>
+<figure data-type="image" tabindex="20"><img src="images%5C1548565574923.png" alt="1548565574923" loading="lazy"></figure>
+<ul>
+<li><strong>hdel</strong></li>
+</ul>
+<p>语法：hdel key field [field…]</p>
+<p>作用：删除哈希表 key 中的一个或多个指定域field，不存在field直接忽略</p>
+<p>返回值：成功删除的field的数量</p>
+<figure data-type="image" tabindex="21"><img src="images%5C1548565640106.png" alt="1548565640106" loading="lazy"></figure>
+<ul>
+<li><strong>hkeys</strong></li>
+</ul>
+<p>语法：hkeys key</p>
+<p>作用：查看哈希表 key 中的所有field域</p>
+<p>返回值：包含所有field的列表，key不存在返回空列表</p>
+<figure data-type="image" tabindex="22"><img src="images%5C1548565665188.png" alt="1548565665188" loading="lazy"></figure>
+<ul>
+<li><strong>hvals</strong></li>
+</ul>
+<p>语法：hvals key</p>
+<p>作用：返回哈希表 中所有域的值</p>
+<p>返回值：包含哈希表所有域值的列表，key不存在返回空列表</p>
+<figure data-type="image" tabindex="23"><img src="images%5C1548565738515.png" alt="1548565738515" loading="lazy"></figure>
+<ul>
+<li>hexists</li>
+</ul>
+<p>语法：hexists key field</p>
+<p>作用：查看哈希表 key 中，给定域 field 是否存在</p>
+<p>返回值：如果field存在，返回1， 其他返回0</p>
+<figure data-type="image" tabindex="24"><img src="images%5C1548565785552.png" alt="1548565785552" loading="lazy"></figure>
+<h2 id="列表">列表</h2>
+<ul>
+<li><strong>lpush</strong></li>
+</ul>
+<p>语法：lpush key value [value…]</p>
+<p>作用：将一个或多个值 value 插入到列表 key 的表头（最左边），从左边开始加入值，从左到右的顺序依次插入到表头</p>
+<p>返回值：数字，新列表的长度</p>
+<p><strong><img src="images%5C1548565857589.png" alt="1548565857589" loading="lazy"></strong></p>
+<figure data-type="image" tabindex="25"><img src="images%5C1548566059007.png" alt="1548566059007" loading="lazy"></figure>
+<p>在 redis-desktop-manager显示</p>
+<figure data-type="image" tabindex="26"><img src="images%5C1548566162551.png" alt="1548566162551" loading="lazy"></figure>
+<p>插入重复值</p>
+<figure data-type="image" tabindex="27"><img src="images%5C1548566212605.png" alt="1548566212605" loading="lazy"></figure>
+<figure data-type="image" tabindex="28"><img src="images%5C1548566230069.png" alt="1548566230069" loading="lazy"></figure>
+<ul>
+<li><strong>rpush</strong></li>
+</ul>
+<p>语法：rpush key value [value…]</p>
+<p>作用：将一个或多个值 value 插入到列表 key 的表尾（最右边），各个 value 值按从左到右的顺序依次插入到表尾</p>
+<p>返回值：数字，新列表的长度</p>
+<figure data-type="image" tabindex="29"><img src="images%5C1548566275748.png" alt="1548566275748" loading="lazy"></figure>
+<figure data-type="image" tabindex="30"><img src="images%5C1548566294159.png" alt="1548566294159" loading="lazy"></figure>
+<ul>
+<li><strong>lrange</strong></li>
+</ul>
+<p>语法：lrange key start stop</p>
+<p>作用：获取列表 key 中指定区间内的元素，0 表示列表的第一个元素，以 1 表示列表的第二个元素；start , stop 是列表的下标值，也可以负数的下标， -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。 start ，stop超出列表的范围不会出现错误。</p>
+<p>返回值：指定区间的列表</p>
+<figure data-type="image" tabindex="31"><img src="images%5C1548566342100.png" alt="1548566342100" loading="lazy"></figure>
+<ul>
+<li><strong>lindex</strong></li>
+</ul>
+<p>语法：lindex key index</p>
+<p>作用：获取列表 key 中下标为指定 index 的元素，列表元素不删除，只是查询。0 表示列表的第一个元素，以 1 表示列表的第二个元素；start , stop 是列表的下标值，也可以负数的下标， -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</p>
+<p>返回值：指定下标的元素；index不在列表范围，返回nil</p>
+<figure data-type="image" tabindex="32"><img src="images%5C1548566365030.png" alt="1548566365030" loading="lazy"></figure>
+<ul>
+<li><strong>llen</strong></li>
+</ul>
+<p>语法：llen key</p>
+<p>作用：获取列表 key 的长度</p>
+<p>返回值：数值，列表的长度； key不存在返回0</p>
+<figure data-type="image" tabindex="33"><img src="images%5C1548566394443.png" alt="1548566394443" loading="lazy"></figure>
+<ul>
+<li><strong>lrem</strong></li>
+</ul>
+<p>语法：lrem key count value</p>
+<p>作用：根据参数 count 的值，移除列表中与参数 value 相等的元素， count &gt;0 ，从列表的左侧向右开始移除； count &lt; 0 从列表的尾部开始移除；count = 0移除表中所有与 value 相等的值。</p>
+<p>返回值：数值，移除的元素个数</p>
+<figure data-type="image" tabindex="34"><img src="images%5C1548566520410.png" alt="1548566520410" loading="lazy"></figure>
+<figure data-type="image" tabindex="35"><img src="images%5C1548566581052.png" alt="1548566581052" loading="lazy"></figure>
+<figure data-type="image" tabindex="36"><img src="images%5C1548566568423.png" alt="1548566568423" loading="lazy"></figure>
+<ul>
+<li><strong>lset</strong></li>
+</ul>
+<p>语法：lset key index value</p>
+<p>作用：将列表 key 下标为 index 的元素的值设置为 value。</p>
+<p>返回值：设置成功返回ok ; key不存在或者index超出范围返回错误信息</p>
+<figure data-type="image" tabindex="37"><img src="images%5C1548566820411.png" alt="1548566820411" loading="lazy"></figure>
+<ul>
+<li><strong>linsert</strong></li>
+</ul>
+<p>语法：linsert key BEFORE|ALFTER pivot value</p>
+<p>作用：将值 value 插入到列表 key 当中位于值 pivot 之前或之后的位置。key不存在，pivot不在列表中，不执行任何操作。</p>
+<p>返回值：命令执行成功，返回新列表的长度。没有找到pivot返回 -1， key不存在返回0。</p>
+<p>​          <strong>将python插入到java之前</strong></p>
+<figure data-type="image" tabindex="38"><img src="images%5C1548567424622.png" alt="1548567424622" loading="lazy"></figure>
+<h2 id="集合">集合</h2>
+<ul>
+<li><strong>sadd</strong></li>
+</ul>
+<p>语法：sadd key member [member…]</p>
+<p>作用：将一个或多个 member 元素加入到集合 key 当中，已经存在于集合的 member 元素将被忽略，不会再加入。</p>
+<p>返回值：加入到集合的新元素的个数。不包括被忽略的元素。</p>
+<figure data-type="image" tabindex="39"><img src="images%5C1548567651325.png" alt="1548567651325" loading="lazy"></figure>
+<ul>
+<li><strong>smembers</strong></li>
+</ul>
+<p>语法：smembers key</p>
+<p>作用：获取集合 key 中的所有成员元素，不存在的key视为空集合</p>
+<figure data-type="image" tabindex="40"><img src="images%5C1548567691405.png" alt="1548567691405" loading="lazy"></figure>
+<ul>
+<li><strong>sismember</strong></li>
+</ul>
+<p>语法：sismember key member</p>
+<p>作用：判断 member 元素是否是集合 key 的成员</p>
+<p>返回值：member是集合成员返回1，其他返回 0 。</p>
+<figure data-type="image" tabindex="41"><img src="images%5C1548567734490.png" alt="1548567734490" loading="lazy"></figure>
+<ul>
+<li><strong>scard</strong></li>
+</ul>
+<p>语法：scard key</p>
+<p>作用：获取集合里面的元素个数</p>
+<p>返回值：数字，key的元素个数。 其他情况返回 0 。</p>
+<figure data-type="image" tabindex="42"><img src="images%5C1548567761685.png" alt="1548567761685" loading="lazy"></figure>
+<ul>
+<li><strong>srem</strong></li>
+</ul>
+<p>语法：srem key member [member…]</p>
+<p>作用：删除集合 key 中的一个或多个 member 元素，不存在的元素被忽略。</p>
+<p>返回值：数字，成功删除的元素个数，不包括被忽略的元素。</p>
+<figure data-type="image" tabindex="43"><img src="images%5C1548567840926.png" alt="1548567840926" loading="lazy"></figure>
+<figure data-type="image" tabindex="44"><img src="images%5C1548567854136.png" alt="1548567854136" loading="lazy"></figure>
+<ul>
+<li><strong>srandmember</strong></li>
+</ul>
+<p>语法：srandmember key [count]</p>
+<p>作用：只提供key，随机返回集合中一个元素，元素不删除，依然在集合中；提供了count时，count 正数, 返回包含count个数元素的集合， 集合元素各不相同。count 是负数，返回一个count绝对值的长度的集合， 集合中元素可能会重复多次。</p>
+<p>返回值：一个元素；多个元素的集合</p>
+<figure data-type="image" tabindex="45"><img src="images%5C1548567925391.png" alt="1548567925391" loading="lazy"></figure>
+<figure data-type="image" tabindex="46"><img src="images%5C1548567938119.png" alt="1548567938119" loading="lazy"></figure>
+<ul>
+<li><strong>spop</strong></li>
+</ul>
+<p>语法：spop key [count]</p>
+<p>作用：随机从集合中删除一个元素, count是删除的元素个数。</p>
+<p>返回值：被删除的元素，key不存在或空集合返回nil</p>
+<figure data-type="image" tabindex="47"><img src="images%5C1548568005949.png" alt="1548568005949" loading="lazy"></figure>
+<p>随机删除2个元素</p>
+<figure data-type="image" tabindex="48"><img src="images%5C1548568056171.png" alt="1548568056171" loading="lazy"></figure>
+<h2 id="有序集合zset">有序集合zset</h2>
+<ul>
+<li><strong>zadd</strong></li>
+</ul>
+<p>语法：zadd key score member [score member…]</p>
+<p>作用：将一个或多个 member 元素及其 score 值加入到有序集合 key 中，如果member存在集合中，则更新值；score可以是整数或浮点数</p>
+<p>返回值：数字，新添加的元素个数</p>
+<figure data-type="image" tabindex="49"><img src="images%5C1548568187813.png" alt="1548568187813" loading="lazy"></figure>
+<ul>
+<li><strong>zrange</strong></li>
+</ul>
+<p>语法：zrange key start stop [WITHSCORES]</p>
+<p>作用：查询有序集合，指定区间的内的元素。集合成员按score值从小到大来排序。 start， stop都是从0开始。0是第一个元素，1 是第二个元素，依次类推。以 -1表示最后一个成员，-2 表示倒数第二个成员。WITHSCORES选项让score和value一同返回。</p>
+<p>返回值：自定区间的成员集合</p>
+<p>（1）显示集合的全部元素，不显示score，不使用WITHSCORES</p>
+<figure data-type="image" tabindex="50"><img src="images%5C1548568601821.png" alt="1548568601821" loading="lazy"></figure>
+<p>（2）显示集合全部元素，并使用WITHSCORES</p>
+<figure data-type="image" tabindex="51"><img src="images%5C1548568660273.png" alt="1548568660273" loading="lazy"></figure>
+<ul>
+<li><strong>zrevrange</strong></li>
+</ul>
+<p>语法：zrevrange key start stop [WITHSCORES]</p>
+<p>作用：返回有序集 key 中，指定区间内的成员。其中成员的位置按 score 值递减(从大到小)来排列。其它同zrange命令。</p>
+<p>返回值：自定区间的成员集合</p>
+<figure data-type="image" tabindex="52"><img src="images%5C1548569040783.png" alt="1548569040783" loading="lazy"></figure>
+<ul>
+<li><strong>zrem</strong></li>
+</ul>
+<p>语法：zrem key member [member…]</p>
+<p>作用：删除有序集合 key 中的一个或多个成员，不存在的成员被忽略</p>
+<p>返回值：被成功删除的成员数量，不包括被忽略的成员。</p>
+<figure data-type="image" tabindex="53"><img src="images%5C1548569116524.png" alt="1548569116524" loading="lazy"></figure>
+<ul>
+<li><strong>zcard</strong></li>
+</ul>
+<p>语法：zcard key</p>
+<p>作用：获取有序集 key 的元素成员的个数</p>
+<p>返回值：key存在返回集合元素的个数， key不存在，返回0</p>
+<figure data-type="image" tabindex="54"><img src="images%5C1548569148453.png" alt="1548569148453" loading="lazy"></figure>
+<ul>
+<li><strong>zrangebyscore</strong></li>
+</ul>
+<p>语法：zrangebyscore key min max [WITHSCORES ][LIMIT offset count]</p>
+<p>作用：获取有序集 key 中，所有 score 值介于 min 和 max 之间（包括min和max）的成员，有序成员是按递增（从小到大）排序。</p>
+<p>​      min ,max是包括在内 ， 使用符号 ( 表示不包括。 min，max 可以使用 -inf  ，+inf表示最小和最大</p>
+<p>​     limit 用来限制返回结果的数量和区间。</p>
+<p>​     withscores 显示score 和 value</p>
+<p>返回值：指定区间的集合数据</p>
+<p>（1） 显示指定具体区间的数据</p>
+<figure data-type="image" tabindex="55"><img src="images%5C1548569328020.png" alt="1548569328020" loading="lazy"></figure>
+<p>（2）显示指定具体区间的集合数据，开区间（不包括min，max）</p>
+<figure data-type="image" tabindex="56"><img src="images%5C1548569412159.png" alt="1548569412159" loading="lazy"></figure>
+<p>（3）显示整个集合的所有数据</p>
+<figure data-type="image" tabindex="57"><img src="images%5C1548569462467.png" alt="1548569462467" loading="lazy"></figure>
+<p>（4）使用limit  0是开始位置 2是数量</p>
+<figure data-type="image" tabindex="58"><img src="images%5C1548569509068.png" alt="1548569509068" loading="lazy"></figure>
+<ul>
+<li><strong>zrevrangebyscore</strong></li>
+</ul>
+<p>语法：zrevrangebyscore key max min  [WITHSCORES].[LIMIT offset count]</p>
+<p>作用：返回有序集 key 中， score 值介于 max 和 min 之间(默认包括等于 max 或 min )的所有的成员。有序集成员按 score 值递减(从大到小)的次序排列。其他同zrangebyscore</p>
+<figure data-type="image" tabindex="59"><img src="images%5C1548569655175.png" alt="1548569655175" loading="lazy"></figure>
+<ul>
+<li><strong>zcount</strong></li>
+</ul>
+<p>语法：zcount key min max</p>
+<p>作用：返回有序集 key 中， score 值在 min 和 max 之间(默认包括 score 值等于 min 或 max )的成员的数量</p>
+<figure data-type="image" tabindex="60"><img src="images%5C1548569707391.png" alt="1548569707391" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis持久化]]></title>
+        <id>https://stormga.github.io/post/redis-persistence/</id>
+        <link href="https://stormga.github.io/post/redis-persistence/">
+        </link>
+        <updated>2020-03-09T09:04:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>Redis有两种持久化的方式：快照（RDB文件）和追加式文件（AOF文件）：</p>
+<p>RDB持久化方式会在一个特定的间隔保存那个时间点的一个数据快照。<br>
+AOF持久化方式则会记录每一个服务器收到的写操作。在服务启动时，这些记录的操作会逐条执行从而重建出原来的数据。写操作命令记录的格式跟Redis协议一致，以追加的方式进行保存。<br>
+Redis的持久化是可以禁用的，就是说你可以让数据的生命周期只存在于服务器的运行时间里。<br>
+两种方式的持久化是可以同时存在的，但是当Redis重启时，AOF文件会被优先用于重建数据。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Redis有两种持久化的方式：快照（RDB文件）和追加式文件（AOF文件）：</p>
+<p>RDB持久化方式会在一个特定的间隔保存那个时间点的一个数据快照。<br>
+AOF持久化方式则会记录每一个服务器收到的写操作。在服务启动时，这些记录的操作会逐条执行从而重建出原来的数据。写操作命令记录的格式跟Redis协议一致，以追加的方式进行保存。<br>
+Redis的持久化是可以禁用的，就是说你可以让数据的生命周期只存在于服务器的运行时间里。<br>
+两种方式的持久化是可以同时存在的，但是当Redis重启时，AOF文件会被优先用于重建数据。</p>
+<!-- more -->
+<h1 id="rdb方式">RDB方式</h1>
+<p>Redis Database：就是在指定的时间间隔内将内存中的数据集快照写入磁盘，数据恢复时将快照文件直接再读到内存。<br>
+RDB保存了某一个时间点的数据集，存储在一个二进制文件中，默认名为dump.rdb。RDB技术适合做备份，可以保存最近一个小时，一i谈，一个月的全部数据<br>
+** RDB恢复数据比AOF速度快 **</p>
+<h2 id="rdb如何实现">RDB如何实现</h2>
+<ul>
+<li>在redis.conf文件中配置即可。默认配置是启用的。</li>
+<li>在redis.conf中修改SNAPSHOTTING中的配置</li>
+<li>修改dbfilename mydump.db</li>
+</ul>
+<h2 id="优缺点">优缺点</h2>
+<p>优点：</p>
+<ul>
+<li>存储的是数据快照文件，恢复数据方便，比较快</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>会丢失最后一次快照以后更改的数据，如果你的应用能容忍一定数据的丢失，可以使用rdb。</li>
+<li>rdb会经常操作磁盘，redis会分出一个子进程。如果redis数据库比较大，子进程占用的时间太多的话，可能会影响redis暂停服务（millisecond级别），如果数据库超级大，并且CPU比较弱，可能会达到一秒。</li>
+</ul>
+<h1 id="aof方式">AOF方式</h1>
+<p>Append-only File,Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，读操作不记录），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</p>
+<h2 id="配置方式">配置方式</h2>
+<ul>
+<li>appendonly :默认为no，改为yes即开启了持久化</li>
+<li>appendfilename：指定AOF文件名，默认文件名为appendonly.aof</li>
+<li>dir: RDB,AOF文件存储的目录，默认为./</li>
+<li>appendfsync:配置向aof文件写命令数据的策略
+<ul>
+<li>no：不主动进行同步操作，由操作系统来做（每30s一次），快但是不安全</li>
+<li>always：每次写入都会执行同步，慢一些但是比较安全。</li>
+<li>everysec：每秒执行一次同步操作，比较平衡，介于速度和安全之间。默认项</li>
+</ul>
+</li>
+<li>Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，读操作不记录），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</li>
+</ul>
+<h2 id="优缺点-2">优缺点</h2>
+<ul>
+<li>AOF文件在操作的时候会变得越来越大，例如做100次假发计算，在数据库中会得到最终的值而AOF中会存在100条记录，但99条是没有用的，但是redis支持在不影响服务的前提下后台重构AOF文件。</li>
+<li>可以同时使用这两种方法，redis默认优先加载aof文件（数据最完整）</li>
+</ul>
+<h1 id="性能与实践">性能与实践</h1>
+<h2 id="性能分析">性能分析</h2>
+<p>RDB的快照、AOF的重写都需要fork，这是一个重量级操作，会对Redis造成阻塞。因此为了不影响Redis主进程响应，我们需要尽可能降低阻塞。</p>
+<ol>
+<li>降低fork的频率，比如可以手动来触发RDB生成快照、与AOF重写；</li>
+<li>控制Redis最大使用内存，防止fork耗时过长；</li>
+<li>使用更牛逼的硬件；</li>
+<li>合理配置Linux的内存分配策略，避免因为物理内存不足导致fork失败。</li>
+</ol>
+<h2 id="实践经验">实践经验</h2>
+<ul>
+<li>如果Redis中的数据并不是特别敏感或者可以通过其它方式重写生成数据，可以关闭持久化，如果丢失数据可以通过其它途径补回；</li>
+<li>自己制定策略定期检查Redis的情况，然后可以手动触发备份、重写数据；</li>
+<li>单机如果部署多个实例，要防止多个机器同时运行持久化、重写操作，防止出现内存、CPU、IO资源竞争，让持久化变为串行；</li>
+<li>可以加入主从机器，利用一台从机器进行备份处理，其它机器正常响应客户端的命令；</li>
+<li>RDB持久化与AOF持久化可以同时存在，配合使用。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java-集合]]></title>
         <id>https://stormga.github.io/post/java-jihe/</id>
