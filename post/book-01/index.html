@@ -1,0 +1,232 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>大型网站技术架构 | Kohath</title>
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583751879454">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Kohath
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    大型网站技术架构
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-03-09 ·
+                    </time>
+                    
+                        <a href="https://stormga.github.io/tag/QG_GkyzCz/" class="post-tags">
+                            # Book
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>最近在读《大型网站技术架构》，文章广度很大，对于我这种初步建立起网站架构体系的人无疑是一个形成体系结构的机会。本文对该书重要知识做一个总结，供自己经常翻阅.</p>
+<!-- more -->
+<h1 id="大型网站进化史">大型网站进化史</h1>
+<h2 id="大型网站软件系统的特点">大型网站软件系统的特点</h2>
+<ul>
+<li>高并发、大流量</li>
+<li>高可用。7*24小时不断的服务</li>
+<li>海量数据</li>
+<li>用户分布广发、网络情况复杂。用户分布广，各地的网络情况千差万别，再过国内各个运营商之间的网络互通问题</li>
+<li>安全环境恶劣</li>
+<li>需求快速变更，发布频繁</li>
+<li>渐进式发展。也就是 随着网络发展逐渐变化的。</li>
+</ul>
+<h2 id="初级网站架构">初级网站架构</h2>
+<p>初始阶段的网站访问人数比较少，所有的在一台服务器。</p>
+<figure data-type="image" tabindex="1"><img src="https://stormga.github.io//post-images/1089769-20180422153541801-2019951891.png" alt="" loading="lazy"></figure>
+<h2 id="应用服务和数据服务分离">应用服务和数据服务分离</h2>
+<figure data-type="image" tabindex="2"><img src="https://stormga.github.io//post-images/1089769-20180422153949952-969765602.png" alt="" loading="lazy"></figure>
+<p>随着业务的发展，就会发现一台服务器抗不过来了，所以将应用服务器与数据（文件、数据库）服务器分离。三台服务器对硬件资源的要求各不相同：应用服务器需要更快的CPU，文件服务器需要更大的磁盘和带宽，数据库服务器需要更快速的磁盘和更大的内存。分离之后，三个服务器各司其职，也方便针对性的优化。</p>
+<h2 id="使用缓存改善网站性能">使用缓存改善网站性能</h2>
+<figure data-type="image" tabindex="3"><img src="https://stormga.github.io//post-images/1089769-20180422154411541-1804654037.png" alt="" loading="lazy"></figure>
+<p>“世界上没有什么问题是加一级缓存解决不了的，如果有那就再加一级缓存”</p>
+<p>缓存的使用无处不在，缓存的根本目的是加快访问速度。当数据库的访问压力过大的时候，就可以考虑使用缓存了。网站使用的缓存可以分为两种: 缓存在应用服务器上的本地缓存和缓存在专门的分布式缓存服务器上的远程缓存。</p>
+<h2 id="使用应用服务器集群改善网站的并发处理能力">使用应用服务器集群改善网站的并发处理能力</h2>
+<figure data-type="image" tabindex="4"><img src="https://stormga.github.io//post-images/1089769-20180422154734552-838306655.png" alt="" loading="lazy"></figure>
+<p></p>
+<p>随着业务的发展，单个应用服务器一定会成为瓶颈，应用服务器实现集群是网站可伸缩集群架构设计中较为简单成熟的一种。后面也会提到，将应用服务器设计为无状态的（没有需要保存的上下文信息），就可以通过增加机器，使用负载均衡来scale out。</p>
+<h2 id="数据库读写分离">数据库读写分离</h2>
+<figure data-type="image" tabindex="5"><img src="https://stormga.github.io//post-images/1089769-20180422154958394-621428384.png" alt="" loading="lazy"></figure>
+<p>即使使用了缓存，但在缓存未命中、或者缓存服务时效的情况下，还是需要访问数据库，这个时候就需要数据库的读写分离：主库提供写操作，从库提供读服务。注意，在上图中增加了一个数据访问模块，可以对应用层透明数据库的主从分离信息。</p>
+<h2 id="使用反向代理和cdn-加速网站晌应">使用反向代理和CDN 加速网站晌应</h2>
+<figure data-type="image" tabindex="6"><img src="https://stormga.github.io//post-images/1089769-20180422155322032-1195590504.png" alt="" loading="lazy"></figure>
+<p>CDN和反向代理其实都是缓存，区别在于CDN 部署在网络提供商的机房；而反向代理则部署在网站的中心机房。使用CDN 和反向代理的目的都是尽旱返回数据给用户， 一方面加快用户访问速度，另一方面也减轻后端服务器的负载压力。</p>
+<h2 id="使用分布式文件系统和分布式数据库系统">使用分布式文件系统和分布式数据库系统</h2>
+<figure data-type="image" tabindex="7"><img src="https://stormga.github.io//post-images/1089769-20180422155540571-959599459.png" alt="" loading="lazy"></figure>
+<p>单个物理机的磁盘是有限的，单个关系数据库的处理能力也是有上限的，所以需要分布式文件存储与分布式数据库。当然，也需要”统一数据访问模块“，使得应用层不用关心文件、数据的具体位置。值得一提的事，关系型数据库自身并没有很好的水平扩展方案，因此一般都需要一个数据库代理层，如mycat。</p>
+<h2 id="使用nosql-和搜索引擎">使用NoSQL 和搜索引擎</h2>
+<figure data-type="image" tabindex="8"><img src="https://stormga.github.io//post-images/1089769-20180422160052062-334394168.png" alt="" loading="lazy"></figure>
+<p>web2.0的很多应用并一定适合用关系数据库存储，更加灵活的NoSql能更加方便的解决一些问题，而且NoSQL天然就支持分布式。专门的搜索引擎在提供更优质服务的同时，也大大减轻了数据库的压力。</p>
+<h2 id="业务拆分">业务拆分</h2>
+<p><img src="https://stormga.github.io//post-images/1089769-20180422160336085-10854169.png" alt="" loading="lazy">”</p>
+<p>将一个网站拆分成许多不同的应用， 每个应用独立部署维护。应用之间可以通过一个超链接建立关系(在首页上的导航链接每个都指向不同的应用地址) ，也可以通过消息队列进行数据分发， 当然最多的还是通过访问同一个数据存储系统来构成一个关联的完整系统</p>
+<h2 id="分布式服务">分布式服务</h2>
+<figure data-type="image" tabindex="9"><img src="https://stormga.github.io//post-images/1089769-20180422160547076-1416732001.png" alt="" loading="lazy"></figure>
+<p>既然每一个应用系统都需要执行许多相同的业务操作， 比如用户管理、商品管理等，那么可以<strong>将这些共用的业务提取出来，独立部署</strong>。</p>
+<p>通过服务的分布式，各个应用能更好的独立发展，实现了<strong>从依赖模块到依赖服务的过渡</strong>。将通用的公共服务独立出来，也方便做服务管控，比如对各个应用的服务请求进行监控，在高峰时期限制、关闭某些应用的访问等</p>
+<h1 id="大型网站架构模式">大型网站架构模式</h1>
+<p>文中说：“<strong>每个模式描述了一个在我们周围不断重复发生的问题以及该问题解决方案的核心，这样就能一次又一次的使用这个方案不必做重复工作</strong>”。模式的关键在于模式的可重复性， 问题与场景的可重复性带来解决方案的可重复使用。</p>
+<h2 id="分层">分层</h2>
+<p>将网站软件系统分为应用层，服务层，数据层。</p>
+<p>分层的好处在于：解耦合，独立发展，伸缩性，可扩展性。</p>
+<p>但是分层架构也有一些挑战， 就是<strong>必须合理规划层次边界和接口</strong>，在开发过程中，严格遵循分层架构的约束， 禁止跨层次的调用( 应用层直接调用数据层)及逆向调用(数据层调用服务层， 或者服务层调用应用层)。</p>
+<p>分层后的各个模块可以部署在同一个物理机器上。分层最初是为了规划软件清晰的逻辑结构便于开发，而在网站发展中，分层在支持分布式高并发时是必要的。</p>
+<h2 id="分割">分割</h2>
+<p>分层强调的是横向切分，而分割是纵向切分， 上面网站进化史部分的业务拆分就包含了分割。</p>
+<p>分割的目标是高内聚、低耦合的模块单元。</p>
+<p>比如在应用层，将购物，论坛，广告分割成不同的应用，由不同团队开发，部署在不同的服务器上。</p>
+<h2 id="分布式">分布式</h2>
+<p>分层和分割的一个主要目的是分布式部署，但分布式也有自己的问题：网络通信带来的性能问题，可用性，一致性与分布式事务，系统维护管理复杂度。</p>
+<ul>
+<li>分布式应用和服务</li>
+<li>分布式静态资源</li>
+<li>分布式数据和存储</li>
+<li>分布式计算</li>
+</ul>
+<h2 id="集群">集群</h2>
+<p>一个机器解决不了的问题，就用几个机器来解决，当服务无状态的时候，通过往集群增加机器就能解决大部分问题。对应网站进化史中“使用应用服务器集群改善网站的并发处理能力”</p>
+<p><strong>例如网站首页，访问集中，可以多台服务器部署相同的服务构成一个集群，通过负载均衡设备共同对外服务</strong></p>
+<h2 id="缓存">缓存</h2>
+<p>缓存就是将数据存放在距离计算最近的位置以加快处理速度，同时大大减轻了数据提供者的压力</p>
+<p>大型网站架构设计在很多方面都使用了缓存设计：<strong>CDN、反向代理、本地缓存、分布式缓存</strong></p>
+<h2 id="异步">异步</h2>
+<p>异步是解耦合的一个重要手段，常见的生产者-消费者模型就是一个异步模式。</p>
+<p>出了解耦合，异步还能提高系统可用性、加快响应速度、流量削峰</p>
+<h2 id="冗余">冗余</h2>
+<p>冗余是系统可用性的重要保障，也是数据可靠性的重要手段。数据库冷备份和热备份。</p>
+<h2 id="自动化">自动化</h2>
+<p>凡人总是会出这样那样的错误，能自动话的就要自动化。自动化大大解放了程序员、运维人员的生产力！</p>
+<p>发布过程自动化、自动化代码管理、自动化测试、自动化安全检测、自动化部署、自动化监控、自动化报警、自动化失效转移、自动化失效恢复、自动化降级。</p>
+<h1 id="架构模式在新浪的应用">架构模式在新浪的应用</h1>
+<ul>
+<li>早起使用MPSS（单服务器多端口），每台都部署多个服务，每个服务使用不同的端口提供服务。现在常用的服务部署，一台机器虚拟成多个机器。</li>
+<li>异步推拉：用户发微博后会在所有粉丝订阅中显示，这样会造成一个用户发文，会将这条微博插入到所有粉丝订阅中造成大量写操作。新浪使用异步推拉结合，用户发微博后写入消息队列后立即返回，用户响应迅速，消息队列消费者将微博推送给所有当前<strong>在线粉丝</strong>，非在线用户上线后根据关注列表拉取订阅列表。</li>
+<li>由于微博更新频繁，新浪使用多级缓存，热门微博和明星用户的微博缓存在所有服务器中，在线用户的微博和近期微博在分布式缓存集群中。所以“刷微博操作全部都是缓存访问”。</li>
+</ul>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://stormga.github.io/post/springboot-reids-Serialization/" class="post-title gt-a-link">
+                    SpringBoot使用Redis的序列化问题
+                </a>
+            </div>
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Every 🐦 has an 🦅's dream.</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <a href="www.github.com/stormGa">github</a> | <a href="https://stormga.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+</div>
+</body>
+</html>
