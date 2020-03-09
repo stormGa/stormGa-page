@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stormga.github.io/</id>
     <title>Kohath</title>
-    <updated>2020-03-09T09:43:28.084Z</updated>
+    <updated>2020-03-09T09:50:51.490Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stormga.github.io/"/>
     <link rel="self" href="https://stormga.github.io/atom.xml"/>
@@ -11,7 +11,98 @@
     <icon>https://stormga.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Kohath</rights>
     <entry>
-        <title type="html"><![CDATA[redis五种数据类型的基本操作]]></title>
+        <title type="html"><![CDATA[Redis主从复制]]></title>
+        <id>https://stormga.github.io/post/redis-replication/</id>
+        <link href="https://stormga.github.io/post/redis-replication/">
+        </link>
+        <updated>2020-03-09T09:44:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>我们通过持久化功能，redis保证了即使服务器重启也不会丢失数据，但是由于数据存储在一台服务器上，如果该服务器出现故障，比如硬盘损坏也会导致数据丢失。所以我们为了避免单点故障，进行主从复制操作。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我们通过持久化功能，redis保证了即使服务器重启也不会丢失数据，但是由于数据存储在一台服务器上，如果该服务器出现故障，比如硬盘损坏也会导致数据丢失。所以我们为了避免单点故障，进行主从复制操作。</p>
+<!-- more -->
+<h1 id="主从复制">主从复制</h1>
+<ul>
+<li>为了避免单点故障，我们需要将数据复制多份复制多份部署在多台不同的服务器上，即使一台初夏年故障，依然可以提供服务</li>
+<li>这要求一台服务器的数据更新后，自动将更新的数据同步到其他服务器，怎么实现呢？-------redis的主从复制</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="d:%5CDocuments%5CGridea%5Cpost-images%5Credis%E4%B8%80%E4%B8%BB%E5%A4%9A%E4%BB%8E%E6%9E%B6%E6%9E%84.png" alt="" loading="lazy"></figure>
+<ul>
+<li>master用于写，slave用于读，向slave写数据会导致错误</li>
+</ul>
+<h3 id="主从复制实现">主从复制实现</h3>
+<ul>
+<li>方式一：修改配置文件</li>
+<li>方式二：./redis-server --slaveof <master-ip> <master-port>，在启动redis时指定当前服务成为某个主Redis服务的从Slave</li>
+</ul>
+<h4 id="方式一修改配置文件实现方式">方式一修改配置文件实现方式</h4>
+<ul>
+<li>模拟多台redis服务器，运行多个redis应用，模拟多个服务器。</li>
+</ul>
+<h5 id="步骤">步骤：</h5>
+<ul>
+<li>
+<p>复制三份redis.conf</p>
+<ul>
+<li>redis6380.conf</li>
+<li>redis6382.conf</li>
+<li>redis6384.conf</li>
+</ul>
+</li>
+<li>
+<p>编辑redis6380.conf</p>
+<pre><code class="language-shell">include /usr/local/redis-3.2.9/redis.conf
+daemonize yes
+port 6380
+pidfile /var/run/redis_6380.pid
+logfile 6380.log
+dbfilename dump6380.rdb
+</code></pre>
+<ul>
+<li>include ： 包含原来的配置文件内容。/usr/local/redis-3.2.9/redis.conf按照自己的目录设置。</li>
+<li>daemonize：yes 后台启动应用，相当于 ./redis-server &amp; , &amp;的作用。</li>
+<li>port : 自定义的端口号</li>
+<li>pidfile : 自定义的文件，表示当前程序的pid ,进程id。</li>
+<li>logfile：日志文件名</li>
+<li>dbfilename：持久化的rdb文件名</li>
+</ul>
+</li>
+<li>
+<p>编辑slave配置文件</p>
+<ul>
+<li>slaveof ： 表示当前Redis是谁的从。当前是127.0.0.0 端口6380这个Master的从</li>
+</ul>
+</li>
+</ul>
+<h4 id="启动服务器masterslave">启动服务器master/slave</h4>
+<ul>
+<li>./redis-cli -p 6380</li>
+<li>./redis-cli -p 6382</li>
+<li>./redis-cli -p 6384</li>
+</ul>
+<h4 id="总结">总结：</h4>
+<p>这样6380写入数据，6382，6384都会同步</p>
+<h3 id="容灾处理">容灾处理</h3>
+<p>当Master服务出现故障，需手动将slave中的一个提升为master， 剩下的slave挂至新的master上（冷处理：机器挂掉了，再处理）</p>
+<h1 id="高可用sentinel哨兵">高可用Sentinel哨兵</h1>
+<ul>
+<li>搭建集群会使用投票机制，所以我们搭建集群要搭建奇数台机器</li>
+<li>可以有几个redis，配几个哨兵</li>
+</ul>
+<h3 id="sentinel系统的任务">Sentinel系统的任务</h3>
+<ul>
+<li>监控：Sentinel不断的检查主服务和从服务器是否按照预期正常工作。</li>
+<li>提醒：被监控的Redis出现问题时，Sentinel会通知管理员或其他应用程序。</li>
+<li>自动故障转移：监控的主Redis不能正常工作，Sentinel会开始进行故障迁移操作。将一个从服务器升级新的主服务器。 让其他从服务器挂到新的主服务器。同时向客户端提供新的主服务器地址。</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="d:%5CDocuments%5CGridea%5Cpost-images%5Credis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F.png" alt="" loading="lazy"></figure>
+<ul>
+<li>当主服务器宕机后，哨兵会进行投票，少数服从多数，选举出新的主服务器。</li>
+<li>如果宕机的主服务器恢复服务后，此时会称为新的主服务器的从服务器，不再具有写权限。然后在一段时间内和其他从服务器同步，保证数据一致性。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis五种数据类型的基本操作]]></title>
         <id>https://stormga.github.io/post/redis-data/</id>
         <link href="https://stormga.github.io/post/redis-data/">
         </link>
