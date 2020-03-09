@@ -3,7 +3,7 @@
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>关于 | Kohath</title>
+<title>SpringBoot使用Redis的序列化问题 | Kohath</title>
 <link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583751482590">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
@@ -87,27 +87,113 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    关于
+                    SpringBoot使用Redis的序列化问题
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2019-01-25 ·
+                        · 2020-03-09 ·
                     </time>
+                    
+                        <a href="https://stormga.github.io/tag/mGZMdwc9F/" class="post-tags">
+                            # SpringBoot
+                        </a>
+                    
+                        <a href="https://stormga.github.io/tag/zxB1prOE6/" class="post-tags">
+                            # Reids
+                        </a>
                     
                 </div>
                 <div class="post-content">
-                    <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+                    <p>redis作为互联网中重要的加速组件，在系统中扮演着重要的角色，在使用springboot整合redis的时候踩坑纪记录。</p>
+<!-- more -->
+<h1 id="redis简介">Redis简介</h1>
+<ul>
+<li>redis是一种运行在内存的数据库，支持7种数据类型存储。</li>
+<li>redis开源，使用ANSI C语言编写，遵守BSD协议，支持网络，可以存储在内存，也支持数据持久化的日执行，键值对型数据库，提供了多种语言的api</li>
+<li>按照官网文档，redis支持1s内10万次的读写。</li>
+<li>Redis在2.6版本增加了Lua语言的支持，而且redis在Lua语言下 的执行是原子性的，也就是不被其他命令打断。这样我们保证在高并发场景下的一致性。</li>
+</ul>
+<h2 id="redis在springboot-的pom文件中的配置">redis在springboot 的pom文件中的配置</h2>
+<pre><code class="language-xml">&lt;!-- redis依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;io.lettuce&lt;/groupId&gt;
+            &lt;artifactId&gt;lettuce-core&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+
+&lt;!-- redis的客户端jedis --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>spring-boot-starter-data-redis默认会启动Lettuce作为redis客户端驱动，但是一般我们会用jedis，所以在这里使用exclusion排除。</li>
+</ul>
+<h1 id="spring-data-redis的设计">Spring-data-redis的设计</h1>
+<ul>
+<li>
+<p>Spring 提供了一个RedisConnectionFactory接口</p>
+</li>
+<li>
+<p>通过RedisConnectionFactory接口可以生成一个RedisConnection接口对象</p>
+</li>
+<li>
+<p>RedisConnection接口对象就是对redis底层的封装</p>
+</li>
+<li>
+<p>如果我们要操作redis，我们需要先从工厂获得连接，然后使用后在关闭他，spring 为了简化开发提供了RedisTemplate去从RedisConnectionFactory工厂获取连接，然后执行redis命令，关闭连接。</p>
+</li>
+</ul>
+<h2 id="解决序列化问题">解决序列化问题</h2>
+<ul>
+<li>我们需要知道redis是基于字符串存储的NoSQL，而Java是基于对象存储的。对象是无法存储到redis中的。</li>
+<li>Java提供了序列化机制，只要类实现了java.io.Serializable接口，这样就能将对象转化为二进制字符串，这样redis就能将对象以字符串存储。</li>
+<li>Spring提供了序列化机制。</li>
+<li><strong>在默认情况下会使用JdkSerializationRedisSerializer对对象进行序列化和反序列化，但这样会得到复杂的字符串，不利用我们使用redis。</strong></li>
+</ul>
+<h3 id="解决方法">解决方法</h3>
+<ul>
+<li>在springboot的启动文件中修改RedisTemplate序列化器</li>
+</ul>
+<pre><code class="language-java">@Autowired
+private RedisTemplate redisTemplate = null;
+
+
+//定义自定义后初始化方法
+@PostConstruct
+public void init(){
+    initRedisTemplate();
+}
+
+private void initRedisTemplate(){
+    RedisSerializer stringSerializable = redisTemplate.getStringSerializer();
+    redisTemplate.setKeySerializer(stringSerializable);
+    redisTemplate.setHashKeySerializer(stringSerializable);
+
+}
+</code></pre>
+<ul>
+<li>首先优@AutoWired注入由springboot配置生成的RedisTemplate，然后利用spring bean的生命周期特性使用@PostConstruct自定义初始化方法。</li>
+<li>在这个初始化方法里，把redisTemplate中的键序列化器修改为StringRedisSerializer对象</li>
+</ul>
 
                 </div>
             </article>
         </div>
 
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://stormga.github.io/post/springboot-note2/" class="post-title gt-a-link">
+                    SpringBoot（二）
+                </a>
+            </div>
         
 
         

@@ -1,0 +1,359 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SpringBoot（二） | Kohath</title>
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583751482590">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Kohath
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    SpringBoot（二）
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-03-09 ·
+                    </time>
+                    
+                        <a href="https://stormga.github.io/tag/mGZMdwc9F/" class="post-tags">
+                            # SpringBoot
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>本文继续介绍SpringBoot的使用：SpringBoot下的SpringMVC，SpringBoot集成MyBatis，SpringBoot实现restful,SpringBoot热部署插件，SpringBoot集成Redis。</p>
+<!-- more -->
+<h1 id="springboot下的springmvc">SpringBoot下的SpringMVC</h1>
+<h2 id="restcontroller">@RestController</h2>
+<ul>
+<li>这个注解的作用就是Controller + ResponseBody</li>
+<li>所有方法的返回值都是json</li>
+</ul>
+<pre><code class="language-java">@RestController
+public class UserController {
+
+    @RequestMapping(&quot;/boot/getUser&quot;)
+    public Object getUser(){
+        User user = new User();
+        user.setId(&quot;1&quot;);
+        user.setAge(&quot;12&quot;);
+        user.setName(&quot;zs&quot;);
+        return user;
+    }
+}
+</code></pre>
+<h2 id="getmapping">@GetMapping</h2>
+<h2 id="postmapping">@PostMapping</h2>
+<h2 id="putmapping">@PutMapping</h2>
+<h2 id="deletemapping">@DeleteMapping</h2>
+<h1 id="springboot集成mybatis">SpringBoot集成MyBatis</h1>
+<h2 id="添加依赖">添加依赖</h2>
+<pre><code class="language-xml">&lt;!-- Tomcat对jsp的依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;!-- Tomcat对servlet的依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;!-- jsp的依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.servlet.jsp-api&lt;/artifactId&gt;
+    &lt;version&gt;2.3.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!-- jstl依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+
+&lt;!-- 添加Myatis依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;1.3.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+
+&lt;!-- 添加Mysql-jdbc依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="applicationproperties中配置数据库信息">application.properties中配置数据库信息</h2>
+<pre><code class="language-properties"># 配置mybatis的mapper.xml文件
+mybatis.mapper-locations=classpath:cn/lkhcoding/springboot/mapper/*.xml
+
+
+# 数据库连接信息
+spring.datasource.url=jdbc:MySQL://localhost:3306/springboot_chapter
+spring.datasource.username=root
+spring.datasource.password=root
+</code></pre>
+<h2 id="在mapper接口上添加mapper注解或者在运行主类添加mapperscanxxxxxx注解包扫描">在mapper接口上添加@Mapper注解或者在运行主类添加@MapperScan(&quot;xx.xx.xx&quot;)注解包扫描</h2>
+<ul>
+<li>UserMapper.java</li>
+</ul>
+<pre><code class="language-java">@Mapper
+public interface UserMapper {
+
+    /**
+     * 根据id获取信息
+     * @return
+     */
+    User getUser(int id);
+}
+</code></pre>
+<ul>
+<li>
+<p>UserMapper.xml</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+  &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+  
+&lt;mapper namespace=&quot;cn.lkhcoding.springboot.mapper.UserMapper&quot;&gt;
+   &lt;select id=&quot;getUser&quot; resultType=&quot;cn.lkhcoding.springboot.model.User&quot;&gt;
+      SELECT id,name,age FROM user WHERE id=#{id}
+   &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="在pom中添加">在POM中添加</h2>
+<pre><code class="language-xml">&lt;resources&gt;
+    &lt;resource&gt;
+        &lt;directory&gt;src/main/java&lt;/directory&gt;
+        &lt;includes&gt;
+            &lt;include&gt;**/*.xml&lt;/include&gt;
+        &lt;/includes&gt;
+    &lt;/resource&gt;
+    &lt;resource&gt;
+        &lt;directory&gt;src/main/resources&lt;/directory&gt;
+        &lt;includes&gt;
+            &lt;include&gt;**/*.*&lt;/include&gt;
+        &lt;/includes&gt;
+    &lt;/resource&gt;
+    &lt;resource&gt;
+        &lt;directory&gt;src/main/webapp&lt;/directory&gt;
+        &lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;
+        &lt;includes&gt;
+            &lt;include&gt;**/*.*&lt;/include&gt;
+        &lt;/includes&gt;
+    &lt;/resource&gt;
+&lt;/resources&gt;
+</code></pre>
+<h2 id="使用controller访问">使用Controller访问</h2>
+<pre><code class="language-java">@Autowired
+private UserService userService;
+
+@RequestMapping(&quot;/boot/getUserFromMysql&quot;)
+public  User getUser(int id) {
+    return userService.getUser(id);
+}
+</code></pre>
+<p>#SpringBoot实现restful</p>
+<h2 id="使用pathvariable">使用@PathVariable</h2>
+<ul>
+<li>
+<p>获取url的数据</p>
+</li>
+<li>
+<p>该注解是实现RESTFull最重要的一个注解</p>
+<pre><code class="language-java">@RequestMapping(&quot;/boot/getUserFromMysql/{id}&quot;)
+public User getUser(@PathVariable(&quot;id&quot;) int id) {
+    return userService.getUser(id);
+}
+</code></pre>
+</li>
+<li>
+<p>访问的时候路径为:http://localhost:8080/springboot_03/boot/getUserFromMysql/1</p>
+</li>
+</ul>
+<p>#SpringBoot热部署插件</p>
+<h2 id="为什么需要热部署">为什么需要热部署</h2>
+<ul>
+<li>在实际开发中，我们修改代码的逻辑功能，都需要重启应用，这无形中降低了开发效率.</li>
+</ul>
+<h2 id="92-什么是热部署">9.2 什么是热部署</h2>
+<ul>
+<li>当我们修改代码的时候，服务能自动重启加载新修改的内容，这样大大提高了我们的开发效率</li>
+</ul>
+<h2 id="93-实现热部署">9.3 实现热部署</h2>
+<h3 id="931-添加插件spring-boot-devtools">9.3.1 添加插件spring-boot-devtools</h3>
+<ul>
+<li>
+<p>在pom文件中添加</p>
+<pre><code class="language-xml">&lt;!-- spring-boot-devtools --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+</li>
+</ul>
+<p>#SpringBoot集成Redis</p>
+<h2 id="在pom中添加jar依赖">在pom中添加jar依赖</h2>
+<pre><code class="language-xml">&lt;!--  springboot  redis依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="在applicationproperties中配置redis连接信息">在application.properties中配置redis连接信息</h2>
+<pre><code class="language-properties"># Redis配置
+spring.redis.host=xxx.xxx.xxx.xxx
+spring.redis.port=6379
+spring.redis.password=xxx
+</code></pre>
+<h2 id="在需要操作redis的类中注入redis-template">在需要操作redis的类中注入redis Template</h2>
+<ul>
+<li>
+<p>在需要使用类上添加</p>
+<pre><code class="language-java">@Autowired
+private RedisTemplate&lt;String,String&gt; redisTemplate;
+
+@Autowired
+private RedisTemplate&lt;Object,Object&gt; redisTemplate;
+</code></pre>
+</li>
+</ul>
+<h2 id="springboot集成redis哨兵模式">springboot集成redis哨兵模式</h2>
+<pre><code class="language-properties">#redis哨兵配置
+spring.redis.password=xx
+spring.redis.sentinel.master=mymaster
+spring.redis.sentinel.nodes=xxx.xxx.xxx.xxx:26380,xxx.xxx.xxx.xxx:26382.....
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://stormga.github.io/post/springboot-note1/" class="post-title gt-a-link">
+                    SpringBoot（一）
+                </a>
+            </div>
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Every 🐦 has an 🦅's dream.</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <a href="www.github.com/stormGa">github</a> | <a href="https://stormga.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+</div>
+</body>
+</html>
