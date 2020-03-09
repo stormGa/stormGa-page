@@ -1,24 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://stormga.github.io/</id>
-    <title>Kohath</title>
-    <updated>2020-03-09T10:28:09.813Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://stormga.github.io/"/>
-    <link rel="self" href="https://stormga.github.io/atom.xml"/>
-    <subtitle>Every 🐦 has an 🦅&apos;s dream.</subtitle>
-    <logo>https://stormga.github.io/images/avatar.png</logo>
-    <icon>https://stormga.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Kohath</rights>
-    <entry>
-        <title type="html"><![CDATA[SpringBoot（一）]]></title>
-        <id>https://stormga.github.io/post/springboot-base/</id>
-        <link href="https://stormga.github.io/post/springboot-base/">
-        </link>
-        <updated>2020-03-09T10:24:41.000Z</updated>
-        <summary type="html"><![CDATA[<p>本文主要介绍了：Springboot的入门程序，springboot配置文件，日志模块，web开发，docker，数据访问，启动原理，自定义starter。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>本文主要介绍了：Springboot的入门程序，springboot配置文件，日志模块，web开发，docker，数据访问，启动原理，自定义starter。</p>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SpringBoot（一） | Kohath</title>
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583749687403">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- DEMO JS -->
+<script src="media/scripts/index.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Kohath
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    SpringBoot（一）
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-03-09 ·
+                    </time>
+                    
+                        <a href="https://stormga.github.io/tag/mGZMdwc9F/" class="post-tags">
+                            # SpringBoot
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>本文主要介绍了：Springboot的入门程序，springboot配置文件，日志模块，web开发，docker，数据访问，启动原理，自定义starter。</p>
 <!-- more -->
 <h1 id="一-spring-boot入门">一、Spring Boot入门</h1>
 <h2 id="1-spring-boot简介">1、Spring Boot简介</h2>
@@ -4286,1111 +4368,48 @@ lkh.hello.suffix=-Success
 </code></pre>
 <p>4、运行访问http://localhost:8080/hello</p>
 <figure data-type="image" tabindex="60"><img src="d:%5CDocuments%5CGridea%5Cpost-images%5C70.starter-build05.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis主从复制]]></title>
-        <id>https://stormga.github.io/post/redis-replication/</id>
-        <link href="https://stormga.github.io/post/redis-replication/">
-        </link>
-        <updated>2020-03-09T09:44:55.000Z</updated>
-        <summary type="html"><![CDATA[<p>我们通过持久化功能，redis保证了即使服务器重启也不会丢失数据，但是由于数据存储在一台服务器上，如果该服务器出现故障，比如硬盘损坏也会导致数据丢失。所以我们为了避免单点故障，进行主从复制操作。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我们通过持久化功能，redis保证了即使服务器重启也不会丢失数据，但是由于数据存储在一台服务器上，如果该服务器出现故障，比如硬盘损坏也会导致数据丢失。所以我们为了避免单点故障，进行主从复制操作。</p>
-<!-- more -->
-<h1 id="主从复制">主从复制</h1>
-<ul>
-<li>为了避免单点故障，我们需要将数据复制多份复制多份部署在多台不同的服务器上，即使一台初夏年故障，依然可以提供服务</li>
-<li>这要求一台服务器的数据更新后，自动将更新的数据同步到其他服务器，怎么实现呢？-------redis的主从复制</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="d:%5CDocuments%5CGridea%5Cpost-images%5Credis%E4%B8%80%E4%B8%BB%E5%A4%9A%E4%BB%8E%E6%9E%B6%E6%9E%84.png" alt="" loading="lazy"></figure>
-<ul>
-<li>master用于写，slave用于读，向slave写数据会导致错误</li>
-</ul>
-<h3 id="主从复制实现">主从复制实现</h3>
-<ul>
-<li>方式一：修改配置文件</li>
-<li>方式二：./redis-server --slaveof <master-ip> <master-port>，在启动redis时指定当前服务成为某个主Redis服务的从Slave</li>
-</ul>
-<h4 id="方式一修改配置文件实现方式">方式一修改配置文件实现方式</h4>
-<ul>
-<li>模拟多台redis服务器，运行多个redis应用，模拟多个服务器。</li>
-</ul>
-<h5 id="步骤">步骤：</h5>
-<ul>
-<li>
-<p>复制三份redis.conf</p>
-<ul>
-<li>redis6380.conf</li>
-<li>redis6382.conf</li>
-<li>redis6384.conf</li>
-</ul>
-</li>
-<li>
-<p>编辑redis6380.conf</p>
-<pre><code class="language-shell">include /usr/local/redis-3.2.9/redis.conf
-daemonize yes
-port 6380
-pidfile /var/run/redis_6380.pid
-logfile 6380.log
-dbfilename dump6380.rdb
-</code></pre>
-<ul>
-<li>include ： 包含原来的配置文件内容。/usr/local/redis-3.2.9/redis.conf按照自己的目录设置。</li>
-<li>daemonize：yes 后台启动应用，相当于 ./redis-server &amp; , &amp;的作用。</li>
-<li>port : 自定义的端口号</li>
-<li>pidfile : 自定义的文件，表示当前程序的pid ,进程id。</li>
-<li>logfile：日志文件名</li>
-<li>dbfilename：持久化的rdb文件名</li>
-</ul>
-</li>
-<li>
-<p>编辑slave配置文件</p>
-<ul>
-<li>slaveof ： 表示当前Redis是谁的从。当前是127.0.0.0 端口6380这个Master的从</li>
-</ul>
-</li>
-</ul>
-<h4 id="启动服务器masterslave">启动服务器master/slave</h4>
-<ul>
-<li>./redis-cli -p 6380</li>
-<li>./redis-cli -p 6382</li>
-<li>./redis-cli -p 6384</li>
-</ul>
-<h4 id="总结">总结：</h4>
-<p>这样6380写入数据，6382，6384都会同步</p>
-<h3 id="容灾处理">容灾处理</h3>
-<p>当Master服务出现故障，需手动将slave中的一个提升为master， 剩下的slave挂至新的master上（冷处理：机器挂掉了，再处理）</p>
-<h1 id="高可用sentinel哨兵">高可用Sentinel哨兵</h1>
-<ul>
-<li>搭建集群会使用投票机制，所以我们搭建集群要搭建奇数台机器</li>
-<li>可以有几个redis，配几个哨兵</li>
-</ul>
-<h3 id="sentinel系统的任务">Sentinel系统的任务</h3>
-<ul>
-<li>监控：Sentinel不断的检查主服务和从服务器是否按照预期正常工作。</li>
-<li>提醒：被监控的Redis出现问题时，Sentinel会通知管理员或其他应用程序。</li>
-<li>自动故障转移：监控的主Redis不能正常工作，Sentinel会开始进行故障迁移操作。将一个从服务器升级新的主服务器。 让其他从服务器挂到新的主服务器。同时向客户端提供新的主服务器地址。</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="d:%5CDocuments%5CGridea%5Cpost-images%5Credis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F.png" alt="" loading="lazy"></figure>
-<ul>
-<li>当主服务器宕机后，哨兵会进行投票，少数服从多数，选举出新的主服务器。</li>
-<li>如果宕机的主服务器恢复服务后，此时会称为新的主服务器的从服务器，不再具有写权限。然后在一段时间内和其他从服务器同步，保证数据一致性。</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis五种数据类型的基本操作]]></title>
-        <id>https://stormga.github.io/post/redis-data/</id>
-        <link href="https://stormga.github.io/post/redis-data/">
-        </link>
-        <updated>2020-03-09T09:17:52.000Z</updated>
-        <summary type="html"><![CDATA[<p>redis五种数据类型的介绍和基本操作</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>redis五种数据类型的介绍和基本操作</p>
-<!-- more -->
-<h1 id="五种数据类型">五种数据类型</h1>
-<h2 id="字符串string">字符串：string</h2>
-<p>字符串类型是Redis中最基本的数据类型，它能存储任何形式的字符串，包括二进制数据，序列化后的数据，JSON化的对象甚至是一张图片。最大512M。</p>
-<figure data-type="image" tabindex="1"><img src="https://stormga.github.io//post-images/1583746374280.png" alt="" loading="lazy"></figure>
-<h2 id="哈希类型hash">哈希类型：hash</h2>
-<p>Redis hash 是一个string类型的field和value的映射表，hash特别适合用于存储对象。</p>
-<h2 id="列表类型list">列表类型：list</h2>
-<p>Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
-<figure data-type="image" tabindex="2"><img src="https://stormga.github.io//post-images/1583746636205.png" alt="" loading="lazy"></figure>
-<h2 id="集合类型set">集合类型：set</h2>
-<p>Redis的Set是string类型的无序集合，集合成员是唯一的，即集合中不能出现重复的数据.</p>
-<figure data-type="image" tabindex="3"><img src="https://stormga.github.io//post-images/1583746677040.png" alt="" loading="lazy"></figure>
-<h2 id="有序集合类型zsetsorted-set">有序集合类型：zset（sorted set）</h2>
-<p>Redis 有序集合zset和集合set一样也是string类型元素的集合，且不允许重复的成员。</p>
-<p>不同的是zset的每个元素都会关联一个分数（分数可以重复），redis通过分数来为集合中的成员进行从小到大的排序。</p>
-<figure data-type="image" tabindex="4"><img src="https://stormga.github.io//post-images/1548561480140.png" alt="" loading="lazy"></figure>
-<h1 id="基本操作命令">基本操作命令</h1>
-<h2 id="字符串">字符串</h2>
-<p>（1）将字符串值 value 设置到 key 中，查看已插入的key</p>
-<p>语法：set key value</p>
-<figure data-type="image" tabindex="5"><img src="https://stormga.github.io//post-images/1548561624959.png" alt="" loading="lazy"></figure>
-<p>（2）获取 key 中设置的字符串值</p>
-<p>语法： get key</p>
-<figure data-type="image" tabindex="6"><img src="https://stormga.github.io//post-images/1548561659485.png" alt="" loading="lazy"></figure>
-<p>（3）将 key 中储存的数字值加1，如果 key 不存在，则 key 的值先被初始化为 0 再执行 incr 操作（只能对数字类型的数据操作）</p>
-<p>语法：incr key</p>
-<figure data-type="image" tabindex="7"><img src="https://stormga.github.io//post-images/1548561725099.png" alt="" loading="lazy"></figure>
-<p>（4）将 key 中储存的数字值减1，如果 key 不存在，则么 key 的值先被初始化为 0 再执行 decr  操作（只能对数字类型的数据操作）</p>
-<p>语法：decr key</p>
-<figure data-type="image" tabindex="8"><img src="https://stormga.github.io//post-images/1548561761899.png" alt="" loading="lazy"></figure>
-<p><strong>incr ，decr 在实现关注人数上，文章的点击数上。</strong></p>
-<p>（5）语法：append key value</p>
-<p>说明：如果 key 存在， 则将 value 追加到 key 原来旧值的末尾</p>
-<p>如果 key 不存在， 则将key 设置值为 value</p>
-<p>返回值：追加字符串之后的总长度</p>
-<figure data-type="image" tabindex="9"><img src="https://stormga.github.io//post-images/1548561900420.png" alt="" loading="lazy"></figure>
-<ul>
-<li>
-<p>语法：strlen key</p>
-<p>说明：返回 key 所储存的字符串值的长度</p>
-<p>返回值：</p>
-<p>​     ①：如果key存在，返回字符串值的长度</p>
-<p>​     ②：key不存在，返回0</p>
-<figure data-type="image" tabindex="10"><img src="https://stormga.github.io//post-images/1548564400282.png" alt="" loading="lazy"></figure>
-</li>
-<li>
-<p>语法：getrange key start end</p>
-<p>作用：获取 key 中字符串值从 start 开始 到 end 结束 的子字符串,包括start和end, 负数表示从字符串的末尾开始， -1 表示最后一个字符，-2表示倒数第二个字符。位置从0开始</p>
-<p>返回值：截取的子字符串。</p>
-<figure data-type="image" tabindex="11"><img src="https://stormga.github.io//post-images/1548564561755.png" alt="" loading="lazy"></figure>
-</li>
-<li>
-<p>语法：setrange key offset value</p>
-<p>说明：用value覆盖（替换）key的存储的值从offset开始,不存在的key做空白字符串。</p>
-<p>返回值：修改后的字符串的长度</p>
-<figure data-type="image" tabindex="12"><img src="https://stormga.github.io//post-images/1548564742768.png" alt="" loading="lazy"></figure>
-</li>
-<li>
-<p>语法：mset key value [key value…]</p>
-<p>说明：同时设置一个或多个 key-value 对</p>
-<p>返回值： OK</p>
-<figure data-type="image" tabindex="13"><img src="https://stormga.github.io//post-images/1548564796144.png" alt="" loading="lazy"></figure>
-</li>
-<li>
-<p>语法：mget key [key …]</p>
-<p>作用：获取所有(一个或多个)给定 key 的值</p>
-<p>返回值：包含所有key的列表</p>
-<figure data-type="image" tabindex="14"><img src="https://stormga.github.io//post-images/1548564833435.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
-<h2 id="哈希类型">哈希类型</h2>
-<ul>
-<li><strong>hset</strong></li>
-</ul>
-<p>语法：hset  hash表的key  field  value</p>
-<p>作用：将哈希表 key 中的域 field 的值设为 value ，如果key不存在，则新建hash表，执行赋值，如果有field ,则覆盖值。</p>
-<p>返回值：</p>
-<p>①如果field是hash表中新field，且设置值成功，返回1</p>
-<p>②如果field已经存在，旧值覆盖新值，返回0</p>
-<figure data-type="image" tabindex="15"><img src="https://stormga.github.io//post-images/1548565057765.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hget</strong></li>
-</ul>
-<p>语法：hget key field</p>
-<p>作用：获取哈希表 key 中给定域 field 的值</p>
-<p>返回值：field域的值，如果key不存在或者field不存在返回nil</p>
-<figure data-type="image" tabindex="16"><img src="https://stormga.github.io//post-images/1548565117165.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hmset</strong></li>
-</ul>
-<p>语法：hmset key  field value [field value…]</p>
-<p>说明：同时将多个 field-value (域-值)设置到哈希表 key 中，此命令会覆盖已经存在的field，hash表key不存在，创建空的hash表，执行hmset.</p>
-<p>返回值：设置成功返回ok， 如果失败返回一个错误</p>
-<figure data-type="image" tabindex="17"><img src="https://stormga.github.io//post-images/1548565192160.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hmget</strong></li>
-</ul>
-<p>语法：hmget key field [field…]</p>
-<p>作用:获取哈希表 key 中一个或多个给定域的值</p>
-<p>返回值：返回和field顺序对应的值，如果field不存在，返回nil</p>
-<figure data-type="image" tabindex="18"><img src="https://stormga.github.io//post-images/1548565538725.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hgetall</strong></li>
-</ul>
-<p>语法：hgetall key</p>
-<p>作用：获取哈希表 key 中所有的域和值</p>
-<p>返回值：以列表形式返回hash中域和域的值 ，key 不存在，返回空hash</p>
-<figure data-type="image" tabindex="19"><img src="https://stormga.github.io//post-images/1548565574923.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hdel</strong></li>
-</ul>
-<p>语法：hdel key field [field…]</p>
-<p>作用：删除哈希表 key 中的一个或多个指定域field，不存在field直接忽略</p>
-<p>返回值：成功删除的field的数量</p>
-<figure data-type="image" tabindex="20"><img src="https://stormga.github.io//post-images/1548565640106.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hkeys</strong></li>
-</ul>
-<p>语法：hkeys key</p>
-<p>作用：查看哈希表 key 中的所有field域</p>
-<p>返回值：包含所有field的列表，key不存在返回空列表</p>
-<figure data-type="image" tabindex="21"><img src="https://stormga.github.io//post-images/1548565665188.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>hvals</strong></li>
-</ul>
-<p>语法：hvals key</p>
-<p>作用：返回哈希表 中所有域的值</p>
-<p>返回值：包含哈希表所有域值的列表，key不存在返回空列表</p>
-<figure data-type="image" tabindex="22"><img src="https://stormga.github.io//post-images/1548565738515.png" alt="" loading="lazy"></figure>
-<ul>
-<li>hexists</li>
-</ul>
-<p>语法：hexists key field</p>
-<p>作用：查看哈希表 key 中，给定域 field 是否存在</p>
-<p>返回值：如果field存在，返回1， 其他返回0</p>
-<figure data-type="image" tabindex="23"><img src="https://stormga.github.io//post-images/1548565785552.png" alt="" loading="lazy"></figure>
-<h2 id="列表">列表</h2>
-<ul>
-<li><strong>lpush</strong></li>
-</ul>
-<p>语法：lpush key value [value…]</p>
-<p>作用：将一个或多个值 value 插入到列表 key 的表头（最左边），从左边开始加入值，从左到右的顺序依次插入到表头</p>
-<p>返回值：数字，新列表的长度</p>
-<p><strong><img src="https://stormga.github.io//post-images/1548565857589.png" alt="" loading="lazy"></strong></p>
-<figure data-type="image" tabindex="24"><img src="https://stormga.github.io//post-images/1548566059007.png" alt="" loading="lazy"></figure>
-<p>在 redis-desktop-manager显示</p>
-<figure data-type="image" tabindex="25"><img src="https://stormga.github.io//post-images/1548566162551.png" alt="" loading="lazy"></figure>
-<p>插入重复值</p>
-<figure data-type="image" tabindex="26"><img src="https://stormga.github.io//post-images/1548566212605.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="27"><img src="https://stormga.github.io//post-images/1548566230069.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>rpush</strong></li>
-</ul>
-<p>语法：rpush key value [value…]</p>
-<p>作用：将一个或多个值 value 插入到列表 key 的表尾（最右边），各个 value 值按从左到右的顺序依次插入到表尾</p>
-<p>返回值：数字，新列表的长度</p>
-<figure data-type="image" tabindex="28"><img src="https://stormga.github.io//post-images/1548566275748.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="29"><img src="https://stormga.github.io//post-images/1548566294159.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>lrange</strong></li>
-</ul>
-<p>语法：lrange key start stop</p>
-<p>作用：获取列表 key 中指定区间内的元素，0 表示列表的第一个元素，以 1 表示列表的第二个元素；start , stop 是列表的下标值，也可以负数的下标， -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。 start ，stop超出列表的范围不会出现错误。</p>
-<p>返回值：指定区间的列表</p>
-<figure data-type="image" tabindex="30"><img src="https://stormga.github.io//post-images/1548566342100.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>lindex</strong></li>
-</ul>
-<p>语法：lindex key index</p>
-<p>作用：获取列表 key 中下标为指定 index 的元素，列表元素不删除，只是查询。0 表示列表的第一个元素，以 1 表示列表的第二个元素；start , stop 是列表的下标值，也可以负数的下标， -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</p>
-<p>返回值：指定下标的元素；index不在列表范围，返回nil</p>
-<figure data-type="image" tabindex="31"><img src="https://stormga.github.io//post-images/1548566365030.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>llen</strong></li>
-</ul>
-<p>语法：llen key</p>
-<p>作用：获取列表 key 的长度</p>
-<p>返回值：数值，列表的长度； key不存在返回0</p>
-<figure data-type="image" tabindex="32"><img src="https://stormga.github.io//post-images/1548566394443.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>lrem</strong></li>
-</ul>
-<p>语法：lrem key count value</p>
-<p>作用：根据参数 count 的值，移除列表中与参数 value 相等的元素， count &gt;0 ，从列表的左侧向右开始移除； count &lt; 0 从列表的尾部开始移除；count = 0移除表中所有与 value 相等的值。</p>
-<p>返回值：数值，移除的元素个数</p>
-<figure data-type="image" tabindex="33"><img src="https://stormga.github.io//post-images/1548566520410.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="34"><img src="https://stormga.github.io//post-images/1548566581052.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="35"><img src="https://stormga.github.io//post-images/1548566568423.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>lset</strong></li>
-</ul>
-<p>语法：lset key index value</p>
-<p>作用：将列表 key 下标为 index 的元素的值设置为 value。</p>
-<p>返回值：设置成功返回ok ; key不存在或者index超出范围返回错误信息</p>
-<figure data-type="image" tabindex="36"><img src="https://stormga.github.io//post-images/1548566820411.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>linsert</strong></li>
-</ul>
-<p>语法：linsert key BEFORE|ALFTER pivot value</p>
-<p>作用：将值 value 插入到列表 key 当中位于值 pivot 之前或之后的位置。key不存在，pivot不在列表中，不执行任何操作。</p>
-<p>返回值：命令执行成功，返回新列表的长度。没有找到pivot返回 -1， key不存在返回0。</p>
-<p>​          <strong>将python插入到java之前</strong></p>
-<figure data-type="image" tabindex="37"><img src="https://stormga.github.io//post-images/1548567424622.png" alt="" loading="lazy"></figure>
-<h2 id="集合">集合</h2>
-<ul>
-<li><strong>sadd</strong></li>
-</ul>
-<p>语法：sadd key member [member…]</p>
-<p>作用：将一个或多个 member 元素加入到集合 key 当中，已经存在于集合的 member 元素将被忽略，不会再加入。</p>
-<p>返回值：加入到集合的新元素的个数。不包括被忽略的元素。</p>
-<figure data-type="image" tabindex="38"><img src="https://stormga.github.io//post-images/1548567651325.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>smembers</strong></li>
-</ul>
-<p>语法：smembers key</p>
-<p>作用：获取集合 key 中的所有成员元素，不存在的key视为空集合</p>
-<figure data-type="image" tabindex="39"><img src="https://stormga.github.io//post-images/1548567691405.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>sismember</strong></li>
-</ul>
-<p>语法：sismember key member</p>
-<p>作用：判断 member 元素是否是集合 key 的成员</p>
-<p>返回值：member是集合成员返回1，其他返回 0 。</p>
-<figure data-type="image" tabindex="40"><img src="https://stormga.github.io//post-images/1548567734490.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>scard</strong></li>
-</ul>
-<p>语法：scard key</p>
-<p>作用：获取集合里面的元素个数</p>
-<p>返回值：数字，key的元素个数。 其他情况返回 0 。</p>
-<figure data-type="image" tabindex="41"><img src="https://stormga.github.io//post-images/1548567761685.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>srem</strong></li>
-</ul>
-<p>语法：srem key member [member…]</p>
-<p>作用：删除集合 key 中的一个或多个 member 元素，不存在的元素被忽略。</p>
-<p>返回值：数字，成功删除的元素个数，不包括被忽略的元素。</p>
-<figure data-type="image" tabindex="42"><img src="https://stormga.github.io//post-images/1548567840926.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="43"><img src="https://stormga.github.io//post-images/1548567854136.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>srandmember</strong></li>
-</ul>
-<p>语法：srandmember key [count]</p>
-<p>作用：只提供key，随机返回集合中一个元素，元素不删除，依然在集合中；提供了count时，count 正数, 返回包含count个数元素的集合， 集合元素各不相同。count 是负数，返回一个count绝对值的长度的集合， 集合中元素可能会重复多次。</p>
-<p>返回值：一个元素；多个元素的集合</p>
-<figure data-type="image" tabindex="44"><img src="https://stormga.github.io//post-images/1548567925391.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="45"><img src="https://stormga.github.io//post-images/1548567938119.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>spop</strong></li>
-</ul>
-<p>语法：spop key [count]</p>
-<p>作用：随机从集合中删除一个元素, count是删除的元素个数。</p>
-<p>返回值：被删除的元素，key不存在或空集合返回nil</p>
-<figure data-type="image" tabindex="46"><img src="https://stormga.github.io//post-images/1548568005949.png" alt="" loading="lazy"></figure>
-<p>随机删除2个元素</p>
-<figure data-type="image" tabindex="47"><img src="https://stormga.github.io//post-images/1548568056171.png" alt="" loading="lazy"></figure>
-<h2 id="有序集合zset">有序集合zset</h2>
-<ul>
-<li><strong>zadd</strong></li>
-</ul>
-<p>语法：zadd key score member [score member…]</p>
-<p>作用：将一个或多个 member 元素及其 score 值加入到有序集合 key 中，如果member存在集合中，则更新值；score可以是整数或浮点数</p>
-<p>返回值：数字，新添加的元素个数</p>
-<figure data-type="image" tabindex="48"><img src="https://stormga.github.io//post-images/1548568187813.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zrange</strong></li>
-</ul>
-<p>语法：zrange key start stop [WITHSCORES]</p>
-<p>作用：查询有序集合，指定区间的内的元素。集合成员按score值从小到大来排序。 start， stop都是从0开始。0是第一个元素，1 是第二个元素，依次类推。以 -1表示最后一个成员，-2 表示倒数第二个成员。WITHSCORES选项让score和value一同返回。</p>
-<p>返回值：自定区间的成员集合</p>
-<p>（1）显示集合的全部元素，不显示score，不使用WITHSCORES</p>
-<figure data-type="image" tabindex="49"><img src="https://stormga.github.io//post-images/1548568601821.png" alt="" loading="lazy"></figure>
-<p>（2）显示集合全部元素，并使用WITHSCORES</p>
-<figure data-type="image" tabindex="50"><img src="https://stormga.github.io//post-images/1548568660273.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zrevrange</strong></li>
-</ul>
-<p>语法：zrevrange key start stop [WITHSCORES]</p>
-<p>作用：返回有序集 key 中，指定区间内的成员。其中成员的位置按 score 值递减(从大到小)来排列。其它同zrange命令。</p>
-<p>返回值：自定区间的成员集合</p>
-<figure data-type="image" tabindex="51"><img src="https://stormga.github.io//post-images/1548569040783.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zrem</strong></li>
-</ul>
-<p>语法：zrem key member [member…]</p>
-<p>作用：删除有序集合 key 中的一个或多个成员，不存在的成员被忽略</p>
-<p>返回值：被成功删除的成员数量，不包括被忽略的成员。</p>
-<figure data-type="image" tabindex="52"><img src="https://stormga.github.io//post-images/548569116524.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zcard</strong></li>
-</ul>
-<p>语法：zcard key</p>
-<p>作用：获取有序集 key 的元素成员的个数</p>
-<p>返回值：key存在返回集合元素的个数， key不存在，返回0</p>
-<figure data-type="image" tabindex="53"><img src="https://stormga.github.io//post-images/1548569148453.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zrangebyscore</strong></li>
-</ul>
-<p>语法：zrangebyscore key min max [WITHSCORES ][LIMIT offset count]</p>
-<p>作用：获取有序集 key 中，所有 score 值介于 min 和 max 之间（包括min和max）的成员，有序成员是按递增（从小到大）排序。</p>
-<p>​      min ,max是包括在内 ， 使用符号 ( 表示不包括。 min，max 可以使用 -inf  ，+inf表示最小和最大</p>
-<p>​     limit 用来限制返回结果的数量和区间。</p>
-<p>​     withscores 显示score 和 value</p>
-<p>返回值：指定区间的集合数据</p>
-<p>（1） 显示指定具体区间的数据</p>
-<figure data-type="image" tabindex="54"><img src="https://stormga.github.io//post-images/1548569328020.png" alt="" loading="lazy"></figure>
-<p>（2）显示指定具体区间的集合数据，开区间（不包括min，max）</p>
-<figure data-type="image" tabindex="55"><img src="https://stormga.github.io//post-images/1548569412159.png" alt="" loading="lazy"></figure>
-<p>（3）显示整个集合的所有数据</p>
-<figure data-type="image" tabindex="56"><img src="https://stormga.github.io//post-images/1548569462467.png" alt="" loading="lazy"></figure>
-<p>（4）使用limit  0是开始位置 2是数量</p>
-<figure data-type="image" tabindex="57"><img src="https://stormga.github.io//post-images/1548569509068.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zrevrangebyscore</strong></li>
-</ul>
-<p>语法：zrevrangebyscore key max min  [WITHSCORES].[LIMIT offset count]</p>
-<p>作用：返回有序集 key 中， score 值介于 max 和 min 之间(默认包括等于 max 或 min )的所有的成员。有序集成员按 score 值递减(从大到小)的次序排列。其他同zrangebyscore</p>
-<figure data-type="image" tabindex="58"><img src="https://stormga.github.io//post-images/1548569655175.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>zcount</strong></li>
-</ul>
-<p>语法：zcount key min max</p>
-<p>作用：返回有序集 key 中， score 值在 min 和 max 之间(默认包括 score 值等于 min 或 max )的成员的数量</p>
-<figure data-type="image" tabindex="59"><img src="https://stormga.github.io//post-images/1548569707391.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis持久化]]></title>
-        <id>https://stormga.github.io/post/redis-persistence/</id>
-        <link href="https://stormga.github.io/post/redis-persistence/">
-        </link>
-        <updated>2020-03-09T09:04:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>Redis有两种持久化的方式：快照（RDB文件）和追加式文件（AOF文件）：</p>
-<p>RDB持久化方式会在一个特定的间隔保存那个时间点的一个数据快照。<br>
-AOF持久化方式则会记录每一个服务器收到的写操作。在服务启动时，这些记录的操作会逐条执行从而重建出原来的数据。写操作命令记录的格式跟Redis协议一致，以追加的方式进行保存。<br>
-Redis的持久化是可以禁用的，就是说你可以让数据的生命周期只存在于服务器的运行时间里。<br>
-两种方式的持久化是可以同时存在的，但是当Redis重启时，AOF文件会被优先用于重建数据。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Redis有两种持久化的方式：快照（RDB文件）和追加式文件（AOF文件）：</p>
-<p>RDB持久化方式会在一个特定的间隔保存那个时间点的一个数据快照。<br>
-AOF持久化方式则会记录每一个服务器收到的写操作。在服务启动时，这些记录的操作会逐条执行从而重建出原来的数据。写操作命令记录的格式跟Redis协议一致，以追加的方式进行保存。<br>
-Redis的持久化是可以禁用的，就是说你可以让数据的生命周期只存在于服务器的运行时间里。<br>
-两种方式的持久化是可以同时存在的，但是当Redis重启时，AOF文件会被优先用于重建数据。</p>
-<!-- more -->
-<h1 id="rdb方式">RDB方式</h1>
-<p>Redis Database：就是在指定的时间间隔内将内存中的数据集快照写入磁盘，数据恢复时将快照文件直接再读到内存。<br>
-RDB保存了某一个时间点的数据集，存储在一个二进制文件中，默认名为dump.rdb。RDB技术适合做备份，可以保存最近一个小时，一i谈，一个月的全部数据<br>
-** RDB恢复数据比AOF速度快 **</p>
-<h2 id="rdb如何实现">RDB如何实现</h2>
-<ul>
-<li>在redis.conf文件中配置即可。默认配置是启用的。</li>
-<li>在redis.conf中修改SNAPSHOTTING中的配置</li>
-<li>修改dbfilename mydump.db</li>
-</ul>
-<h2 id="优缺点">优缺点</h2>
-<p>优点：</p>
-<ul>
-<li>存储的是数据快照文件，恢复数据方便，比较快</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>会丢失最后一次快照以后更改的数据，如果你的应用能容忍一定数据的丢失，可以使用rdb。</li>
-<li>rdb会经常操作磁盘，redis会分出一个子进程。如果redis数据库比较大，子进程占用的时间太多的话，可能会影响redis暂停服务（millisecond级别），如果数据库超级大，并且CPU比较弱，可能会达到一秒。</li>
-</ul>
-<h1 id="aof方式">AOF方式</h1>
-<p>Append-only File,Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，读操作不记录），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</p>
-<h2 id="配置方式">配置方式</h2>
-<ul>
-<li>appendonly :默认为no，改为yes即开启了持久化</li>
-<li>appendfilename：指定AOF文件名，默认文件名为appendonly.aof</li>
-<li>dir: RDB,AOF文件存储的目录，默认为./</li>
-<li>appendfsync:配置向aof文件写命令数据的策略
-<ul>
-<li>no：不主动进行同步操作，由操作系统来做（每30s一次），快但是不安全</li>
-<li>always：每次写入都会执行同步，慢一些但是比较安全。</li>
-<li>everysec：每秒执行一次同步操作，比较平衡，介于速度和安全之间。默认项</li>
-</ul>
-</li>
-<li>Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，读操作不记录），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</li>
-</ul>
-<h2 id="优缺点-2">优缺点</h2>
-<ul>
-<li>AOF文件在操作的时候会变得越来越大，例如做100次假发计算，在数据库中会得到最终的值而AOF中会存在100条记录，但99条是没有用的，但是redis支持在不影响服务的前提下后台重构AOF文件。</li>
-<li>可以同时使用这两种方法，redis默认优先加载aof文件（数据最完整）</li>
-</ul>
-<h1 id="性能与实践">性能与实践</h1>
-<h2 id="性能分析">性能分析</h2>
-<p>RDB的快照、AOF的重写都需要fork，这是一个重量级操作，会对Redis造成阻塞。因此为了不影响Redis主进程响应，我们需要尽可能降低阻塞。</p>
-<ol>
-<li>降低fork的频率，比如可以手动来触发RDB生成快照、与AOF重写；</li>
-<li>控制Redis最大使用内存，防止fork耗时过长；</li>
-<li>使用更牛逼的硬件；</li>
-<li>合理配置Linux的内存分配策略，避免因为物理内存不足导致fork失败。</li>
-</ol>
-<h2 id="实践经验">实践经验</h2>
-<ul>
-<li>如果Redis中的数据并不是特别敏感或者可以通过其它方式重写生成数据，可以关闭持久化，如果丢失数据可以通过其它途径补回；</li>
-<li>自己制定策略定期检查Redis的情况，然后可以手动触发备份、重写数据；</li>
-<li>单机如果部署多个实例，要防止多个机器同时运行持久化、重写操作，防止出现内存、CPU、IO资源竞争，让持久化变为串行；</li>
-<li>可以加入主从机器，利用一台从机器进行备份处理，其它机器正常响应客户端的命令；</li>
-<li>RDB持久化与AOF持久化可以同时存在，配合使用。</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java-集合]]></title>
-        <id>https://stormga.github.io/post/java-jihe/</id>
-        <link href="https://stormga.github.io/post/java-jihe/">
-        </link>
-        <updated>2020-03-09T08:11:17.000Z</updated>
-        <summary type="html"><![CDATA[<p>本篇文章主要对java集合的框架进行介绍，使大家对java集合的整体框架有个了解。具体介绍了Collection接口，Map接口以及Collection接口的三个子接口Set，List，Queue。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>本篇文章主要对java集合的框架进行介绍，使大家对java集合的整体框架有个了解。具体介绍了Collection接口，Map接口以及Collection接口的三个子接口Set，List，Queue。</p>
-<!-- more -->
-<h1 id="集合">集合</h1>
-<ul>
-<li>集合是用来存储类型数据的容器</li>
-<li>集合是用来存储对象的引用</li>
-</ul>
-<h2 id="collection集合常用方法">Collection集合常用方法</h2>
-<table>
-<thead>
-<tr>
-<th>boolean</th>
-<th><a href="#add-E-">add</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">E</a> e) 向集合中添加元素e</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean</td>
-<td><a href="#addAll-java.util.Collection-">addAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;? extends <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">E</a>&gt; c)  把c集合中的所有元素添加到当前集合中</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#clear--">clear</a>() 清空集合中所有元素.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#contains-java.lang.Object-">contains</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 判断当前集合是否包含指定元素o.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#containsAll-java.util.Collection-">containsAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;?&gt; c) 判断当前集合是否包含c集合中的所有元素</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#equals-java.lang.Object-">equals</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o).</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#hashCode--">hashCode</a>().</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#isEmpty--">isEmpty</a>() 判断集合是否为空.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Iterator.html">Iterator</a><E></td>
-<td><a href="#iterator--">iterator</a>() 返回集合的迭代器.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#remove-java.lang.Object-">remove</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 在当前集合中删除第一个与元素o匹配的元素.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#removeAll-java.util.Collection-">removeAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;?&gt; c) 在当前集合中删除所有出现在c集合中的元素.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#retainAll-java.util.Collection-">retainAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;?&gt; c) 只保留在集合c中出现的元素,其他的元素都删除.</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#size--">size</a>() 返回元素的个数.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a>[]</td>
-<td><a href="#toArray--">toArray</a>() 集合转数组.</td>
-</tr>
-<tr>
-<td><T> T[]</td>
-<td><a href="#toArray-T:A-">toArray</a>(T[] a)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="list集合">List集合</h2>
-<ul>
-<li>继承了Collection,Collection所有的操作,List都有</li>
-<li>List存储特点: 有序,可重复</li>
-<li>List集合为每个元素指定一个索引值, 主要增加了针对索引值的操作</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>void</th>
-<th><a href="#add-int-E-">add</a>(int index, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a> element) 在指定位置添加元素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean</td>
-<td><a href="#addAll-int-java.util.Collection-">addAll</a>(int index, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;? extends <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a>&gt; c)</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a></td>
-<td><a href="#get-int-">get</a>(int index) 返回指定位置元素的值</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#indexOf-java.lang.Object-">indexOf</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 返回元素o第一次出现的位置</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#lastIndexOf-java.lang.Object-">lastIndexOf</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 返回元素o最后一次出现的索引值</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/ListIterator.html">ListIterator</a><E></td>
-<td><a href="#listIterator--">listIterator</a>() 返回ListIterator迭代器</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a></td>
-<td><a href="#remove-int-">remove</a>(int index)</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a></td>
-<td><a href="#set-int-E-">set</a>(int index, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a> element)</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#sort-java.util.Comparator-">sort</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Comparator.html">Comparator</a>&lt;? super <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a>&gt; c)</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">List</a><E></td>
-<td><a href="#subList-int-int-">subList</a>(int fromIndex, int toIndex) 返回子列表</td>
-</tr>
-</tbody>
-</table>
-<h3 id="arraylist和vector">ArrayList和Vector</h3>
-<ul>
-<li>底层都是数组</li>
-<li>默认初始化容量: 10</li>
-<li>ArrayList扩容: 1.5倍,  Vector默认按2倍大小扩容</li>
-<li>Vector提供的操作都使用synchronized修饰, 是线程安全的, ArrayList不是线程安全的</li>
-</ul>
-<h3 id="linkedlist">LinkedList</h3>
-<ul>
-<li>底层是双向链表</li>
-<li>常用操作</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>void</th>
-<th><a href="#addFirst-E-">addFirst</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到链表的头部</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void</td>
-<td><a href="#addLast-E-">addLast</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e)  把元素e添加到最后</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Iterator.html">Iterator</a><E></td>
-<td><a href="#descendingIterator--">descendingIterator</a>() 逆序迭代</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#element--">element</a>() 返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#getFirst--">getFirst</a>()返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#getLast--">getLast</a>()返回最后一个元素</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#offer-E-">offer</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到最后.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#offerFirst-E-">offerFirst</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到最前面,链表的头部</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#offerLast-E-">offerLast</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到最后</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#peek--">peek</a>().返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#peekFirst--">peekFirst</a>()返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#peekLast--">peekLast</a>()返回最后一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#poll--">poll</a>() 删除第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#pollFirst--">pollFirst</a>()删除第一个元素,并把删除的元素返回..</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#pollLast--">pollLast</a>()删除最后一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#pop--">pop</a>()删除第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#push-E-">push</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到链表的头部</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#removeFirst--">removeFirst</a>()删除第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#removeLast--">removeLast</a>()删除最后一个元素,并把删除的元素返回.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="set集合">Set集合</h2>
-<p>** 特点：无序，不可重复 **</p>
-<h3 id="hashset">HashSet</h3>
-<ul>
-<li>
-<p>HashSet底层是HashMap, HashSet的无参构造给hashMap进行了初始化</p>
-</li>
-<li>
-<p>向hashSet中通过add(e)添加一个元素, 实际上是把这个元素作为 键,添加到了底层的hashMap中</p>
-<p>map.put(e, PRESENT)</p>
-</li>
-<li>
-<p>HashSet实际上是就是底层HashMap的键的集合</p>
-</li>
-<li>
-<p>因为Map中的键不允许重复,所以HashSet也不能存储重复的元素</p>
-</li>
-</ul>
-<h3 id="treeset">TreeSet</h3>
-<ul>
-<li>
-<p>TreeSet 实现了SortedSet, 可以对存储的元素进行自然排序</p>
-</li>
-<li>
-<p>TreeSet要求存储的元素必须是可比较的</p>
-<ul>
-<li>要么指定Comparator比较器</li>
-<li>没有Comparator比较器,元素的类要实现Comparable接口</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></th>
-<th><a href="#ceiling-E-">ceiling</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e) 返回Set集合中大于等于指定元素e的最小元素.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Iterator.html">Iterator</a><E></td>
-<td><a href="#descendingIterator--">descendingIterator</a>() 返回TreeSet集合的逆序迭代.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/NavigableSet.html">NavigableSet</a><E></td>
-<td><a href="#descendingSet--">descendingSet</a>() 返回TreeSet集合的逆序.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#first--">first</a>() 返回TreeSet集合中的第一个元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#floor-E-">floor</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e) 返回Set集合中小于等于指定元素e的最大元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/SortedSet.html">SortedSet</a><E></td>
-<td><a href="#headSet-E-">headSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> toElement) 返回TreeSet集合从开始到指定元素toElement之间的视图</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/NavigableSet.html">NavigableSet</a><E></td>
-<td><a href="#headSet-E-boolean-">headSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> toElement, boolean inclusive).</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#higher-E-">higher</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e). 返回TreeSet集合中大于指定元素e的最小元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#last--">last</a>()返回TreeSet集合最后一个元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#lower-E-">lower</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e) 返回TreeSet集合中小于指定元素e的最大元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#pollFirst--">pollFirst</a>() 删除TreeSet集合的第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#pollLast--">pollLast</a>()删除TreeSet集合的最后一个元素,并把删除的元素返回</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/SortedSet.html">SortedSet</a><E></td>
-<td><a href="#subSet-E-E-">subSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> fromElement, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> toElement) 返回TreeSet指定范围[fromElement, toElement)内的视图 .</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/SortedSet.html">SortedSet</a><E></td>
-<td><a href="#tailSet-E-">tailSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> fromElement).返回从指定元素fromElement到最后的一个子视图</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意:</strong></p>
-<ul>
-<li>
-<p>TreeSet集合的contains()/remove()方法是根据Comparator或者Comparable的比较结果是否为0来判断元素是否存在</p>
-</li>
-<li>
-<p>如何选择Comparator还是Comparable??</p>
-<p>通过Comparator可以定义多种比较器</p>
-<p>类实现了Comparable接口之后 ,排序规则就固定了, 可以把它当作默认的排序</p>
-</li>
-</ul>
-<h2 id="迭代器">迭代器</h2>
-<p><strong>集合继承Iterable接口，用集合的iteartor()方法得到迭代器对象</strong></p>
-<h3 id="collection集合中使用迭代器">Collection集合中使用迭代器</h3>
-<pre><code class="language-java">Iterator&lt;String&gt; iterator = collection.iterator();
-		/*
-		 * 1)刚刚获得迭代器对象时, 迭代器的游标指向第一个元素的前面
-		 * 2) hasNext()判断是否还有没有访问到的元素
-		 * 3) next()把下一个没访问的元素返回, 游标下移
-		 */
-		while( iterator.hasNext()){
-			String next = iterator.next();
-			System.out.println( next );
-		}
-</code></pre>
-<p>###迭代器中有两个重要方法</p>
-<ul>
-<li>hasNext() 判断游标后面还有 没有访问到的元素</li>
-<li>next() 把下一个没有访问的元素返回，游标下移</li>
-</ul>
-<h3 id="使用迭代器的注意事项">使用迭代器的注意事项</h3>
-<ul>
-<li>
-<p>每次迭代完后，游标就在最后一个元素后面，如果我们还想使用迭代器我们需要重新获取</p>
-</li>
-<li>
-<pre><code class="language-java">Iterator&lt;String&gt; iterator = collection.iterator();
-      while(iterator.hasNext()){
-          collection.remove(&quot;abc&quot;);
-      
-</code></pre>
-</li>
-</ul>
-<pre><code>  **这段代码是错误的**
 
-  我们阅读源码会发现：
+                </div>
+            </article>
+        </div>
 
-  Iterator在创建的时候会返回一个Itr对象
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://stormga.github.io/post/redis-replication/" class="post-title gt-a-link">
+                    Redis主从复制
+                </a>
+            </div>
+        
 
-  源码：
+        
 
-  ```java
-      public Iterator&lt;E&gt; iterator() {
-          return new Itr();
-      }
-</code></pre>
-<p>而这个Itr是集合的内部类，我们以ArrayList分析</p>
-<pre><code class="language-java">  private class Itr implements Iterator&lt;E&gt; {
-      int cursor;       // index of next element to return
-      int lastRet = -1; // index of last element returned; -1 if no such
-      int expectedModCount = modCount;
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Every 🐦 has an 🦅's dream.</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <a href="www.github.com/stormGa">github</a> | <a href="https://stormga.github.io//atom.xml" target="_blank">RSS</a>
+</div>
 
-      // prevent creating a synthetic constructor
-      Itr() {}
-
-</code></pre>
-<p>这个modCount是ArrayList的一个成员变量</p>
-<p>​</p>
-<pre><code class="language-java">protected transient int modCount = 0;
-</code></pre>
-<p>每次ArrayList进行 remove,add操作就会改变modCount的值。</p>
-<p>而迭代器的next方法会检查这两个值是否一样，不一样会抛异常。</p>
-<p><strong>结论：</strong></p>
-<p><strong>当我们创建的Iterator时，我们就不能使用集合自身的remove，add等方法了，否则我们进行迭代的时候会抛异常。由于foreach循环是底层是迭代器实现的，所以我们在foreach循环的时候也不能使用remove，add，clear等方法</strong></p>
-<h2 id="map集合">Map集合</h2>
-<h3 id="linkedhashmap">LinkedHashMap</h3>
-<pre><code class="language-java">public class LinkedHashMap&lt;K,V&gt; extends HashMap&lt;K,V&gt; implements Map&lt;K,V&gt;
-</code></pre>
-<p>继承自HashMap，一个有序的Map接口实现，这里的有序指的是元素可以按插入顺序或访问顺序排列；与HashMap相比，因为LinkedHashMap是继承自HashMap，因此LinkedHashMap：</p>
-<ul>
-<li>同样是基于散列表实现。</li>
-<li>同时实现了Serializable 和 Cloneable接口，支持序列化和克隆。</li>
-<li>并且同样不是线程安全的。</li>
-</ul>
-<p>区别是其内部维护了一个双向循环链表，该链表是有序的，可以按元素插入顺序或元素最近访问顺序(LRU)排列。</p>
-<h4 id="linkedhashmap源码分析">LinkedHashMap源码分析</h4>
-<ul>
-<li>
-<p>由于LinkedHashMap继承自HashMap，所以它不仅像HashMap那样对其进行基于哈希表和单链表的Entry数组+ next链表的存储方式，而且还结合了LinkedList的优点，为每个Entry节点增加了前驱和后继，并增加了一个为header头结点，构造了一个双向循环链表。<strong>（多一个以header为头结点的双向循环链表，也就是说，每次put进来KV，除了将其保存到对哈希表中的对应位置外，还要将其插入到双向循环链表的尾部。）</strong></p>
-</li>
-<li>
-<p>LinkedHashMap的属性比HashMap多了一个accessOrder属性。<strong>当它false时，表示双向链表中的元素按照Entry插入LinkedHashMap到中的先后顺序排序</strong>，即每次put到LinkedHashMap中的Entry都放在双向链表的尾部，这样遍历双向链表时，Entry的输出顺序便和插入的顺序一致，这也是默认的双向链表的存储顺序；<strong>当它为true时，表示双向链表中的元素按照访问的先后顺序排列</strong>，可以看到，虽然Entry插入链表的顺序依然是按照其put到LinkedHashMap中的顺序，但put和get方法均有调用recordAccess方法（put方法在key相同，覆盖原有的Entry的情况下调用recordAccess方法），该方法判断accessOrder是否为true，如果是，则将当前访问的Entry（put进来的Entry或get出来的Entry）移到双向链表的尾部（key不相同时，put新Entry时，会调用addEntry，它会调用creatEntry，该方法同样将新插入的元素放入到双向链表的尾部，既符合插入的先后顺序，又符合访问的先后顺序，因为这时该Entry也被访问了），否则，什么也不做。</p>
-</li>
-<li>
-<p>构造函数中有设置accessOrder的方法，如果我们需要实现LRU算法时，就需要将accessOrder的值设定为TRUE。</p>
-</li>
-<li>
-<p>在HashMap的put方法中，如果key不为null时且哈希表中已经在存在时，循环遍历table[i]中的链表时会调用recordAccess方法，而在HashMap中这个方法是个空方法，在LinkedHashMap中则实现了该方法，该方法会判断accessOrder是否为true，如果为true，它会将当前访问的Entry（在这里指put进来的Entry）移动到双向循环链表的尾部，从而实现双向链表中的元素按照访问顺序来排序（最近访问的Entry放到链表的最后，这样多次下来，前面就是最近没有被访问的元素，在实现、LRU算法时，当双向链表中的节点数达到最大值时，将前面的元素删去即可，因为前面的元素是最近最少使用的），否则什么也不做。</p>
-</li>
-</ul>
-<h1 id="自定义类型的集合进行排序">自定义类型的集合进行排序</h1>
-<h2 id="实现comparable接口">实现comparable接口</h2>
-<pre><code class="language-java">public class SortTest1 {
-    public static void main(String[] args) {
-        List &lt;Person&gt; personList = new ArrayList&lt;&gt;();
-        personList.add(new Person(&quot;a&quot;, 15));
-        personList.add(new Person(&quot;b&quot;, 11));
-        personList.add(new Person(&quot;c&quot;, 18));
-        personList.add(new Person(&quot;d&quot;, 10));
-        Collections.sort(personList);
-        System.out.println(personList);
-    }
-
-    static class Person implements Comparable&lt;Person&gt;{
-        String name;
-        int age;
-
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Person{&quot; +
-                    &quot;name='&quot; + name + '\'' +
-                    &quot;, age=&quot; + age +
-                    '}';
-        }
-
-        @Override
-        public int compareTo(Person o) {
-            return this.age - o.age;
-        }
-    }
-}
-</code></pre>
-<h2 id="实现comparator比较器">实现comparator比较器</h2>
-<pre><code class="language-java">public class SortTest2 {
-    public static void main(String[] args) {
-        List &lt;Person&gt; personList = new ArrayList&lt;&gt;();
-        personList.add(new Person(&quot;a&quot;, 15));
-        personList.add(new Person(&quot;b&quot;, 11));
-        personList.add(new Person(&quot;c&quot;, 18));
-        personList.add(new Person(&quot;d&quot;, 10));
-        Collections.sort(personList);
-        System.out.println(personList);
-    }
-
-    static class Person implements Comparable&lt;Person&gt;{
-        String name;
-        int age;
-
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Person{&quot; +
-                    &quot;name='&quot; + name + '\'' +
-                    &quot;, age=&quot; + age +
-                    '}';
-        }
-
-        @Override
-        public int compareTo(Person o) {
-            return this.age - o.age;
-        }
-    }
-}
-</code></pre>
-<h2 id="在treeset中的一些排序和方法异常">在TreeSet中的一些排序和方法异常</h2>
-<h3 id="一创建自定义treeset时出错">一.创建自定义TreeSet时出错</h3>
-<pre><code class="language-java">public class TreeSetTest {
-    public static void main(String[] args) {
-        TreeSet&lt;Computer&gt; computers = new TreeSet&lt;&gt;();
-        computers.add(new Computer(&quot;Asus&quot;,5800,8));
-        computers.add(new Computer(&quot;Lenovo&quot;,4800,16));
-        computers.add(new Computer(&quot;Dell&quot;,3800,8));
-        computers.add(new Computer(&quot;Mac&quot;,15800,16));
-        System.out.println(computers);
-    }
-
-    static class Computer {
-        String brand;        //品牌
-        int price;            //价格
-        int memorySize;    //内存大小
-
-        public Computer(String brand, int price, int memorySize) {
-            super();
-            this.brand = brand;
-            this.price = price;
-            this.memorySize = memorySize;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Computer{&quot; +
-                    &quot;brand='&quot; + brand + '\'' +
-                    &quot;, price=&quot; + price +
-                    &quot;, memorySize=&quot; + memorySize +
-                    '}';
-        }
-    }
-}
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
 
 
-</code></pre>
-<p>这个程序我们运行的时候会报错，因为TreeSet是可排序的，我们的自定义类必须是可排序的，所以</p>
-<p>我们要么指定Comparator比较器，要么类实现Comparable接口。</p>
-<p>所以我们应该在改为：</p>
-<pre><code class="language-java">public class TreeSetTest {
-    public static void main(String[] args) {
-      //在定义的时候加上Comparator比较器
-        TreeSet&lt;Computer&gt; computers = new TreeSet&lt;&gt;(new Comparator&lt;Computer&gt;() {
-            @Override
-            public int compare(Computer o1, Computer o2) {
-                return o1.price - o2.price;
-            }
-        });
-        computers.add(new Computer(&quot;Asus&quot;, 5800, 8));
-        computers.add(new Computer(&quot;Lenovo&quot;, 4800, 16));
-        computers.add(new Computer(&quot;Dell&quot;, 3800, 8));
-        computers.add(new Computer(&quot;Mac&quot;, 15800, 16));
-        System.out.println(computers);
-    }
-
-    static class Computer {
-        String brand;        //品牌
-        int price;            //价格
-        int memorySize;    //内存大小
-
-        public Computer(String brand, int price, int memorySize) {
-            super();
-            this.brand = brand;
-            this.price = price;
-            this.memorySize = memorySize;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Computer{&quot; +
-                    &quot;brand='&quot; + brand + '\'' +
-                    &quot;, price=&quot; + price +
-                    &quot;, memorySize=&quot; + memorySize +
-                    '}';
-        }
-    }
-}
-
-
-</code></pre>
-<h3 id="二指定比较器后添加失败删除方法异常">二.指定比较器后添加失败，删除方法异常。</h3>
-<p>如果我们在main方法中，添加一个和比较器的比较对象比较值一样的对象默认为一个对象，不会执行该对象。</p>
-<pre><code class="language-java">public static void main(String[] args) {
-    TreeSet&lt;Computer&gt; computers = new TreeSet&lt;&gt;(new Comparator&lt;Computer&gt;() {
-        @Override
-        public int compare(Computer o1, Computer o2) {
-            return o1.price - o2.price;
-        }
-    });
-    computers.add(new Computer(&quot;Asus&quot;, 5800, 8));
-    computers.add(new Computer(&quot;Lenovo&quot;, 4800, 16));
-    computers.add(new Computer(&quot;Dell&quot;, 3800, 8));
-    computers.add(new Computer(&quot;Mac&quot;, 15800, 16));
-    System.out.println(computers);
-  //[Computer{brand='Dell', price=3800, memorySize=8}, Computer{brand='Lenovo', price=4800, memorySize=16}, Computer{brand='Asus', price=5800, memorySize=8}, Computer{brand='Mac', price=15800, memorySize=16}]
-    computers.add((new Computer(&quot;Acer&quot;,5800,8)));
-    System.out.println(computers);
-  //[Computer{brand='Dell', price=3800, memorySize=8}, Computer{brand='Lenovo', price=4800, memorySize=16}, Computer{brand='Asus', price=5800, memorySize=8}, Computer{brand='Mac', price=15800, memorySize=16}]
-}
-
-</code></pre>
-<p><strong>而如果我们删除一个品牌为小米，price为5800，内存为8的对象时，他会删除价格为5800的华硕电脑。</strong></p>
-<p><strong>因为TreeSet执行ComparaTo方法，返回值如果为0，那么它会认为这两个对象是同一对象。如该程序中，华硕电脑和小米电脑一样的价格，它执行比较器返回0，就会认为是同一对象</strong></p>
-]]></content>
-    </entry>
-</feed>
+    </div>
+</div>
+</body>
+</html>
