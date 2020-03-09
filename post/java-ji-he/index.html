@@ -1,22 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://stormga.github.io/</id>
-    <title>Gridea</title>
-    <updated>2020-03-09T07:49:08.427Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://stormga.github.io/"/>
-    <link rel="self" href="https://stormga.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://stormga.github.io/images/avatar.png</logo>
-    <icon>https://stormga.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
-    <entry>
-        <title type="html"><![CDATA[Java-集合]]></title>
-        <id>https://stormga.github.io/post/java-ji-he/</id>
-        <link href="https://stormga.github.io/post/java-ji-he/">
-        </link>
-        <updated>2020-03-09T07:46:38.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="集合">集合</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Java-集合 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583740144942">
+<link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="集合
+
+集合是用来存储类型数据的容器
+集合是用来存储对象的引用
+
+Collection集合常用方法
+
+
+
+boolean
+add(E e) 向集合中添加元素e
+
+
+
+
+boolean
+addAll(Collection&lt;? exten..." />
+    <meta name="keywords" content="java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://stormga.github.io/">
+        <img src="https://stormga.github.io//images/avatar.png?v=1583740144942" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://stormga.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Java-集合</h2>
+            <div class="post-date">2020-03-09</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="集合">集合</h1>
 <ul>
 <li>集合是用来存储类型数据的容器</li>
 <li>集合是用来存储对象的引用</li>
@@ -601,22 +695,54 @@
 </code></pre>
 <p><strong>而如果我们删除一个品牌为小米，price为5800，内存为8的对象时，他会删除价格为5800的华硕电脑。</strong></p>
 <p><strong>因为TreeSet执行ComparaTo方法，返回值如果为0，那么它会认为这两个对象是同一对象。如该程序中，华硕电脑和小米电脑一样的价格，它执行比较器返回0，就会认为是同一对象</strong></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Kohath' Blog]]></title>
-        <id>https://stormga.github.io/post/hello-gridea/</id>
-        <link href="https://stormga.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎来到 <strong>我的博客</strong> ！<br>
-✍️ 用它来记录我的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎来到 <strong>我的博客</strong> ！<br>
-✍️ 用它来记录我的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/stormGa">Github</a><br>
-<a href="https://stormga.github.io/">Blog 主页</a></p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://stormga.github.io/tag/qvGBqak8H/" class="tag">
+                    java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://stormga.github.io/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Kohath&#39; Blog
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
