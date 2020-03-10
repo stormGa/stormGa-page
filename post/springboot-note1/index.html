@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>SpringBoot（一） | Kohath</title>
-<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583761633191">
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583840675267">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -102,6 +102,291 @@
                 <div class="post-content">
                     <p>本文主要介绍了：Springboot的入门程序，springboot配置文件，日志模块，web开发，docker，数据访问，启动原理，自定义starter。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-spring-boot%E5%85%A5%E9%97%A8">一、Spring Boot入门</a>
+<ul>
+<li><a href="#1-spring-boot%E7%AE%80%E4%BB%8B">1、Spring Boot简介</a></li>
+<li><a href="#2-%E5%BE%AE%E6%9C%8D%E5%8A%A1">2、微服务</a></li>
+<li><a href="#3-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">3、环境准备</a>
+<ul>
+<li><a href="#1-maven%E8%AE%BE%E7%BD%AE">1、MAVEN设置</a></li>
+<li><a href="#2-idea%E8%AE%BE%E7%BD%AE">2、IDEA设置</a></li>
+</ul>
+</li>
+<li><a href="#4-spring-boot%E7%9A%84hello-world">4、Spring Boot的Hello World</a>
+<ul>
+<li><a href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAmaven%E5%B7%A5%E7%A8%8B">1、创建一个Maven工程</a></li>
+<li><a href="#2-%E5%AF%BC%E5%85%A5spring-boot%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96">2、导入Spring Boot的相关依赖</a></li>
+<li><a href="#3-%E7%BC%96%E5%86%99%E4%B8%AA%E4%B8%BB%E7%A8%8B%E5%BA%8F">3、编写个主程序</a></li>
+<li><a href="#4-%E7%BC%96%E5%86%99%E7%9B%B8%E5%BA%94%E7%9A%84controller%E5%92%8Cservice">4、编写相应的Controller和Service</a></li>
+<li><a href="#5-%E8%BF%90%E8%A1%8C%E4%B8%BB%E7%A8%8B%E5%BA%8F%E6%B5%8B%E8%AF%95">5、运行主程序测试</a></li>
+<li><a href="#6-%E7%AE%80%E5%8C%96%E9%83%A8%E7%BD%B2">6、简化部署</a></li>
+</ul>
+</li>
+<li><a href="#5-helloworld%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3">5、HelloWorld深度理解</a>
+<ul>
+<li><a href="#1pomxml%E6%96%87%E4%BB%B6">1.POM.xml文件</a>
+<ul>
+<li><a href="#1-%E7%88%B6%E9%A1%B9%E7%9B%AE">1、父项目</a></li>
+<li><a href="#2-%E5%90%AF%E5%8A%A8%E5%99%A8">2、启动器</a></li>
+</ul>
+</li>
+<li><a href="#2-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3">2、主程序入口</a></li>
+</ul>
+</li>
+<li><a href="#6-%E4%BD%BF%E7%94%A8spring-initializer%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BF%AB%E9%80%9F%E5%90%91%E5%AF%BC">6、使用Spring Initializer创建一个快速向导</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">二、配置文件</a>
+<ul>
+<li><a href="#1-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">1、配置文件</a></li>
+<li><a href="#2-yaml%E8%AF%AD%E6%B3%95">2、YAML语法</a>
+<ul>
+<li><a href="#1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">1、基本语法</a></li>
+<li><a href="#2-%E5%80%BC%E7%9A%84%E5%86%99%E6%B3%95">2、值的写法</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%80%BC%E6%B3%A8%E5%85%A5">3、配置文件值注入</a>
+<ul>
+<li><a href="#1-configurationproperties">1、@ConfigurationProperties</a></li>
+<li><a href="#2-value%E6%B3%A8%E8%A7%A3">2、@Value注解</a></li>
+<li><a href="#3-%E5%85%B6%E4%BB%96%E6%B3%A8%E8%A7%A3">3、其他注解</a></li>
+</ul>
+</li>
+<li><a href="#4-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8D%A0%E4%BD%8D%E7%AC%A6">4、配置文件占位符</a><br>
+*
+<ul>
+<li><a href="#1-%E9%9A%8F%E6%9C%BA%E6%95%B0">1、随机数</a></li>
+<li><a href="#2-%E8%8E%B7%E5%8F%96%E9%85%8D%E7%BD%AE%E5%80%BC">2、获取配置值</a></li>
+</ul>
+</li>
+<li><a href="#5-profile">5、Profile</a>
+<ul>
+<li><a href="#1-%E5%A4%9Aprofile%E6%96%87%E4%BB%B6">1、多Profile文件</a></li>
+<li><a href="#2-yaml%E6%96%87%E6%A1%A3%E5%9D%97">2、YAML文档块</a></li>
+<li><a href="#3-%E6%BF%80%E6%B4%BB%E6%8C%87%E5%AE%9Aprofile">3、激活指定profile</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE">6、加载配置文件位置</a></li>
+<li><a href="#7%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E9%85%8D%E7%BD%AE">7.引入外部配置</a></li>
+<li><a href="#8-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE">8、自动配置</a>
+<ul>
+<li><a href="#1-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86">1、自动配置原理</a></li>
+<li><a href="#2-%E6%89%80%E6%9C%89%E7%9A%84%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%BB%84%E4%BB%B6">2、所有的自动配置组件</a></li>
+<li><a href="#3-%E7%B2%BE%E9%AB%93">3、精髓：</a></li>
+<li><a href="#4-%E7%BB%86%E8%8A%82">4、细节</a>
+<ul>
+<li><a href="#1-conditional%E6%B4%BE%E7%94%9F%E6%B3%A8%E8%A7%A3">1、@Conditional派生注解</a></li>
+<li><a href="#2-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%8A%A5%E5%91%8A">2、自动配置报告</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E6%97%A5%E5%BF%97">三、日志</a><br>
+*
+<ul>
+<li><a href="#1-%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6">1、日志框架</a></li>
+<li><a href="#2-slf4j%E4%BD%BF%E7%94%A8">2、SLF4J使用</a>
+<ul>
+<li><a href="#1-%E5%A6%82%E4%BD%95%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%BD%BF%E7%94%A8slf4j">1、如何在系统中使用SLF4j</a></li>
+<li><a href="#2-%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98">2、遗留问题</a></li>
+</ul>
+</li>
+<li><a href="#3-spingboot%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90">3、SpingBoot日志框架解析</a></li>
+<li><a href="#4-%E6%97%A5%E5%BF%97%E7%9A%84%E4%BD%BF%E7%94%A8">4、日志的使用</a>
+<ul>
+<li><a href="#1-%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE">1、默认配置</a></li>
+<li><a href="#2-%E6%8C%87%E5%AE%9A%E9%85%8D%E7%BD%AE">2、指定配置</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%88%87%E6%8D%A2%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6">3、切换日志框架</a>
+<ul>
+<li><a href="#1-log4j">1、log4j</a></li>
+<li><a href="#2-log4j2">2、log4j2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-web%E5%BC%80%E5%8F%91">四、web开发</a>
+<ul>
+<li><a href="#1-%E7%AE%80%E4%BB%8B">1、简介</a></li>
+<li><a href="#2-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E6%98%A0%E5%B0%84%E8%A7%84%E5%88%99">2、静态资源文件映射规则</a>
+<ul>
+<li><a href="#1-webjar">1、webjar</a></li>
+<li><a href="#2-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90">2、本地资源</a></li>
+</ul>
+</li>
+<li><a href="#3-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E">3、模板引擎</a>
+<ul>
+<li><a href="#1-%E5%BC%95%E5%85%A5thymeleaf-3">1、引入thymeleaf 3</a></li>
+<li><a href="#2-thymeleaf%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AF%AD%E6%B3%95">2、Thymeleaf使用和语法</a></li>
+<li><a href="#3-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99">3、语法规则</a></li>
+</ul>
+</li>
+<li><a href="#4-springmvc%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE">4、SpringMVC自动配置</a>
+<ul>
+<li><a href="#1-springmvc%E7%9A%84%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5">1、SpringMVC的自动导入</a></li>
+<li><a href="#2-%E6%89%A9%E5%B1%95springmvc">2、扩展SpringMVC</a></li>
+<li><a href="#3-%E5%85%A8%E9%9D%A2%E6%8E%A5%E7%AE%A1mvc">3、全面接管mvc</a></li>
+</ul>
+</li>
+<li><a href="#5-%E4%BF%AE%E6%94%B9springmvc%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE">5、修改SpringMVC默认配置</a></li>
+<li><a href="#6-restfulcrud">6、RestfulCRUD</a>
+<ul>
+<li><a href="#1-%E9%BB%98%E8%AE%A4%E8%AE%BF%E9%97%AE%E9%A6%96%E9%A1%B5">1、默认访问首页</a></li>
+<li><a href="#2-%E5%9B%BD%E9%99%85%E5%8C%96">2、国际化</a>
+<ul>
+<li><a href="#1-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%87%E6%8D%A2%E5%9B%BD%E9%99%85%E5%8C%96">1、浏览器切换国际化</a></li>
+<li><a href="#2-%E7%82%B9%E5%87%BB%E9%93%BE%E6%8E%A5%E5%88%87%E6%8D%A2%E5%9B%BD%E9%99%85%E5%8C%96">2、点击链接切换国际化</a></li>
+</ul>
+</li>
+<li><a href="#3-%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA%E5%99%A8">3、登录拦截器</a>
+<ul>
+<li><a href="#1-%E7%99%BB%E5%BD%95">1、登录</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%8B%A6%E6%88%AA%E5%99%A8">4、拦截器</a></li>
+<li><a href="#5-crud-%E5%91%98%E5%B7%A5%E5%88%97%E8%A1%A8">5、CRUD-员工列表</a>
+<ul>
+<li><a href="#1-%E5%85%AC%E5%85%B1%E9%A1%B5%E9%9D%A2%E6%8A%BD%E5%8F%96">1、公共页面抽取</a></li>
+<li><a href="#2-%E5%88%97%E8%A1%A8%E9%AB%98%E4%BA%AE">2、列表高亮</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%88%97%E8%A1%A8%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E6%9F%A5">6、列表数据显示（查）</a>
+<ul>
+<li><a href="#1-%E4%BC%A0%E5%85%A5%E5%91%98%E5%B7%A5%E5%AF%B9%E8%B1%A1">1、传入员工对象</a></li>
+<li><a href="#2-%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1">2、 遍历对象</a></li>
+<li><a href="#3-%E6%95%88%E6%9E%9C%E6%98%BE%E7%A4%BA">3、效果显示</a></li>
+</ul>
+</li>
+<li><a href="#7-%E5%91%98%E5%B7%A5%E6%B7%BB%E5%8A%A0%E5%A2%9E">7、员工添加（增）</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%A2%9E%E9%A1%B5%E9%9D%A2">1、新增页面</a></li>
+<li><a href="#2-%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC">2、页面跳转</a></li>
+<li><a href="#3-%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90">3、添加功能完成</a></li>
+</ul>
+</li>
+<li><a href="#8-%E5%91%98%E5%B7%A5%E7%BC%96%E8%BE%91%E6%94%B9">8、员工编辑（改）</a>
+<ul>
+<li><a href="#1-%E4%BF%AE%E6%94%B9%E6%8C%89%E9%92%AE">1、修改按钮</a></li>
+<li><a href="#2-%E7%BC%96%E5%86%99%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2">2、编写跳转页面</a></li>
+<li><a href="#3-%E5%AF%B9%E9%A1%B5%E9%9D%A2%E4%BF%AE%E6%94%B9">3、对页面修改</a></li>
+</ul>
+</li>
+<li><a href="#9-%E5%91%98%E5%B7%A5%E5%88%A0%E9%99%A4%E5%88%A0">9、员工删除（删）</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%BB%BAcontoller">1、新建Contoller</a></li>
+<li><a href="#2-%E4%BF%AE%E6%94%B9%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE">2、修改删除标签</a></li>
+<li><a href="#3-%E5%86%99form%E8%A1%A8%E5%8D%95">3、写Form表单</a></li>
+<li><a href="#4-%E5%86%99js%E6%8F%90%E4%BA%A4">4、写JS提交</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-%E9%94%99%E8%AF%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E5%A4%84%E7%90%86">7、错误机制的处理</a>
+<ul>
+<li><a href="#1-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6">1、默认的错误处理机制</a></li>
+<li><a href="#2-%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6%E9%94%99%E8%AF%AF%E5%93%8D%E5%BA%94">2、如何定制错误响应</a></li>
+<li><a href="#3-%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6json%E6%95%B0%E6%8D%AE">3、如何定制Json数据</a>
+<ul>
+<li><a href="#1-%E4%BB%85%E5%8F%91%E9%80%81json%E6%95%B0%E6%8D%AE">1、仅发送json数据</a></li>
+<li><a href="#2-%E8%BD%AC%E5%8F%91%E5%88%B0error%E8%87%AA%E9%80%82%E5%BA%94%E5%A4%84%E7%90%86">2、转发到error自适应处理</a></li>
+<li><a href="#3-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E5%AE%9A%E5%88%B6%E6%95%B0%E6%8D%AE%E4%BC%A0%E5%85%A5">3、自适应和定制数据传入</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#8-%E9%85%8D%E7%BD%AE%E5%B5%8C%E5%85%A5%E5%BC%8Fservlet%E5%AE%B9%E5%99%A8">8、配置嵌入式servlet容器</a>
+<ul>
+<li><a href="#1-%E5%AE%9A%E5%88%B6%E5%92%8C%E4%BF%AE%E6%94%B9servlet%E5%AE%B9%E5%99%A8">1、定制和修改Servlet容器</a></li>
+<li><a href="#2-%E6%B3%A8%E5%86%8Cservlet%E4%B8%89%E5%A4%A7%E7%BB%84%E4%BB%B6">2、注册Servlet三大组件</a>
+<ul>
+<li><a href="#servletregistrationbean">ServletRegistrationBean</a></li>
+<li><a href="#filterregistrationbean">FilterRegistrationBean</a></li>
+<li><a href="#servletlistenerregistrationbean">ServletListenerRegistrationBean</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%88%87%E6%8D%A2%E5%85%B6%E4%BB%96%E7%9A%84servlet%E5%AE%B9%E5%99%A8">3、切换其他的Servlet容器</a></li>
+<li><a href="#4-%E5%B5%8C%E5%85%A5%E5%BC%8Fservlet%E5%AE%B9%E5%99%A8%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86">4、嵌入式Servlet容器自动配置原理</a></li>
+<li><a href="#5-%E5%B5%8C%E5%85%A5%E5%BC%8Fservlet%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86">5、嵌入式Servlet容器启动原理</a></li>
+</ul>
+</li>
+<li><a href="#9-%E4%BD%BF%E7%94%A8%E5%A4%96%E7%BD%AE%E7%9A%84servlet%E5%AE%B9%E5%99%A8">9、使用外置的Servlet容器</a>
+<ul>
+<li><a href="#1-idea%E6%93%8D%E4%BD%9C%E5%A4%96%E9%83%A8servlet">1、IDEA操作外部Servlet</a></li>
+<li><a href="#2-%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B">2、运行一个示例</a></li>
+<li><a href="#3-%E5%8E%9F%E7%90%86">3、原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-docker">五、Docker</a>
+<ul>
+<li><a href="#1-%E7%AE%80%E4%BB%8B-2">1、简介</a></li>
+<li><a href="#2-docker%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">2、Docker的核心概念</a></li>
+<li><a href="#3-%E5%AE%89%E8%A3%85docker">3、安装Docker</a>
+<ul>
+<li><a href="#1-%E5%AE%89%E8%A3%85linux">1、安装Linux</a></li>
+<li><a href="#2-%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%85docker">2、在linux上安装docker</a></li>
+</ul>
+</li>
+<li><a href="#4-docker%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">4、docker的常用操作</a>
+<ul>
+<li><a href="#1-%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C">1、镜像操作</a></li>
+<li><a href="#2-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C">2、容器操作</a></li>
+<li><a href="#3-%E5%AE%89%E8%A3%85mysql">3、安装Mysql</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD-%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE">六、数据访问</a>
+<ul>
+<li><a href="#1-%E6%95%B4%E5%90%88jdbc%E6%95%B0%E6%8D%AE%E6%BA%90">1、整合JDBC数据源</a>
+<ul>
+<li><a href="#1-datasource">1、DataSource</a></li>
+<li><a href="#2-springboot%E9%BB%98%E8%AE%A4%E6%94%AF%E6%8C%81">2、SpringBoot默认支持</a></li>
+<li><a href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90">3、自定义数据源</a></li>
+<li><a href="#4-%E8%BF%90%E8%A1%8Csql%E5%BB%BA%E8%A1%A8">4、运行sql建表</a></li>
+<li><a href="#5-%E6%93%8D%E4%BD%9Cjdbctemplate">5、操作JdbcTemplate</a></li>
+</ul>
+</li>
+<li><a href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90">2、自定义数据源</a></li>
+<li><a href="#3-%E6%95%B4%E5%90%88mybatis">3、整合Mybatis</a>
+<ul>
+<li><a href="#%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F">注解方式</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F">配置文件方式</a></li>
+</ul>
+</li>
+<li><a href="#4-jpa%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE">4、JPA数据访问</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83-%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86">七、启动配置原理</a>
+<ul>
+<li><a href="#1-%E5%88%9B%E5%BB%BAspringapplicaiotn%E5%AF%B9%E8%B1%A1">1、创建SpringApplicaiotn对象</a></li>
+<li><a href="#2-%E8%BF%90%E8%A1%8Crun%E6%96%B9%E6%B3%95">2、运行Run方法</a></li>
+<li><a href="#3-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9C%BA%E5%88%B6">3、事件监听机制</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AB-springboot%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89starter">八、SpringBoot的自定义starter</a><br>
+*
+<ul>
+<li><a href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAstarter">新建一个starter</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%A9%BA%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B">1、新建一个空项目工程</a></li>
+<li><a href="#2-%E7%BC%96%E5%86%99starter">2、编写starter</a>
+<ul>
+<li><a href="#autoconfigurer">autoconfigurer</a></li>
+</ul>
+</li>
+<li><a href="#3-%E6%B5%8B%E8%AF%95">3、测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="一-spring-boot入门">一、Spring Boot入门</h1>
 <h2 id="1-spring-boot简介">1、Spring Boot简介</h2>
 <p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。</p>

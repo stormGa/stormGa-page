@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Redis五种数据类型的基本操作 | Kohath</title>
-<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583761633191">
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583840675267">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -102,6 +102,27 @@
                 <div class="post-content">
                     <p>redis五种数据类型的介绍和基本操作</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%BA%94%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">五种数据类型</a>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2string">字符串：string</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8Bhash">哈希类型：hash</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8%E7%B1%BB%E5%9E%8Blist">列表类型：list</a></li>
+<li><a href="#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8Bset">集合类型：set</a></li>
+<li><a href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8Bzsetsorted-set">有序集合类型：zset（sorted set）</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4">基本操作命令</a>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8B">哈希类型</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
+<li><a href="#%E9%9B%86%E5%90%88">集合</a></li>
+<li><a href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88zset">有序集合zset</a></li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="五种数据类型">五种数据类型</h1>
 <h2 id="字符串string">字符串：string</h2>
 <p>字符串类型是Redis中最基本的数据类型，它能存储任何形式的字符串，包括二进制数据，序列化后的数据，JSON化的对象甚至是一张图片。最大512M。</p>

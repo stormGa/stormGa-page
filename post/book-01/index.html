@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>大型网站技术架构 | Kohath</title>
-<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583761633191">
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583840675267">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -101,6 +101,37 @@
                 </div>
                 <div class="post-content">
                     <p>最近在读《大型网站技术架构》，文章广度很大，对于我这种初步建立起网站架构体系的人无疑是一个形成体系结构的机会。本文对该书重要知识做一个总结，供自己经常翻阅.</p>
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E8%BF%9B%E5%8C%96%E5%8F%B2">大型网站进化史</a>
+<ul>
+<li><a href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E7%82%B9">大型网站软件系统的特点</a></li>
+<li><a href="#%E5%88%9D%E7%BA%A7%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84">初级网站架构</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E7%A6%BB">应用服务和数据服务分离</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E6%94%B9%E5%96%84%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD">使用缓存改善网站性能</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9B%86%E7%BE%A4%E6%94%B9%E5%96%84%E7%BD%91%E7%AB%99%E7%9A%84%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B">使用应用服务器集群改善网站的并发处理能力</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB">数据库读写分离</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8Ccdn-%E5%8A%A0%E9%80%9F%E7%BD%91%E7%AB%99%E6%99%8C%E5%BA%94">使用反向代理和CDN 加速网站晌应</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F">使用分布式文件系统和分布式数据库系统</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8nosql-%E5%92%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">使用NoSQL 和搜索引擎</a></li>
+<li><a href="#%E4%B8%9A%E5%8A%A1%E6%8B%86%E5%88%86">业务拆分</a></li>
+<li><a href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1">分布式服务</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F">大型网站架构模式</a>
+<ul>
+<li><a href="#%E5%88%86%E5%B1%82">分层</a></li>
+<li><a href="#%E5%88%86%E5%89%B2">分割</a></li>
+<li><a href="#%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a></li>
+<li><a href="#%E9%9B%86%E7%BE%A4">集群</a></li>
+<li><a href="#%E7%BC%93%E5%AD%98">缓存</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5">异步</a></li>
+<li><a href="#%E5%86%97%E4%BD%99">冗余</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E5%8C%96">自动化</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E5%9C%A8%E6%96%B0%E6%B5%AA%E7%9A%84%E5%BA%94%E7%94%A8">架构模式在新浪的应用</a></li>
+</ul>
+</p>
 <!-- more -->
 <h1 id="大型网站进化史">大型网站进化史</h1>
 <p>不得不承认，互联网行业发展到了今天，大鱼吃小鱼还是很普遍的，大公司的微创新能力分分钟就能干死一个小的项目，所以小公司需要足够快的发展，不停的快速迭代与试错。</p>

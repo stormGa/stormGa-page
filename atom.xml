@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stormga.github.io/</id>
     <title>Kohath</title>
-    <updated>2020-03-09T13:47:39.152Z</updated>
+    <updated>2020-03-10T11:44:39.284Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stormga.github.io/"/>
     <link rel="self" href="https://stormga.github.io/atom.xml"/>
@@ -17,8 +17,40 @@
         </link>
         <updated>2020-03-09T11:01:21.000Z</updated>
         <summary type="html"><![CDATA[<p>最近在读《大型网站技术架构》，文章广度很大，对于我这种初步建立起网站架构体系的人无疑是一个形成体系结构的机会。本文对该书重要知识做一个总结，供自己经常翻阅.</p>
+<p></p>
 ]]></summary>
         <content type="html"><![CDATA[<p>最近在读《大型网站技术架构》，文章广度很大，对于我这种初步建立起网站架构体系的人无疑是一个形成体系结构的机会。本文对该书重要知识做一个总结，供自己经常翻阅.</p>
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E8%BF%9B%E5%8C%96%E5%8F%B2">大型网站进化史</a>
+<ul>
+<li><a href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E7%82%B9">大型网站软件系统的特点</a></li>
+<li><a href="#%E5%88%9D%E7%BA%A7%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84">初级网站架构</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E7%A6%BB">应用服务和数据服务分离</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E6%94%B9%E5%96%84%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD">使用缓存改善网站性能</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9B%86%E7%BE%A4%E6%94%B9%E5%96%84%E7%BD%91%E7%AB%99%E7%9A%84%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B">使用应用服务器集群改善网站的并发处理能力</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB">数据库读写分离</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8Ccdn-%E5%8A%A0%E9%80%9F%E7%BD%91%E7%AB%99%E6%99%8C%E5%BA%94">使用反向代理和CDN 加速网站晌应</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F">使用分布式文件系统和分布式数据库系统</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8nosql-%E5%92%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">使用NoSQL 和搜索引擎</a></li>
+<li><a href="#%E4%B8%9A%E5%8A%A1%E6%8B%86%E5%88%86">业务拆分</a></li>
+<li><a href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1">分布式服务</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F">大型网站架构模式</a>
+<ul>
+<li><a href="#%E5%88%86%E5%B1%82">分层</a></li>
+<li><a href="#%E5%88%86%E5%89%B2">分割</a></li>
+<li><a href="#%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a></li>
+<li><a href="#%E9%9B%86%E7%BE%A4">集群</a></li>
+<li><a href="#%E7%BC%93%E5%AD%98">缓存</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5">异步</a></li>
+<li><a href="#%E5%86%97%E4%BD%99">冗余</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E5%8C%96">自动化</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E5%9C%A8%E6%96%B0%E6%B5%AA%E7%9A%84%E5%BA%94%E7%94%A8">架构模式在新浪的应用</a></li>
+</ul>
+</p>
 <!-- more -->
 <h1 id="大型网站进化史">大型网站进化史</h1>
 <p>不得不承认，互联网行业发展到了今天，大鱼吃小鱼还是很普遍的，大公司的微创新能力分分钟就能干死一个小的项目，所以小公司需要足够快的发展，不停的快速迭代与试错。</p>
@@ -116,6 +148,23 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>redis作为互联网中重要的加速组件，在系统中扮演着重要的角色，在使用springboot整合redis的时候踩坑纪记录。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#redis%E7%AE%80%E4%BB%8B">Redis简介</a>
+<ul>
+<li><a href="#redis%E5%9C%A8springboot-%E7%9A%84pom%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE">redis在springboot 的pom文件中的配置</a></li>
+</ul>
+</li>
+<li><a href="#spring-data-redis%E7%9A%84%E8%AE%BE%E8%AE%A1">Spring-data-redis的设计</a>
+<ul>
+<li><a href="#%E8%A7%A3%E5%86%B3%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98">解决序列化问题</a>
+<ul>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="redis简介">Redis简介</h1>
 <ul>
 <li>redis是一种运行在内存的数据库，支持7种数据类型存储。</li>
@@ -204,6 +253,39 @@ private void initRedisTemplate(){
 ]]></summary>
         <content type="html"><![CDATA[<p>本文继续介绍SpringBoot的使用：SpringBoot下的SpringMVC，SpringBoot集成MyBatis，SpringBoot实现restful,SpringBoot热部署插件，SpringBoot集成Redis。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#springboot%E4%B8%8B%E7%9A%84springmvc">SpringBoot下的SpringMVC</a>
+<ul>
+<li><a href="#restcontroller">@RestController</a></li>
+<li><a href="#getmapping">@GetMapping</a></li>
+<li><a href="#postmapping">@PostMapping</a></li>
+<li><a href="#putmapping">@PutMapping</a></li>
+<li><a href="#deletemapping">@DeleteMapping</a></li>
+</ul>
+</li>
+<li><a href="#springboot%E9%9B%86%E6%88%90mybatis">SpringBoot集成MyBatis</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96">添加依赖</a></li>
+<li><a href="#applicationproperties%E4%B8%AD%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF">application.properties中配置数据库信息</a></li>
+<li><a href="#%E5%9C%A8mapper%E6%8E%A5%E5%8F%A3%E4%B8%8A%E6%B7%BB%E5%8A%A0mapper%E6%B3%A8%E8%A7%A3%E6%88%96%E8%80%85%E5%9C%A8%E8%BF%90%E8%A1%8C%E4%B8%BB%E7%B1%BB%E6%B7%BB%E5%8A%A0mapperscanxxxxxx%E6%B3%A8%E8%A7%A3%E5%8C%85%E6%89%AB%E6%8F%8F">在mapper接口上添加@Mapper注解或者在运行主类添加@MapperScan(&quot;xx.xx.xx&quot;)注解包扫描</a></li>
+<li><a href="#%E5%9C%A8pom%E4%B8%AD%E6%B7%BB%E5%8A%A0">在POM中添加</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8controller%E8%AE%BF%E9%97%AE">使用Controller访问</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8pathvariable">使用@PathVariable</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%83%AD%E9%83%A8%E7%BD%B2">为什么需要热部署</a></li>
+<li><a href="#92-%E4%BB%80%E4%B9%88%E6%98%AF%E7%83%AD%E9%83%A8%E7%BD%B2">9.2 什么是热部署</a></li>
+<li><a href="#93-%E5%AE%9E%E7%8E%B0%E7%83%AD%E9%83%A8%E7%BD%B2">9.3 实现热部署</a>
+<ul>
+<li><a href="#931-%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6spring-boot-devtools">9.3.1 添加插件spring-boot-devtools</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9C%A8pom%E4%B8%AD%E6%B7%BB%E5%8A%A0jar%E4%BE%9D%E8%B5%96">在pom中添加jar依赖</a></li>
+<li><a href="#%E5%9C%A8applicationproperties%E4%B8%AD%E9%85%8D%E7%BD%AEredis%E8%BF%9E%E6%8E%A5%E4%BF%A1%E6%81%AF">在application.properties中配置redis连接信息</a></li>
+<li><a href="#%E5%9C%A8%E9%9C%80%E8%A6%81%E6%93%8D%E4%BD%9Credis%E7%9A%84%E7%B1%BB%E4%B8%AD%E6%B3%A8%E5%85%A5redis-template">在需要操作redis的类中注入redis Template</a></li>
+<li><a href="#springboot%E9%9B%86%E6%88%90redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F">springboot集成redis哨兵模式</a></li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="springboot下的springmvc">SpringBoot下的SpringMVC</h1>
 <h2 id="restcontroller">@RestController</h2>
 <ul>
@@ -426,6 +508,291 @@ spring.redis.sentinel.nodes=xxx.xxx.xxx.xxx:26380,xxx.xxx.xxx.xxx:26382.....
 ]]></summary>
         <content type="html"><![CDATA[<p>本文主要介绍了：Springboot的入门程序，springboot配置文件，日志模块，web开发，docker，数据访问，启动原理，自定义starter。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-spring-boot%E5%85%A5%E9%97%A8">一、Spring Boot入门</a>
+<ul>
+<li><a href="#1-spring-boot%E7%AE%80%E4%BB%8B">1、Spring Boot简介</a></li>
+<li><a href="#2-%E5%BE%AE%E6%9C%8D%E5%8A%A1">2、微服务</a></li>
+<li><a href="#3-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">3、环境准备</a>
+<ul>
+<li><a href="#1-maven%E8%AE%BE%E7%BD%AE">1、MAVEN设置</a></li>
+<li><a href="#2-idea%E8%AE%BE%E7%BD%AE">2、IDEA设置</a></li>
+</ul>
+</li>
+<li><a href="#4-spring-boot%E7%9A%84hello-world">4、Spring Boot的Hello World</a>
+<ul>
+<li><a href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAmaven%E5%B7%A5%E7%A8%8B">1、创建一个Maven工程</a></li>
+<li><a href="#2-%E5%AF%BC%E5%85%A5spring-boot%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96">2、导入Spring Boot的相关依赖</a></li>
+<li><a href="#3-%E7%BC%96%E5%86%99%E4%B8%AA%E4%B8%BB%E7%A8%8B%E5%BA%8F">3、编写个主程序</a></li>
+<li><a href="#4-%E7%BC%96%E5%86%99%E7%9B%B8%E5%BA%94%E7%9A%84controller%E5%92%8Cservice">4、编写相应的Controller和Service</a></li>
+<li><a href="#5-%E8%BF%90%E8%A1%8C%E4%B8%BB%E7%A8%8B%E5%BA%8F%E6%B5%8B%E8%AF%95">5、运行主程序测试</a></li>
+<li><a href="#6-%E7%AE%80%E5%8C%96%E9%83%A8%E7%BD%B2">6、简化部署</a></li>
+</ul>
+</li>
+<li><a href="#5-helloworld%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3">5、HelloWorld深度理解</a>
+<ul>
+<li><a href="#1pomxml%E6%96%87%E4%BB%B6">1.POM.xml文件</a>
+<ul>
+<li><a href="#1-%E7%88%B6%E9%A1%B9%E7%9B%AE">1、父项目</a></li>
+<li><a href="#2-%E5%90%AF%E5%8A%A8%E5%99%A8">2、启动器</a></li>
+</ul>
+</li>
+<li><a href="#2-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3">2、主程序入口</a></li>
+</ul>
+</li>
+<li><a href="#6-%E4%BD%BF%E7%94%A8spring-initializer%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BF%AB%E9%80%9F%E5%90%91%E5%AF%BC">6、使用Spring Initializer创建一个快速向导</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">二、配置文件</a>
+<ul>
+<li><a href="#1-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">1、配置文件</a></li>
+<li><a href="#2-yaml%E8%AF%AD%E6%B3%95">2、YAML语法</a>
+<ul>
+<li><a href="#1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">1、基本语法</a></li>
+<li><a href="#2-%E5%80%BC%E7%9A%84%E5%86%99%E6%B3%95">2、值的写法</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%80%BC%E6%B3%A8%E5%85%A5">3、配置文件值注入</a>
+<ul>
+<li><a href="#1-configurationproperties">1、@ConfigurationProperties</a></li>
+<li><a href="#2-value%E6%B3%A8%E8%A7%A3">2、@Value注解</a></li>
+<li><a href="#3-%E5%85%B6%E4%BB%96%E6%B3%A8%E8%A7%A3">3、其他注解</a></li>
+</ul>
+</li>
+<li><a href="#4-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8D%A0%E4%BD%8D%E7%AC%A6">4、配置文件占位符</a><br>
+*
+<ul>
+<li><a href="#1-%E9%9A%8F%E6%9C%BA%E6%95%B0">1、随机数</a></li>
+<li><a href="#2-%E8%8E%B7%E5%8F%96%E9%85%8D%E7%BD%AE%E5%80%BC">2、获取配置值</a></li>
+</ul>
+</li>
+<li><a href="#5-profile">5、Profile</a>
+<ul>
+<li><a href="#1-%E5%A4%9Aprofile%E6%96%87%E4%BB%B6">1、多Profile文件</a></li>
+<li><a href="#2-yaml%E6%96%87%E6%A1%A3%E5%9D%97">2、YAML文档块</a></li>
+<li><a href="#3-%E6%BF%80%E6%B4%BB%E6%8C%87%E5%AE%9Aprofile">3、激活指定profile</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE">6、加载配置文件位置</a></li>
+<li><a href="#7%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E9%85%8D%E7%BD%AE">7.引入外部配置</a></li>
+<li><a href="#8-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE">8、自动配置</a>
+<ul>
+<li><a href="#1-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86">1、自动配置原理</a></li>
+<li><a href="#2-%E6%89%80%E6%9C%89%E7%9A%84%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%BB%84%E4%BB%B6">2、所有的自动配置组件</a></li>
+<li><a href="#3-%E7%B2%BE%E9%AB%93">3、精髓：</a></li>
+<li><a href="#4-%E7%BB%86%E8%8A%82">4、细节</a>
+<ul>
+<li><a href="#1-conditional%E6%B4%BE%E7%94%9F%E6%B3%A8%E8%A7%A3">1、@Conditional派生注解</a></li>
+<li><a href="#2-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%8A%A5%E5%91%8A">2、自动配置报告</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E6%97%A5%E5%BF%97">三、日志</a><br>
+*
+<ul>
+<li><a href="#1-%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6">1、日志框架</a></li>
+<li><a href="#2-slf4j%E4%BD%BF%E7%94%A8">2、SLF4J使用</a>
+<ul>
+<li><a href="#1-%E5%A6%82%E4%BD%95%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%BD%BF%E7%94%A8slf4j">1、如何在系统中使用SLF4j</a></li>
+<li><a href="#2-%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98">2、遗留问题</a></li>
+</ul>
+</li>
+<li><a href="#3-spingboot%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90">3、SpingBoot日志框架解析</a></li>
+<li><a href="#4-%E6%97%A5%E5%BF%97%E7%9A%84%E4%BD%BF%E7%94%A8">4、日志的使用</a>
+<ul>
+<li><a href="#1-%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE">1、默认配置</a></li>
+<li><a href="#2-%E6%8C%87%E5%AE%9A%E9%85%8D%E7%BD%AE">2、指定配置</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%88%87%E6%8D%A2%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6">3、切换日志框架</a>
+<ul>
+<li><a href="#1-log4j">1、log4j</a></li>
+<li><a href="#2-log4j2">2、log4j2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-web%E5%BC%80%E5%8F%91">四、web开发</a>
+<ul>
+<li><a href="#1-%E7%AE%80%E4%BB%8B">1、简介</a></li>
+<li><a href="#2-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E6%98%A0%E5%B0%84%E8%A7%84%E5%88%99">2、静态资源文件映射规则</a>
+<ul>
+<li><a href="#1-webjar">1、webjar</a></li>
+<li><a href="#2-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90">2、本地资源</a></li>
+</ul>
+</li>
+<li><a href="#3-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E">3、模板引擎</a>
+<ul>
+<li><a href="#1-%E5%BC%95%E5%85%A5thymeleaf-3">1、引入thymeleaf 3</a></li>
+<li><a href="#2-thymeleaf%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AF%AD%E6%B3%95">2、Thymeleaf使用和语法</a></li>
+<li><a href="#3-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99">3、语法规则</a></li>
+</ul>
+</li>
+<li><a href="#4-springmvc%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE">4、SpringMVC自动配置</a>
+<ul>
+<li><a href="#1-springmvc%E7%9A%84%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5">1、SpringMVC的自动导入</a></li>
+<li><a href="#2-%E6%89%A9%E5%B1%95springmvc">2、扩展SpringMVC</a></li>
+<li><a href="#3-%E5%85%A8%E9%9D%A2%E6%8E%A5%E7%AE%A1mvc">3、全面接管mvc</a></li>
+</ul>
+</li>
+<li><a href="#5-%E4%BF%AE%E6%94%B9springmvc%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE">5、修改SpringMVC默认配置</a></li>
+<li><a href="#6-restfulcrud">6、RestfulCRUD</a>
+<ul>
+<li><a href="#1-%E9%BB%98%E8%AE%A4%E8%AE%BF%E9%97%AE%E9%A6%96%E9%A1%B5">1、默认访问首页</a></li>
+<li><a href="#2-%E5%9B%BD%E9%99%85%E5%8C%96">2、国际化</a>
+<ul>
+<li><a href="#1-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%87%E6%8D%A2%E5%9B%BD%E9%99%85%E5%8C%96">1、浏览器切换国际化</a></li>
+<li><a href="#2-%E7%82%B9%E5%87%BB%E9%93%BE%E6%8E%A5%E5%88%87%E6%8D%A2%E5%9B%BD%E9%99%85%E5%8C%96">2、点击链接切换国际化</a></li>
+</ul>
+</li>
+<li><a href="#3-%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA%E5%99%A8">3、登录拦截器</a>
+<ul>
+<li><a href="#1-%E7%99%BB%E5%BD%95">1、登录</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%8B%A6%E6%88%AA%E5%99%A8">4、拦截器</a></li>
+<li><a href="#5-crud-%E5%91%98%E5%B7%A5%E5%88%97%E8%A1%A8">5、CRUD-员工列表</a>
+<ul>
+<li><a href="#1-%E5%85%AC%E5%85%B1%E9%A1%B5%E9%9D%A2%E6%8A%BD%E5%8F%96">1、公共页面抽取</a></li>
+<li><a href="#2-%E5%88%97%E8%A1%A8%E9%AB%98%E4%BA%AE">2、列表高亮</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%88%97%E8%A1%A8%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E6%9F%A5">6、列表数据显示（查）</a>
+<ul>
+<li><a href="#1-%E4%BC%A0%E5%85%A5%E5%91%98%E5%B7%A5%E5%AF%B9%E8%B1%A1">1、传入员工对象</a></li>
+<li><a href="#2-%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1">2、 遍历对象</a></li>
+<li><a href="#3-%E6%95%88%E6%9E%9C%E6%98%BE%E7%A4%BA">3、效果显示</a></li>
+</ul>
+</li>
+<li><a href="#7-%E5%91%98%E5%B7%A5%E6%B7%BB%E5%8A%A0%E5%A2%9E">7、员工添加（增）</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%A2%9E%E9%A1%B5%E9%9D%A2">1、新增页面</a></li>
+<li><a href="#2-%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC">2、页面跳转</a></li>
+<li><a href="#3-%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90">3、添加功能完成</a></li>
+</ul>
+</li>
+<li><a href="#8-%E5%91%98%E5%B7%A5%E7%BC%96%E8%BE%91%E6%94%B9">8、员工编辑（改）</a>
+<ul>
+<li><a href="#1-%E4%BF%AE%E6%94%B9%E6%8C%89%E9%92%AE">1、修改按钮</a></li>
+<li><a href="#2-%E7%BC%96%E5%86%99%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2">2、编写跳转页面</a></li>
+<li><a href="#3-%E5%AF%B9%E9%A1%B5%E9%9D%A2%E4%BF%AE%E6%94%B9">3、对页面修改</a></li>
+</ul>
+</li>
+<li><a href="#9-%E5%91%98%E5%B7%A5%E5%88%A0%E9%99%A4%E5%88%A0">9、员工删除（删）</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%BB%BAcontoller">1、新建Contoller</a></li>
+<li><a href="#2-%E4%BF%AE%E6%94%B9%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE">2、修改删除标签</a></li>
+<li><a href="#3-%E5%86%99form%E8%A1%A8%E5%8D%95">3、写Form表单</a></li>
+<li><a href="#4-%E5%86%99js%E6%8F%90%E4%BA%A4">4、写JS提交</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-%E9%94%99%E8%AF%AF%E6%9C%BA%E5%88%B6%E7%9A%84%E5%A4%84%E7%90%86">7、错误机制的处理</a>
+<ul>
+<li><a href="#1-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6">1、默认的错误处理机制</a></li>
+<li><a href="#2-%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6%E9%94%99%E8%AF%AF%E5%93%8D%E5%BA%94">2、如何定制错误响应</a></li>
+<li><a href="#3-%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6json%E6%95%B0%E6%8D%AE">3、如何定制Json数据</a>
+<ul>
+<li><a href="#1-%E4%BB%85%E5%8F%91%E9%80%81json%E6%95%B0%E6%8D%AE">1、仅发送json数据</a></li>
+<li><a href="#2-%E8%BD%AC%E5%8F%91%E5%88%B0error%E8%87%AA%E9%80%82%E5%BA%94%E5%A4%84%E7%90%86">2、转发到error自适应处理</a></li>
+<li><a href="#3-%E8%87%AA%E9%80%82%E5%BA%94%E5%92%8C%E5%AE%9A%E5%88%B6%E6%95%B0%E6%8D%AE%E4%BC%A0%E5%85%A5">3、自适应和定制数据传入</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#8-%E9%85%8D%E7%BD%AE%E5%B5%8C%E5%85%A5%E5%BC%8Fservlet%E5%AE%B9%E5%99%A8">8、配置嵌入式servlet容器</a>
+<ul>
+<li><a href="#1-%E5%AE%9A%E5%88%B6%E5%92%8C%E4%BF%AE%E6%94%B9servlet%E5%AE%B9%E5%99%A8">1、定制和修改Servlet容器</a></li>
+<li><a href="#2-%E6%B3%A8%E5%86%8Cservlet%E4%B8%89%E5%A4%A7%E7%BB%84%E4%BB%B6">2、注册Servlet三大组件</a>
+<ul>
+<li><a href="#servletregistrationbean">ServletRegistrationBean</a></li>
+<li><a href="#filterregistrationbean">FilterRegistrationBean</a></li>
+<li><a href="#servletlistenerregistrationbean">ServletListenerRegistrationBean</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%88%87%E6%8D%A2%E5%85%B6%E4%BB%96%E7%9A%84servlet%E5%AE%B9%E5%99%A8">3、切换其他的Servlet容器</a></li>
+<li><a href="#4-%E5%B5%8C%E5%85%A5%E5%BC%8Fservlet%E5%AE%B9%E5%99%A8%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86">4、嵌入式Servlet容器自动配置原理</a></li>
+<li><a href="#5-%E5%B5%8C%E5%85%A5%E5%BC%8Fservlet%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86">5、嵌入式Servlet容器启动原理</a></li>
+</ul>
+</li>
+<li><a href="#9-%E4%BD%BF%E7%94%A8%E5%A4%96%E7%BD%AE%E7%9A%84servlet%E5%AE%B9%E5%99%A8">9、使用外置的Servlet容器</a>
+<ul>
+<li><a href="#1-idea%E6%93%8D%E4%BD%9C%E5%A4%96%E9%83%A8servlet">1、IDEA操作外部Servlet</a></li>
+<li><a href="#2-%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B">2、运行一个示例</a></li>
+<li><a href="#3-%E5%8E%9F%E7%90%86">3、原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-docker">五、Docker</a>
+<ul>
+<li><a href="#1-%E7%AE%80%E4%BB%8B-2">1、简介</a></li>
+<li><a href="#2-docker%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">2、Docker的核心概念</a></li>
+<li><a href="#3-%E5%AE%89%E8%A3%85docker">3、安装Docker</a>
+<ul>
+<li><a href="#1-%E5%AE%89%E8%A3%85linux">1、安装Linux</a></li>
+<li><a href="#2-%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%85docker">2、在linux上安装docker</a></li>
+</ul>
+</li>
+<li><a href="#4-docker%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">4、docker的常用操作</a>
+<ul>
+<li><a href="#1-%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C">1、镜像操作</a></li>
+<li><a href="#2-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C">2、容器操作</a></li>
+<li><a href="#3-%E5%AE%89%E8%A3%85mysql">3、安装Mysql</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD-%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE">六、数据访问</a>
+<ul>
+<li><a href="#1-%E6%95%B4%E5%90%88jdbc%E6%95%B0%E6%8D%AE%E6%BA%90">1、整合JDBC数据源</a>
+<ul>
+<li><a href="#1-datasource">1、DataSource</a></li>
+<li><a href="#2-springboot%E9%BB%98%E8%AE%A4%E6%94%AF%E6%8C%81">2、SpringBoot默认支持</a></li>
+<li><a href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90">3、自定义数据源</a></li>
+<li><a href="#4-%E8%BF%90%E8%A1%8Csql%E5%BB%BA%E8%A1%A8">4、运行sql建表</a></li>
+<li><a href="#5-%E6%93%8D%E4%BD%9Cjdbctemplate">5、操作JdbcTemplate</a></li>
+</ul>
+</li>
+<li><a href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90">2、自定义数据源</a></li>
+<li><a href="#3-%E6%95%B4%E5%90%88mybatis">3、整合Mybatis</a>
+<ul>
+<li><a href="#%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F">注解方式</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F">配置文件方式</a></li>
+</ul>
+</li>
+<li><a href="#4-jpa%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE">4、JPA数据访问</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83-%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86">七、启动配置原理</a>
+<ul>
+<li><a href="#1-%E5%88%9B%E5%BB%BAspringapplicaiotn%E5%AF%B9%E8%B1%A1">1、创建SpringApplicaiotn对象</a></li>
+<li><a href="#2-%E8%BF%90%E8%A1%8Crun%E6%96%B9%E6%B3%95">2、运行Run方法</a></li>
+<li><a href="#3-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9C%BA%E5%88%B6">3、事件监听机制</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AB-springboot%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89starter">八、SpringBoot的自定义starter</a><br>
+*
+<ul>
+<li><a href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAstarter">新建一个starter</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%A9%BA%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B">1、新建一个空项目工程</a></li>
+<li><a href="#2-%E7%BC%96%E5%86%99starter">2、编写starter</a>
+<ul>
+<li><a href="#autoconfigurer">autoconfigurer</a></li>
+</ul>
+</li>
+<li><a href="#3-%E6%B5%8B%E8%AF%95">3、测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="一-spring-boot入门">一、Spring Boot入门</h1>
 <h2 id="1-spring-boot简介">1、Spring Boot简介</h2>
 <p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。</p>
@@ -4704,6 +5071,32 @@ lkh.hello.suffix=-Success
 ]]></summary>
         <content type="html"><![CDATA[<p>我们通过持久化功能，redis保证了即使服务器重启也不会丢失数据，但是由于数据存储在一台服务器上，如果该服务器出现故障，比如硬盘损坏也会导致数据丢失。所以我们为了避免单点故障，进行主从复制操作。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6">主从复制</a><br>
+*
+<ul>
+<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%AE%9E%E7%8E%B0">主从复制实现</a>
+<ul>
+<li><a href="#%E6%96%B9%E5%BC%8F%E4%B8%80%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">方式一修改配置文件实现方式</a>
+<ul>
+<li><a href="#%E6%AD%A5%E9%AA%A4">步骤：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8masterslave">启动服务器master/slave</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%B9%E7%81%BE%E5%A4%84%E7%90%86">容灾处理</a></li>
+</ul>
+</li>
+<li><a href="#%E9%AB%98%E5%8F%AF%E7%94%A8sentinel%E5%93%A8%E5%85%B5">高可用Sentinel哨兵</a><br>
+*
+<ul>
+<li><a href="#sentinel%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BB%BB%E5%8A%A1">Sentinel系统的任务</a></li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="主从复制">主从复制</h1>
 <ul>
 <li>为了避免单点故障，我们需要将数据复制多份复制多份部署在多台不同的服务器上，即使一台初夏年故障，依然可以提供服务</li>
@@ -4795,6 +5188,27 @@ dbfilename dump6380.rdb
 ]]></summary>
         <content type="html"><![CDATA[<p>redis五种数据类型的介绍和基本操作</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%BA%94%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">五种数据类型</a>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2string">字符串：string</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8Bhash">哈希类型：hash</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8%E7%B1%BB%E5%9E%8Blist">列表类型：list</a></li>
+<li><a href="#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8Bset">集合类型：set</a></li>
+<li><a href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8Bzsetsorted-set">有序集合类型：zset（sorted set）</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4">基本操作命令</a>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8B">哈希类型</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
+<li><a href="#%E9%9B%86%E5%90%88">集合</a></li>
+<li><a href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88zset">有序集合zset</a></li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="五种数据类型">五种数据类型</h1>
 <h2 id="字符串string">字符串：string</h2>
 <p>字符串类型是Redis中最基本的数据类型，它能存储任何形式的字符串，包括二进制数据，序列化后的数据，JSON化的对象甚至是一张图片。最大512M。</p>
@@ -5139,6 +5553,27 @@ AOF持久化方式则会记录每一个服务器收到的写操作。在服务�
 Redis的持久化是可以禁用的，就是说你可以让数据的生命周期只存在于服务器的运行时间里。<br>
 两种方式的持久化是可以同时存在的，但是当Redis重启时，AOF文件会被优先用于重建数据。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#rdb%E6%96%B9%E5%BC%8F">RDB方式</a>
+<ul>
+<li><a href="#rdb%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0">RDB如何实现</a></li>
+<li><a href="#%E4%BC%98%E7%BC%BA%E7%82%B9">优缺点</a></li>
+</ul>
+</li>
+<li><a href="#aof%E6%96%B9%E5%BC%8F">AOF方式</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">配置方式</a></li>
+<li><a href="#%E4%BC%98%E7%BC%BA%E7%82%B9-2">优缺点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%9E%E8%B7%B5">性能与实践</a>
+<ul>
+<li><a href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E7%BB%8F%E9%AA%8C">实践经验</a></li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="rdb方式">RDB方式</h1>
 <p>Redis Database：就是在指定的时间间隔内将内存中的数据集快照写入磁盘，数据恢复时将快照文件直接再读到内存。<br>
 RDB保存了某一个时间点的数据集，存储在一个二进制文件中，默认名为dump.rdb。RDB技术适合做备份，可以保存最近一个小时，一i谈，一个月的全部数据<br>
@@ -5209,6 +5644,53 @@ RDB保存了某一个时间点的数据集，存储在一个二进制文件中�
 ]]></summary>
         <content type="html"><![CDATA[<p>本篇文章主要对java集合的框架进行介绍，使大家对java集合的整体框架有个了解。具体介绍了Collection接口，Map接口以及Collection接口的三个子接口Set，List，Queue。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E9%9B%86%E5%90%88">集合</a>
+<ul>
+<li><a href="#collection%E9%9B%86%E5%90%88%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">Collection集合常用方法</a></li>
+<li><a href="#list%E9%9B%86%E5%90%88">List集合</a>
+<ul>
+<li><a href="#arraylist%E5%92%8Cvector">ArrayList和Vector</a></li>
+<li><a href="#linkedlist">LinkedList</a></li>
+</ul>
+</li>
+<li><a href="#set%E9%9B%86%E5%90%88">Set集合</a>
+<ul>
+<li><a href="#hashset">HashSet</a></li>
+<li><a href="#treeset">TreeSet</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%AD%E4%BB%A3%E5%99%A8">迭代器</a>
+<ul>
+<li><a href="#collection%E9%9B%86%E5%90%88%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8">Collection集合中使用迭代器</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">使用迭代器的注意事项</a></li>
+</ul>
+</li>
+<li><a href="#map%E9%9B%86%E5%90%88">Map集合</a>
+<ul>
+<li><a href="#linkedhashmap">LinkedHashMap</a>
+<ul>
+<li><a href="#linkedhashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">LinkedHashMap源码分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%9B%86%E5%90%88%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F">自定义类型的集合进行排序</a>
+<ul>
+<li><a href="#%E5%AE%9E%E7%8E%B0comparable%E6%8E%A5%E5%8F%A3">实现comparable接口</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0comparator%E6%AF%94%E8%BE%83%E5%99%A8">实现comparator比较器</a></li>
+<li><a href="#%E5%9C%A8treeset%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8E%92%E5%BA%8F%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%82%E5%B8%B8">在TreeSet中的一些排序和方法异常</a>
+<ul>
+<li><a href="#%E4%B8%80%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89treeset%E6%97%B6%E5%87%BA%E9%94%99">一.创建自定义TreeSet时出错</a></li>
+<li><a href="#%E4%BA%8C%E6%8C%87%E5%AE%9A%E6%AF%94%E8%BE%83%E5%99%A8%E5%90%8E%E6%B7%BB%E5%8A%A0%E5%A4%B1%E8%B4%A5%E5%88%A0%E9%99%A4%E6%96%B9%E6%B3%95%E5%BC%82%E5%B8%B8">二.指定比较器后添加失败，删除方法异常。</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="集合">集合</h1>
 <ul>
 <li>集合是用来存储类型数据的容器</li>

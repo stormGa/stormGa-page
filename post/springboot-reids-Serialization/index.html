@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>SpringBoot使用Redis的序列化问题 | Kohath</title>
-<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583761633191">
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1583840675267">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -106,6 +106,23 @@
                 <div class="post-content">
                     <p>redis作为互联网中重要的加速组件，在系统中扮演着重要的角色，在使用springboot整合redis的时候踩坑纪记录。</p>
 <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#redis%E7%AE%80%E4%BB%8B">Redis简介</a>
+<ul>
+<li><a href="#redis%E5%9C%A8springboot-%E7%9A%84pom%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE">redis在springboot 的pom文件中的配置</a></li>
+</ul>
+</li>
+<li><a href="#spring-data-redis%E7%9A%84%E8%AE%BE%E8%AE%A1">Spring-data-redis的设计</a>
+<ul>
+<li><a href="#%E8%A7%A3%E5%86%B3%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98">解决序列化问题</a>
+<ul>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 <h1 id="redis简介">Redis简介</h1>
 <ul>
 <li>redis是一种运行在内存的数据库，支持7种数据类型存储。</li>
