@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stormga.github.io/</id>
     <title>Kohath</title>
-    <updated>2020-04-19T07:22:50.282Z</updated>
+    <updated>2020-04-19T07:26:21.273Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stormga.github.io/"/>
     <link rel="self" href="https://stormga.github.io/atom.xml"/>
@@ -20,10 +20,8 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>负载均衡是高可用架构的一个关键组件，主要用来提高性能和可用性，通过负载均衡将流量分发到多个服务器，同时多服务器能够消除这部分的单点故障</p>
 <!-- more -->
-<p>详细文章地址：</p>
-<p>https://www.cnblogs.com/aspirant/p/9087716.html</p>
 <p><ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a>
 <ul>
 <li><a href="#%E4%B8%80-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">一、负载均衡的基本概念</a></li>
 <li><a href="#%E4%BA%8C-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">二、 实现方式</a>
@@ -47,6 +45,7 @@
 </li>
 </ul>
 </p>
+<h1 id="负载均衡">负载均衡</h1>
 <h2 id="一-负载均衡的基本概念">一、负载均衡的基本概念</h2>
 <p>负载均衡是指将请求分发到多台应用服务器，以此来分散压力的一种架构方式，他是以集群的方式存在，并且当 某个节点挂掉的时候，可以自动 不再将请求分配到此节点。</p>
 <h2 id="二-实现方式">二、 实现方式</h2>
