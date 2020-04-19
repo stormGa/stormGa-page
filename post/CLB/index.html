@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>负载均衡 | Kohath</title>
-<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1587280607587">
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1587280952558">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -94,11 +94,41 @@
                         · 2020-04-19 ·
                     </time>
                     
+                        <a href="https://stormga.github.io/tag/tIPAqCEII/" class="post-tags">
+                            # 高可用
+                        </a>
+                    
                 </div>
                 <div class="post-content">
-                    <p>[TOC]</p>
+                    <p>负载均衡是高可用架构的一个关键组件，主要用来提高性能和可用性，通过负载均衡将流量分发到多个服务器，同时多服务器能够消除这部分的单点故障</p>
+<!-- more -->
 <p>详细文章地址：</p>
 <p>https://www.cnblogs.com/aspirant/p/9087716.html</p>
+<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">一、负载均衡的基本概念</a></li>
+<li><a href="#%E4%BA%8C-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">二、 实现方式</a>
+<ul>
+<li><a href="#2%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86">2.反向代理</a></li>
+<li><a href="#3-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E8%BF%94%E5%9B%9E">3. 数据链路返回</a></li>
+<li><a href="#4ip%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">4.IP负载均衡</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AE%97%E6%B3%95">三、 负载均衡算法</a>
+<ul>
+<li><a href="#1-%E8%BD%AE%E8%AF%A2%E6%B3%95">1. 轮询法</a></li>
+<li><a href="#2-%E9%9A%8F%E6%9C%BA%E6%B3%95">2. 随机法</a></li>
+<li><a href="#3-%E6%BA%90%E5%9C%B0%E5%9D%80%E5%93%88%E5%B8%8C%E6%B3%95">3. 源地址哈希法</a></li>
+<li><a href="#4-%E5%8A%A0%E6%9D%83%E8%BD%AE%E8%AF%A2%E6%B3%95">4. 加权轮询法</a></li>
+<li><a href="#5-%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E6%B3%95">5. 加权随机法</a></li>
+<li><a href="#6-%E6%9C%80%E5%B0%8F%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%B3%95">6. 最小连接数法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id="一-负载均衡的基本概念">一、负载均衡的基本概念</h2>
 <p>负载均衡是指将请求分发到多台应用服务器，以此来分散压力的一种架构方式，他是以集群的方式存在，并且当 某个节点挂掉的时候，可以自动 不再将请求分配到此节点。</p>
 <h2 id="二-实现方式">二、 实现方式</h2>
