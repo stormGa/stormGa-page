@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stormga.github.io/</id>
     <title>Kohath</title>
-    <updated>2021-01-09T17:33:53.745Z</updated>
+    <updated>2021-01-09T17:35:49.106Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stormga.github.io/"/>
     <link rel="self" href="https://stormga.github.io/atom.xml"/>
@@ -10,6 +10,652 @@
     <logo>https://stormga.github.io/images/avatar.png</logo>
     <icon>https://stormga.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Kohath</rights>
+    <entry>
+        <title type="html"><![CDATA[数据库02]]></title>
+        <id>https://stormga.github.io/post/shu-ju-ku-02/</id>
+        <link href="https://stormga.github.io/post/shu-ju-ku-02/">
+        </link>
+        <updated>2021-01-09T17:35:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="思维导图">思维导图</h2>
+<figure data-type="image" tabindex="1"><img src="F:%5C%E5%9B%BE%E7%89%87%5Cmarkdown%5C20200325154511288.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="1数据模型的概念">1.数据模型的概念</h2>
+<ul>
+<li>在数据库中用数据模型这个工具来<code>抽象、表示和处理</code>现实世界中的数据和信息。</li>
+<li>通俗地讲数据模型就是<code>现实世界的模拟</code>。</li>
+</ul>
+<p><strong>数据模型应满足三方面要求：</strong></p>
+<ul>
+<li>能比较<code>真实</code>地模拟现实世界</li>
+<li><code>容易</code>为人所<code>理解</code></li>
+<li>便于在计算机上<code>实现</code></li>
+</ul>
+<h2 id="2两大类数据模型">2.两大类数据模型</h2>
+<p><strong>数据模型分为两类（分属两个不同的层次）</strong></p>
+<ul>
+<li>(1) <code>概念模型 也称信息模型</code>，它是按<code>用户的观点</code>来对数据和信息建模，用于数据库设计。</li>
+<li>(2) <code>逻辑模型</code>和<code>物理模型</code><br>
+<strong>逻辑模型</strong>主要包括<code>网状模型</code>、<code>层次模型</code>、<code>关系模型</code>、<code>面向对象模型</code>等，按<code>计算机系统的观点</code>对数据建模，用于DBMS实现。<br>
+<strong>物理模型</strong>是对数据最底层的抽象，描述数据在系统内部的表示方式和存取方法，在磁盘或磁带上的存储方式和存取方法。</li>
+</ul>
+<h3 id="客观对象的抽象过程两步抽象">客观对象的抽象过程—两步抽象</h3>
+<ul>
+<li>现实世界中的客观对象抽象为<code>概念模型</code>；</li>
+<li>把<code>概念模型</code>转换为某一DBMS支持的<code>数据模型</code>。<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325112634810.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h2 id="3数据模型的组成要素">3.数据模型的组成要素</h2>
+<h3 id="1数据结构">(1)数据结构</h3>
+<p><strong>数据结构是所研究的对象类型的集合</strong>。这些对象是数据库的组成成分，数据结构指对象和对象间联系的表达和实现，是对系统静态特征的描述，包括两个方面：<br>
+（1）数据本身：类型、内容、性质。例如关系模型中的域、属性、关系等。<br>
+（2）数据之间的联系：数据之间是如何相互关联的，例如关系模型中的主码、外码联系等。</p>
+<h3 id="2数据操作">(2)数据操作</h3>
+<p><strong>数据操作</strong></p>
+<ul>
+<li>对数据库中各种<code>对象(型)</code>的<code>实例(值)</code>允许执行的<code>操作</code>，及有关的<code>操作规则</code></li>
+</ul>
+<p><strong>数据操作的类型</strong></p>
+<ul>
+<li>查询</li>
+<li>更新(包括插入、删除、修改)</li>
+</ul>
+<h3 id="3数据的完整性约束条件">(3)数据的完整性约束条件</h3>
+<ul>
+<li><strong>数据的完整性约束条件</strong>是一组<code>完整性规则</code>的集合，规定数据库状态及状态变化所应满足的条件，以保证数据的正确性、有效性和相容性。</li>
+</ul>
+<blockquote>
+<p>完整性规则：给定的数据模型中数据及其联系所具有的制约和储存规则</p>
+</blockquote>
+<h2 id="4概念模型">4.概念模型</h2>
+<h3 id="1用途与基本要求">(1)用途与基本要求</h3>
+<p><strong>概念模型的用途:</strong></p>
+<ul>
+<li>概念模型用于信息世界的建模</li>
+<li>是现实世界到机器世界的一个中间层次</li>
+<li>是数据库设计的有力工具</li>
+<li>数据库设计人员和用户之间进行交流的语言</li>
+</ul>
+<p><strong>对概念模型的基本要求:</strong></p>
+<ul>
+<li>较强的语义表达能力</li>
+<li>能够方便、直接地表达应用中的各种语义知识</li>
+<li>简单、清晰、易于用户理解</li>
+</ul>
+<h3 id="2-信息世界中的基本概念">(2) 信息世界中的基本概念</h3>
+<ul>
+<li>
+<p>(1) <code>实体</code>（Entity）<br>
+<code>客观存在并可相互区别的事物</code>称为实体。<br>
+可以是具体的人、事、物或抽象的概念。</p>
+</li>
+<li>
+<p>(2) <code>属性</code>（Attribute）<br>
+<code>实体</code>所具有的某一<code>特性</code>称为属性。<br>
+一个实体可以由若干个属性来刻画。</p>
+</li>
+<li>
+<p>(3) <code>码</code>（Key）<br>
+<code>唯一标识实体的属性</code>集称为码。<br>
+(4) <code>域</code>（Domain）<br>
+<code>属性</code>的<code>取值范围</code>称为该属性的域。</p>
+</li>
+<li>
+<p>(5) <code>实体型</code>（Entity Type）<br>
+用<code>实体名</code>及其<code>属性名集合</code>来抽象和刻画<code>同类实体</code>称为实体型</p>
+</li>
+<li>
+<p>(6) <code>实体集</code>（Entity Set）<br>
+<code>同一类型实体的集合</code>称为实体集</p>
+</li>
+<li>
+<p>(7)</p>
+<pre><code>联系
+</code></pre>
+<p>（Relationship）</p>
+<ul>
+<li>现实世界中<code>事物内部</code>以及<code>事物之间</code>的<code>联系</code>在信息世界中反映为实体内部的联系和实体之间的联系。</li>
+<li>实体<code>内部的联系</code>通常是指组成实体的<code>各属性之间</code>的联系</li>
+<li>实体<code>之间的联系</code>通常是指<code>不同实体集之间</code>的联系</li>
+</ul>
+</li>
+</ul>
+<h3 id="3两个实体型之间的联系">(3)两个实体型之间的联系</h3>
+<figure data-type="image" tabindex="2"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325115426832.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="1-一对一联系11">① 一对一联系（1:1）</h4>
+<p><strong>实例</strong></p>
+<ul>
+<li>一个班级只有一个正班长</li>
+<li>一个班长只在一个班中任职<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325115403209.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<p><strong>定义：</strong><br>
+如果对于实体集A中的每一个实体，实体集B中至多有一个（也可以没有）实体与之联系，反之亦然。则称实体集A与实体集B具有一对一联系，记为1:1</p>
+<h4 id="2-一对多联系1n">② 一对多联系（1:n）</h4>
+<p><strong>实例</strong></p>
+<ul>
+<li>一个班级中有若干名学生，</li>
+<li>每个学生只在一个班级中学习<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325115632336.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>定义：</strong><br>
+如果对于实体集A中的每一个实体，实体集B中有n个实体（n≥0）与之联系，反之，对于实体集B中的每一个实体，实体集A中至多只有一个实体与之联系，则称实体集A与实体集B有一对多联系，记为1:n</li>
+</ul>
+<h4 id="3-多对多联系mn">③ 多对多联系（m:n）</h4>
+<p><strong>实例</strong></p>
+<ul>
+<li>课程与学生之间的联系：</li>
+<li>一门课程同时有若干个学生选修</li>
+<li>一个学生可以同时选修多门课程<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325115824580.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>定义：</strong><br>
+如果对于实体集A中的每一个实体，实体集B中有n个实体（n≥0）与之联系，反之，对于实体集B中的每一个实体，实体集A中也有m个实体（m≥0）与之联系，则称实体集A与实体B具有多对多联系，记为m:n</li>
+</ul>
+<h3 id="4两个以上实体型之间的联系">(4)两个以上实体型之间的联系</h3>
+<h4 id="1-一对多联系1m1n">① 一对多联系（1:m||1:n）</h4>
+<ul>
+<li>若实体集E1，E2，…，En存在联系，对于实体集Ej（j=1，2，…，i-1i+1，…，n）中的给定实体，最多只和Ei中的一个实体相联系，则我们说Ei与E1E2，…，Ei-1，Ei+1，…，En之间的联系是一对多的。</li>
+</ul>
+<p><strong>实例</strong></p>
+<ul>
+<li>课程、教师与参考书三个实体型<br>
+一门课程可以有若干个教师讲授，<br>
+使用若干本参考书，<br>
+每一个教师只讲授一门课程，<br>
+每一本参考书只供一门课程使用</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325120932992.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="2-一对一联系111">② 一对一联系（1:1:1）</h4>
+<p><strong>实例</strong></p>
+<ul>
+<li>一个独生子女只有一个父亲，一个母亲</li>
+<li>一个父亲也只有一个独生子女</li>
+<li>一个母亲也只有一个独生子女<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325121532814.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h4 id="3-多对多联系mnp">③ 多对多联系（m:n:p）</h4>
+<p><strong>实例</strong><br>
+供应商、项目、零件三个实体型<br>
+一个供应商可以供给多个项目多种零件<br>
+每个项目可以使用多个供应商供应的零件<br>
+每种零件可由不同供应商供给<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325121847510.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="5单个实体型内的联系">(5)单个实体型内的联系</h3>
+<h4 id="1-一对多联系1n">① 一对多联系（1:n）</h4>
+<p><strong>实例</strong><br>
+职工实体型内部具<code>有领导与被领导</code>的联系<br>
+某一职工（干部）“领导”若干名职工<br>
+一个职工仅被另外一个职工直接领导<br>
+这是一对多的联系</p>
+<figure data-type="image" tabindex="4"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325121957606.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="2-一对一联系11">② 一对一联系（1:1）</h4>
+<ul>
+<li>身份证可以唯一确认一个人的身份，人与身份证<code>有确认和被确认</code>的关系</li>
+<li>一个身份证唯一确定一个人</li>
+<li>一个人也唯一确认一个身份证<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325122106304.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h4 id="3-多对多联系-mn">③ 多对多联系 （m:n）</h4>
+<ul>
+<li>饮料和厂商之间有<code>制造和被制造</code>的关系</li>
+<li>多个饮料可以被多个厂商制造</li>
+<li>多个厂商可以制造出多种饮料<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325124743808.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h3 id="6概念模型的一种表示方法">(6)概念模型的一种表示方法</h3>
+<h4 id="1-实体-联系方法e-r方法">① 实体－联系方法(E-R方法)</h4>
+<ul>
+<li>E-R图也称实体-联系图(Entity Relationship Diagram)，提供了表示实体类型、属性和联系的方法，用E-R图来描述现实世界的概念模型</li>
+<li>E-R方法也称为E-R模型</li>
+</ul>
+<h4 id="2-实体型">② 实体型</h4>
+<p>用矩形表示，矩形框内写明实体名。<br>
+<img src="https://img-blog.csdnimg.cn/20200325122953651.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="3-属性">③ 属性</h4>
+<p>用椭圆形表示，并用无向边将其与相应的实体连接起来<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123016753.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="4-联系">④ 联系</h4>
+<ul>
+<li>联系本身：<br>
+用菱形表示，菱形框内写明联系名，并用无向边分别与有关实体连接起来，同时在无向边旁标上联系的类型（1:1、1:n或m:n）<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/2020032512311219.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h4 id="5-联系的表示方法">⑤ 联系的表示方法</h4>
+<figure data-type="image" tabindex="5"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123154411.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="6-联系的表示方法示例">⑥ 联系的表示方法示例</h4>
+<figure data-type="image" tabindex="6"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123207527.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="7-联系的属性">⑦ 联系的属性</h4>
+<ul>
+<li><code>联系本身</code>也是一种<code>实体型</code>，<code>也可以有属性</code>。如果一个联系具有属性，则这些属性也要用无向边与该联系连接起来<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/2020032512341594.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h4 id="8-一个实例">⑧ 一个实例</h4>
+<p><strong>用E-R图表示某个工厂物资管理的概念模型</strong></p>
+<ul>
+<li>实体<br>
+仓库： 仓库号、面积、电话号码<br>
+零件 ：零件号、名称、规格、单价、描述<br>
+供应商：供应商号、姓名、地址、电话号码、帐号<br>
+项目：项目号、预算、开工日期<br>
+职工：职工号、姓名、年龄、职称</li>
+</ul>
+<p><strong>实体之间的联系如下：</strong></p>
+<ul>
+<li>(1)一个仓库可以存放多种零件，一种零件可以存放在多个仓库中。仓库和零件具有多对多的联系。用库存量来表示某种零件在某个仓库中的数量。<br>
+(2)一个仓库有多个职工当仓库保管员，一个职工只能在一个仓库工作，仓库和职工之间是一对多的联系。职工实体型中具有一对多的联系<br>
+(3)职工之间具有领导-被领导关系。即仓库主任领导若干保管员。<br>
+(4)供应商、项目和零件三者之间具有多对多的联系<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123610728.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h2 id="5非关系模型">5.非关系模型</h2>
+<h3 id="1层次模型hierarchical-model">（1）层次模型(Hierarchical Model)</h3>
+<ul>
+<li>层次模型是数据库系统中最早出现的数据模型</li>
+<li>层次数据库系统的典型代表是IBM公司的IMS（Information Management System）数据库管理系统</li>
+<li>层次模型用<code>树形结构</code>来表示各类实体以及实体间的联系</li>
+</ul>
+<h4 id="1-数据结构">① 数据结构</h4>
+<p><strong>满足下面两个条件的基本层次联系的集合为层次模型</strong></p>
+<ul>
+<li>有且只有一个结点没有双亲结点，这个结点称为<code>根结点</code></li>
+<li>根以外的其它结点<code>有且只有一个</code>双亲结点</li>
+</ul>
+<p><strong>层次模型中的几个术语</strong><br>
+根结点，双亲结点，兄弟结点，叶结点<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325131821716.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="2-特点">② 特点</h4>
+<ul>
+<li>结点的双亲是<code>唯一</code>的</li>
+<li>只能直接处理<code>一对多</code>的实体联系</li>
+<li>每个记录类型可以定义一个排序字段，也称为·<code>码字段</code></li>
+<li>任何记录值只有<code>按其路径查看</code>时，才能显出它的全部意义</li>
+<li><code>没有</code>一个子女记录值能够<code>脱离</code>双亲记录值而独立存在</li>
+</ul>
+<p><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325132336516.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325132348761.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="3-多对多联系在层次模型中的表示">③ 多对多联系在层次模型中的表示</h4>
+<p><strong>方法：</strong></p>
+<ul>
+<li>将多对多联系分解成一对多联系</li>
+</ul>
+<p><strong>分解方法：</strong></p>
+<ul>
+<li>冗余结点法</li>
+<li>虚拟结点法</li>
+</ul>
+<h4 id="4-数据操纵与完整性约束">④ 数据操纵与完整性约束</h4>
+<p><strong>层次模型的数据操纵：</strong></p>
+<ul>
+<li>查询</li>
+<li>插入</li>
+<li>删除</li>
+<li>更新</li>
+</ul>
+<p><strong>层次模型的完整性约束条件：</strong></p>
+<ul>
+<li>无相应的双亲结点值就不能插入子女结点值</li>
+<li>如果<code>删除双亲</code>结点值，则相应的<code>子女结点</code>值也被<code>同时删除</code></li>
+<li>更新操作时，应更新所有相应记录，以保证数据的一致性</li>
+</ul>
+<h4 id="5-存储结构">⑤ 存储结构</h4>
+<p><strong>邻接法：</strong><br>
+按照层次树<code>前序遍历（T-L-R）</code>的顺序把所有记录值依次邻接存放，即通过物理空间的位置相邻来实现层次顺序。又可分为：<code>子女－兄弟链接法</code>和<code>层次序列链接法</code>。</p>
+<figure data-type="image" tabindex="7"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325133108748.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h5 id="❶-子女-兄弟链接法">❶ 子女-兄弟链接法</h5>
+<ul>
+<li>每个记录设两类指针，分别指向<code>最左边的子女</code>（每个记录型对应一个）和<code>最近的兄弟</code><br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325133338870.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h5 id="❷-层次序列链接法">❷ 层次序列链接法</h5>
+<ul>
+<li>按树的<code>前序穿越顺序</code>链接各记录值<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325133515961.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h4 id="6-优缺点">⑥ 优缺点</h4>
+<ul>
+<li><strong>优点：</strong><br>
+层次模型的数据<code>结构</code>比较简单<code>清晰</code><br>
+<code>查询效率高，性能优于关系模型，不低于网状模型</code><br>
+层次数据模型提供了良好的完整性支持</li>
+<li><strong>缺点：</strong><br>
+多对多联系表示不自然<br>
+对<code>插入</code>和<code>删除</code>操作的<code>限制多</code>，应用<code>程序</code>的<code>编写</code>比较<code>复杂</code><br>
+查询子女结点必须通过双亲结点<br>
+由于结构严密，层次命令趋于程序化</li>
+</ul>
+<h3 id="2网状模型network-model">（2）网状模型(Network Model)</h3>
+<p><strong>网状数据库系统采用<code>网状模型</code>作为数据的组织方式</strong></p>
+<blockquote>
+<ul>
+<li>典型代表是DBTG系统：<br>
+亦称CODASYL系统<br>
+70年代由DBTG提出的一个系统方案<br>
+奠定了数据库系统的基本概念、方法和技术</li>
+<li>实际系统:<br>
+Cullinet Software Inc.公司的 IDMS<br>
+Univac公司的 DMS1100<br>
+Honeywell公司的IDS/2<br>
+HP公司的IMAGE</li>
+</ul>
+</blockquote>
+<h4 id="1-数据结构-2">① 数据结构</h4>
+<p><strong>网状模型:</strong><br>
+满足下面两个条件的基本层次联系的集合：</p>
+<ol>
+<li>允许一个以上的结点无双亲；</li>
+<li>一个结点可以有多于一个的双亲。</li>
+</ol>
+<p><strong>表示方法(与层次数据模型相同):</strong><br>
+<code>实体型</code>：用记录类型描述<br>
+每个<code>结点</code>表示一个记录类型（实体）<br>
+<code>属性</code>：用字段描述<br>
+每个记录类型可包含若干个字段<br>
+<code>联系</code>：用结点之间的<code>连线</code>表示记录类型（实体）之<br>
+间的<code>一对多的父子联系</code></p>
+<p><strong>网状模型与层次模型的区别:</strong></p>
+<ul>
+<li>网状模型允许多个结点没有双亲结点</li>
+<li>网状模型允许结点有多个双亲结点</li>
+<li>网状模型允许两个结点之间有多种联系（复合联系）</li>
+<li>网状模型可以更直接地去描述现实世界</li>
+<li>层次模型实际上是网状模型的一个特例</li>
+</ul>
+<p><code>网状模型中子女结点与双亲结点的联系可以不唯一</code><br>
+要为<code>每个联系命名</code>，并指出与<code>该联系有关</code>的<code>双亲记录</code>和<code>子女记录</code><br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325134632855.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325134717379.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>多对多联系在网状模型中的表示:</strong><br>
+方法：将<code>多对多</code>联系直接分解成<code>一对多</code>联系</p>
+<p><code>例如</code>：一个学生可以选修若干门课程，·某一课程可以被多个学生选修，学生与课程之间是多对多联系 ·</p>
+<ul>
+<li>引进一个学生选课的联结记录，由3个数据项组成<br>
+学号<br>
+课程号<br>
+成绩<br>
+表示某个学生选修某一门课程及其成绩</li>
+</ul>
+<figure data-type="image" tabindex="8"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325134902668.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="2-网状数据模型的操纵与完整性约束续">② 网状数据模型的操纵与完整性约束（续）</h4>
+<p><strong>网状数据库系统（如DBTG）对数据操纵加 了一些限制，提供了一定的完整性约束</strong></p>
+<ul>
+<li><code>码</code>：唯一标识记录的数据项的集合</li>
+<li>一个联系中<code>双亲记录</code>与<code>子女记录</code>之间是<code>一对多</code>联系</li>
+<li>支持双亲记录和子女记录之间某些约束条件</li>
+</ul>
+<h4 id="3-存储结构">③ 存储结构</h4>
+<p><strong>关键：</strong></p>
+<ul>
+<li>实现记录之间的联系</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li>单向链接</li>
+<li>双向链接</li>
+<li>环状链接</li>
+<li>向首链接</li>
+</ul>
+<figure data-type="image" tabindex="9"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325135208647.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="4-优缺点">④ 优缺点</h4>
+<ul>
+<li><strong>优点</strong><br>
+能够更为直接地描述现实世界，如一个结点可以有多个双亲；<br>
+具有良好的性能，存取效率较高；</li>
+<li><strong>缺点</strong><br>
+结构比较复杂，而且随着应用环境的扩大，数据库的结构就变得越来越复杂，不利于最终用户掌握；<br>
+DDL、DML语言复杂，用户不容易使用；</li>
+</ul>
+<h2 id="6关系模型">6.关系模型</h2>
+<p>关系数据库系统采用<code>关系模型</code>作为数据的组织方式<br>
+1970年美国IBM公司San Jose研究室的研究员E.F.Codd首次提出了数据库系统的关系模型<br>
+计算机厂商新推出的数据库管理系统几乎都支持关系模型</p>
+<h3 id="1数据结构-2">（1）数据结构</h3>
+<p>在用户观点下，<code>关系模型中数据的逻辑结构</code>是一张<code>二维表</code>，它由<code>行</code>和<code>列</code>组成。<br>
+<strong>几个名词解释：</strong></p>
+<ul>
+<li><code>关系</code>（Relation）<br>
+一个关系对应通常说的一张表</li>
+<li><code>元组</code>（Tuple）<br>
+表中的一行即为一个元组</li>
+<li><code>属性</code>（Attribute）<br>
+表中的一列即为一个属性，给每一个属性起一个名称即属性名</li>
+<li><code>主码</code>（Key）<br>
+表中的某个<code>属性组</code>，它可以<code>唯一确定一个元组</code>。</li>
+<li><code>域</code>（Domain）<br>
+属性的取值范围。</li>
+<li><code>分量</code><br>
+元组中的一个属性值。</li>
+<li><code>关系模式</code><br>
+对关系的描述<br>
+关系名（属性1，属性2，…，属性n）<br>
+学生（学号，姓名，年龄，性别，系，年级）<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325145042430.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>举几个例子：</strong></li>
+<li><code>例1</code><br>
+学生、系、系与学生之间的·<code>一对多</code>联系：<br>
+学生（学号，姓名，年龄，性别，<code>系号</code>，年级）<br>
+系 (<code>系号</code>，系名，办公地点)</li>
+<li><code>例2</code><br>
+系、系主任、系与系主任间的<code>一对一</code>联系</li>
+<li><code>例3</code><br>
+学生、课程、学生与课程之间的<code>多对多</code>联系：<br>
+学生（<code>学号</code>，姓名，年龄，性别，系号，年级）<br>
+课程（<code>课程号</code>，课程名，学分）<br>
+选修（<code>学号</code>，<code>课程号</code>，成绩）</li>
+</ul>
+<p><strong>规范化：</strong></p>
+<ul>
+<li>关系必须是规范化的，满足一定的规范条件</li>
+<li>最基本的规范条件：<code>关系的每一个分量必须是一个不可分的数据项, 不允许表中还有表</code></li>
+<li>图1.27中工资和扣除是可分的数据项 ,不符合关系模型要求<br>
+<img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325145852665.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<figure data-type="image" tabindex="10"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325145918799.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2关系数据模型的操纵与完整性约束">（2）关系数据模型的操纵与完整性约束</h3>
+<ul>
+<li><code>数据操作</code>是集合操作，操作对象和操作结果都是关系<br>
+查询<br>
+插入<br>
+删除<br>
+更新</li>
+<li><code>数据操作是集合操作，操作对象和操作结果都是关系</code>，即若干元组的集合存取路径对用户隐蔽，用户只要指出“干什么”，不必详细说明“怎么干”</li>
+<li>关系的<code>完整性约束条件</code><br>
+实体完整性<br>
+参照完整性<br>
+用户定义的完整性</li>
+</ul>
+<h3 id="3存储结构">（3）存储结构</h3>
+<ul>
+<li>实体及实体间的联系都用<code>表</code>来表示</li>
+<li>表以文件形式存储<br>
+有的DBMS一个表对应一个操作系统文件；<br>
+有的DBMS自己设计文件结构；</li>
+</ul>
+<h3 id="4优缺点">（4）优缺点</h3>
+<ul>
+<li>
+<pre><code>优点
+</code></pre>
+<ul>
+<li>建立在严格的数学概念的基础上;</li>
+<li>概念单一:<br>
+实体和各类联系都用关系来表示;<br>
+对数据的检索结果也是关系;</li>
+<li>关系模型的存取路径对用户透明;<br>
+具有更高的数据独立性，更好的安全保密性<br>
+简化了程序员的工作和数据库开发建立的工作;</li>
+</ul>
+</li>
+<li>
+<pre><code>缺点
+</code></pre>
+<ul>
+<li>存取路径对用户透明导致查询效率往往不如非关系数据模型;</li>
+<li>为提高性能，必须对用户的查询请求进行优化,增加了开发DBMS的难度;</li>
+</ul>
+</li>
+</ul>
+<h2 id="7面向对象数据模型">7.面向对象数据模型</h2>
+<ul>
+<li>将<code>语义数据模型</code>和<code>面向对象程序设计方法</code>结合起来，用<code>面向对象观点</code>来描述现实世界<code>实体</code>(对象)的<code>逻辑组织</code>、<code>对象间限制</code>、<code>联系</code>等的<code>模型</code>。</li>
+<li>一系列面向对象核心概念构成了面向对象数据模型( Object Oriented Data Model, 00模型)的基础，主要包括以下一些概念:
+<ul>
+<li>(1)现实世界中的任何事物都被建模为对象。每个对象具有一个唯一的对象标识<br>
+(OID)。</li>
+<li>(2)对象是其状态和行为的封装，其中状态是对象属性值的集合，行为是变更对象状<br>
+态的方法集合。</li>
+<li>(3)具有相同属性和方法的对象的全体构成了类，类中的对象称为类的实例。</li>
+<li>(4)类的属性的定义域也可以是类，从而构成了类的复合。类具有继承性，一个类可以继承另一个类的属性与方法，被继承类和继承类也称为超类和子类。类与类之间的复合与继承关系形成了一个有向无环图，称为类层次。</li>
+<li>(5)对象是被封装起来的，它的状态和行为在对象外部不可见，从外部只能通过对象显式定义的消息传递对对象进行操作。</li>
+</ul>
+</li>
+<li>面向对象数据库(OODB)的研究始于20世纪80年代，有许多面向对象数据库产品相继问世，较著名的有Object Store、02、ONTOS等。</li>
+<li>与传统数据库一样，面向对象数据库系统对数据的操纵包括数据查询、增加、删除、修改等，也具有并发控制、故障恢复、存储管理等完整的功能。不仅能支持传统数据库应用，也能支持非传统领域的应用，包括CAD/CAM、OA、CIMS、GIS以及图形、图像等多媒体领域、工程领域和数据集成等领域。</li>
+<li>尽管如此，由于面向对象数据库操作语言过于复杂，没有得到广大用户，特别是开发人员的认可，加上面向对象数据库企图完全替代关系数据库管理系统的思路，增加了企业系统升级的负担，客户不接受，·<code>面向对象数据库产品终究没有在市场上获得成功。</code></li>
+</ul>
+<h2 id="8对象关系模型">8.对象关系模型</h2>
+<ul>
+<li><code>对象关系数据库系统</code>(Object Relational DataBase System, ORDBS) 是<code>关系数据库</code>与<code>面向对象数据库</code>的结合。</li>
+<li>它保持了关系数据库系统的非过程化数据存取方式和数据独立性，继承了关系数据库系统已有的技术，支持原有的数据管理，又能支持00模型和对象管理。各数据库厂商都在原来的产品基础上进行了扩展。</li>
+<li>1999 年发布的SQL标准(也称为SQL99)，增加了SQL/Object Language Binding, 提供了面向对象的功能标准。SQL99对ORDBS标准的制定滞后于实际系统的实现。所以各个ORDBS产品在支持对象模型方面虽然思想一致，但是所采用的术语、语言语法、扩展的功能都不尽相同。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据库01]]></title>
+        <id>https://stormga.github.io/post/shu-ju-ku-01/</id>
+        <link href="https://stormga.github.io/post/shu-ju-ku-01/">
+        </link>
+        <updated>2021-01-09T17:34:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="总体思维导图">总体思维导图</h1>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/01/08/c4QPnvJHCSiea3F.png" alt="思维导图" loading="lazy"></figure>
+<h1 id="1概念">1.概念</h1>
+<h2 id="11数据">1.1数据</h2>
+<h3 id="111-数据的定义">1.1.1 数据的定义</h3>
+<p>描述事物的符号记录</p>
+<h3 id="112-数据的种类">1.1.2 数据的种类</h3>
+<p>文本、图形、图像、音频、视频、学生的档案记录、货物的运输情况等</p>
+<h3 id="113-数据的特点">1.1.3 数据的特点</h3>
+<p>数据与其语义是不可分的</p>
+<h3 id="114-数据举例">1.1.4 数据举例</h3>
+<p>学生档案中的学生记录**（李明，男，197205，江苏南京市，计算机系，1990）**<br>
+语义：学生姓名、性别、出生年月、籍贯、所在院系、<br>
+入学时间<br>
+解释：李明是个大学生，1972年5月出生，江苏南京市人，1990年考入计算机系</p>
+<h2 id="12-数据库">1.2 数据库</h2>
+<h3 id="121-定义">1.2.1 定义</h3>
+<p>数据库(Database,简称DB)是<code>长期储存</code>在<code>计算机内</code>、<code>有组织</code>、<code>可共享</code>的大量<code>数据</code>的<code>集合</code>。</p>
+<h3 id="122-数据库的基本特征">1.2.2 数据库的基本特征</h3>
+<ul>
+<li>数据按一定的数据模型组织、描述和储存</li>
+<li>可为各种用户共享</li>
+<li>冗余度较小</li>
+<li>数据独立性较高</li>
+<li>易扩展</li>
+</ul>
+<h2 id="13-数据库管理系统dbms">1.3 数据库管理系统（DBMS）</h2>
+<h3 id="131-定义">1.3.1 定义</h3>
+<p>DBMS是位于用户与操作系统之间的一层<code>数据管理软件</code>。是基础软件，是一个大型复杂的<strong>软件系统</strong></p>
+<h3 id="132-dbms的用途">1.3.2 DBMS的用途</h3>
+<p>科学地组织和存储数据、高效地获取和维护数据</p>
+<h3 id="133-dbms的功能">1.3.3 DBMS的功能</h3>
+<ul>
+<li><code>数据定义功能</code><br>
+提供数据定义语言(DDL)<br>
+定义数据库中的数据对象</li>
+<li><code>数据组织、存储和管理</code><br>
+分类组织、存储和管理各种数据<br>
+确定组织数据的文件结构和存取方式<br>
+实现数据之间的联系<br>
+提供多种存取方法提高存取效率</li>
+<li><code>数据操纵功能</code><br>
+提供数据操纵语言(DML)<br>
+实现对数据库的基本操作 (查询、插入、删除和修改)</li>
+<li><code>数据库的事务管理和运行管理</code><br>
+数据库在建立、运行和维护时由DBMS统一管理和控制<br>
+保证数据的安全性、完整性、多用户对数据的并发使用<br>
+发生故障后的系统恢复</li>
+<li><code>数据库的建立和维护功能(实用程序)</code><br>
+数据库初始数据装载转换<br>
+数据库转储<br>
+介质故障恢复<br>
+数据库的重组织<br>
+性能监视分析等</li>
+<li><code>其它功能</code><br>
+DBMS与网络中其它软件系统的通信<br>
+两个DBMS系统的数据转换<br>
+异构数据库之间的互访和互操作</li>
+</ul>
+<h2 id="14-数据库系统dbs">1.4 数据库系统（DBS）</h2>
+<h3 id="141-定义">1.4.1 定义</h3>
+<p>在计算机系统中引入数据库后的系统构成</p>
+<h3 id="142数据库系统的构成">1.4.2数据库系统的构成</h3>
+<ul>
+<li>数据库 Database</li>
+<li>数据库管理系统（及其开发工具）Database Management System</li>
+<li>应用系统</li>
+<li>数据库管理员 Database Administrator</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/01/10/p8nifjElZekW1TI.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="143-数据库系统特点">1.4.3 数据库系统特点</h3>
+<h4 id="1431-数据结构化">1.4.3.1 数据结构化</h4>
+<ul>
+<li><code>整体数据的结构化</code>是数据库的主要特征之一</li>
+<li><code>整体结构化</code><br>
+不再仅仅针对某一个应用，而是面向全组织<br>
+不仅数据内部结构化，整体是结构化的，数据之间具有联系</li>
+<li><code>数据库中实现的是数据的真正结构化</code><br>
+数据的结构用<code>数据模型</code>描述，无需程序定义和解释<br>
+数据可以<code>变长</code><br>
+数据的最小存取单位是<code>数据项</code></li>
+</ul>
+<h4 id="1432-数据的共享性高冗余度低易扩充">1.4.3.2  数据的共享性高，冗余度低，易扩充</h4>
+<ul>
+<li>数据库系统从整体角度看待和描述数据，数据面向整个系统，可以被多个用户、多个应用共享使用。</li>
+<li><code>数据共享的好处</code><br>
+减少数据冗余，节约存储空间<br>
+避免数据之间的不相容性与不一致性<br>
+使系统易于扩充</li>
+</ul>
+<h4 id="1433-数据独立性高">1.4.3.3 数据独立性高</h4>
+<ul>
+<li><code>物理独立性</code><br>
+指用户的应用程序与存储在磁盘上的数据库中数据是相互独立的。当数据的物理存储改变了，应用程序不用改变。</li>
+<li><code>逻辑独立性</code><br>
+指用户的应用程序与数据库的逻辑结构是相互独立的。数据的逻辑结构改变了，用户程序也可以不变。</li>
+<li>数据独立性是由DBMS的二级映像功能来保证的</li>
+</ul>
+<h4 id="1434-数据由dbms统一管理和控制">1.4.3.4 数据由DBMS统一管理和控制</h4>
+<p><strong>DBMS提供的数据控制功能</strong></p>
+<ul>
+<li>(1)·<code>数据的安全性（Security）保护·</code><br>
+保护数据，以防止不合法的使用造成的数据的泄密和破坏。</li>
+<li>(2)<code>数据的完整性（Integrity）检查</code><br>
+将数据控制在有效的范围内，或保证数据之间满足一定的关系。</li>
+<li>(3)<code>并发（Concurrency）控制</code><br>
+对多用户的并发操作加以控制和协调，防止相互干扰而得到错误的结果。</li>
+<li>(4)<code>数据库恢复（Recovery）</code><br>
+将数据库从错误状态恢复到某一已知的正确状态。</li>
+</ul>
+<h4 id="1435-应用程序与数据的对应关系数据库系统">1.4.3.5 应用程序与数据的对应关系(数据库系统)</h4>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/01/10/clbtMHpwJImRKXu.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="2数据管理技术的产生和发展">2.数据管理技术的产生和发展</h1>
+<h2 id="21-什么是数据管理">2.1 什么是数据管理</h2>
+<ul>
+<li>对数据进行分类、组织、编码、存储、检索和维护</li>
+<li>数据处理的中心问题</li>
+</ul>
+<h2 id="22-数据管理技术的发展过程">2.2 数据管理技术的发展过程</h2>
+<ul>
+<li>人工管理阶段(20世纪40年代中–50年代中)</li>
+<li>文件系统阶段(20世纪50年代末–60年代中)</li>
+<li>数据库系统阶段(20世纪60年代末–现在)</li>
+</ul>
+<h2 id="23-产生的背景">2.3 产生的背景</h2>
+<ul>
+<li>应用背景 大规模管理</li>
+<li>硬件背景 大容量磁盘、磁盘阵列</li>
+<li>软件背景 有数据库管理系统</li>
+<li>处理方式 联机实时处理,分布处理,批处理</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[负载均衡]]></title>
         <id>https://stormga.github.io/post/CLB/</id>
@@ -5750,653 +6396,6 @@ RDB保存了某一个时间点的数据集，存储在一个二进制文件中�
 <li>可以加入主从机器，利用一台从机器进行备份处理，其它机器正常响应客户端的命令；</li>
 <li>RDB持久化与AOF持久化可以同时存在，配合使用。</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java-集合]]></title>
-        <id>https://stormga.github.io/post/java-jihe/</id>
-        <link href="https://stormga.github.io/post/java-jihe/">
-        </link>
-        <updated>2020-03-09T08:11:17.000Z</updated>
-        <summary type="html"><![CDATA[<p>本篇文章主要对java集合的框架进行介绍，使大家对java集合的整体框架有个了解。具体介绍了Collection接口，Map接口以及Collection接口的三个子接口Set，List，Queue。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>本篇文章主要对java集合的框架进行介绍，使大家对java集合的整体框架有个了解。具体介绍了Collection接口，Map接口以及Collection接口的三个子接口Set，List，Queue。</p>
-<!-- more -->
-<p><ul class="markdownIt-TOC">
-<li><a href="#%E9%9B%86%E5%90%88">集合</a>
-<ul>
-<li><a href="#collection%E9%9B%86%E5%90%88%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">Collection集合常用方法</a></li>
-<li><a href="#list%E9%9B%86%E5%90%88">List集合</a>
-<ul>
-<li><a href="#arraylist%E5%92%8Cvector">ArrayList和Vector</a></li>
-<li><a href="#linkedlist">LinkedList</a></li>
-</ul>
-</li>
-<li><a href="#set%E9%9B%86%E5%90%88">Set集合</a>
-<ul>
-<li><a href="#hashset">HashSet</a></li>
-<li><a href="#treeset">TreeSet</a></li>
-</ul>
-</li>
-<li><a href="#%E8%BF%AD%E4%BB%A3%E5%99%A8">迭代器</a>
-<ul>
-<li><a href="#collection%E9%9B%86%E5%90%88%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8">Collection集合中使用迭代器</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">使用迭代器的注意事项</a></li>
-</ul>
-</li>
-<li><a href="#map%E9%9B%86%E5%90%88">Map集合</a>
-<ul>
-<li><a href="#linkedhashmap">LinkedHashMap</a>
-<ul>
-<li><a href="#linkedhashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">LinkedHashMap源码分析</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%9B%86%E5%90%88%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F">自定义类型的集合进行排序</a>
-<ul>
-<li><a href="#%E5%AE%9E%E7%8E%B0comparable%E6%8E%A5%E5%8F%A3">实现comparable接口</a></li>
-<li><a href="#%E5%AE%9E%E7%8E%B0comparator%E6%AF%94%E8%BE%83%E5%99%A8">实现comparator比较器</a></li>
-<li><a href="#%E5%9C%A8treeset%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8E%92%E5%BA%8F%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%82%E5%B8%B8">在TreeSet中的一些排序和方法异常</a>
-<ul>
-<li><a href="#%E4%B8%80%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89treeset%E6%97%B6%E5%87%BA%E9%94%99">一.创建自定义TreeSet时出错</a></li>
-<li><a href="#%E4%BA%8C%E6%8C%87%E5%AE%9A%E6%AF%94%E8%BE%83%E5%99%A8%E5%90%8E%E6%B7%BB%E5%8A%A0%E5%A4%B1%E8%B4%A5%E5%88%A0%E9%99%A4%E6%96%B9%E6%B3%95%E5%BC%82%E5%B8%B8">二.指定比较器后添加失败，删除方法异常。</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</p>
-<h1 id="集合">集合</h1>
-<ul>
-<li>集合是用来存储类型数据的容器</li>
-<li>集合是用来存储对象的引用</li>
-</ul>
-<h2 id="collection集合常用方法">Collection集合常用方法</h2>
-<table>
-<thead>
-<tr>
-<th>boolean</th>
-<th><a href="#add-E-">add</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">E</a> e) 向集合中添加元素e</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean</td>
-<td><a href="#addAll-java.util.Collection-">addAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;? extends <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">E</a>&gt; c)  把c集合中的所有元素添加到当前集合中</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#clear--">clear</a>() 清空集合中所有元素.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#contains-java.lang.Object-">contains</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 判断当前集合是否包含指定元素o.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#containsAll-java.util.Collection-">containsAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;?&gt; c) 判断当前集合是否包含c集合中的所有元素</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#equals-java.lang.Object-">equals</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o).</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#hashCode--">hashCode</a>().</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#isEmpty--">isEmpty</a>() 判断集合是否为空.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Iterator.html">Iterator</a><E></td>
-<td><a href="#iterator--">iterator</a>() 返回集合的迭代器.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#remove-java.lang.Object-">remove</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 在当前集合中删除第一个与元素o匹配的元素.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#removeAll-java.util.Collection-">removeAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;?&gt; c) 在当前集合中删除所有出现在c集合中的元素.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#retainAll-java.util.Collection-">retainAll</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;?&gt; c) 只保留在集合c中出现的元素,其他的元素都删除.</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#size--">size</a>() 返回元素的个数.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a>[]</td>
-<td><a href="#toArray--">toArray</a>() 集合转数组.</td>
-</tr>
-<tr>
-<td><T> T[]</td>
-<td><a href="#toArray-T:A-">toArray</a>(T[] a)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="list集合">List集合</h2>
-<ul>
-<li>继承了Collection,Collection所有的操作,List都有</li>
-<li>List存储特点: 有序,可重复</li>
-<li>List集合为每个元素指定一个索引值, 主要增加了针对索引值的操作</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>void</th>
-<th><a href="#add-int-E-">add</a>(int index, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a> element) 在指定位置添加元素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean</td>
-<td><a href="#addAll-int-java.util.Collection-">addAll</a>(int index, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Collection.html">Collection</a>&lt;? extends <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a>&gt; c)</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a></td>
-<td><a href="#get-int-">get</a>(int index) 返回指定位置元素的值</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#indexOf-java.lang.Object-">indexOf</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 返回元素o第一次出现的位置</td>
-</tr>
-<tr>
-<td>int</td>
-<td><a href="#lastIndexOf-java.lang.Object-">lastIndexOf</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/lang/Object.html">Object</a> o) 返回元素o最后一次出现的索引值</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/ListIterator.html">ListIterator</a><E></td>
-<td><a href="#listIterator--">listIterator</a>() 返回ListIterator迭代器</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a></td>
-<td><a href="#remove-int-">remove</a>(int index)</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a></td>
-<td><a href="#set-int-E-">set</a>(int index, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a> element)</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#sort-java.util.Comparator-">sort</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Comparator.html">Comparator</a>&lt;? super <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">E</a>&gt; c)</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/List.html">List</a><E></td>
-<td><a href="#subList-int-int-">subList</a>(int fromIndex, int toIndex) 返回子列表</td>
-</tr>
-</tbody>
-</table>
-<h3 id="arraylist和vector">ArrayList和Vector</h3>
-<ul>
-<li>底层都是数组</li>
-<li>默认初始化容量: 10</li>
-<li>ArrayList扩容: 1.5倍,  Vector默认按2倍大小扩容</li>
-<li>Vector提供的操作都使用synchronized修饰, 是线程安全的, ArrayList不是线程安全的</li>
-</ul>
-<h3 id="linkedlist">LinkedList</h3>
-<ul>
-<li>底层是双向链表</li>
-<li>常用操作</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>void</th>
-<th><a href="#addFirst-E-">addFirst</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到链表的头部</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void</td>
-<td><a href="#addLast-E-">addLast</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e)  把元素e添加到最后</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Iterator.html">Iterator</a><E></td>
-<td><a href="#descendingIterator--">descendingIterator</a>() 逆序迭代</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#element--">element</a>() 返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#getFirst--">getFirst</a>()返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#getLast--">getLast</a>()返回最后一个元素</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#offer-E-">offer</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到最后.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#offerFirst-E-">offerFirst</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到最前面,链表的头部</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td><a href="#offerLast-E-">offerLast</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到最后</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#peek--">peek</a>().返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#peekFirst--">peekFirst</a>()返回第一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#peekLast--">peekLast</a>()返回最后一个元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#poll--">poll</a>() 删除第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#pollFirst--">pollFirst</a>()删除第一个元素,并把删除的元素返回..</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#pollLast--">pollLast</a>()删除最后一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#pop--">pop</a>()删除第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td>void</td>
-<td><a href="#push-E-">push</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a> e) 把元素e添加到链表的头部</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#removeFirst--">removeFirst</a>()删除第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/LinkedList.html">E</a></td>
-<td><a href="#removeLast--">removeLast</a>()删除最后一个元素,并把删除的元素返回.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="set集合">Set集合</h2>
-<p>** 特点：无序，不可重复 **</p>
-<h3 id="hashset">HashSet</h3>
-<ul>
-<li>
-<p>HashSet底层是HashMap, HashSet的无参构造给hashMap进行了初始化</p>
-</li>
-<li>
-<p>向hashSet中通过add(e)添加一个元素, 实际上是把这个元素作为 键,添加到了底层的hashMap中</p>
-<p>map.put(e, PRESENT)</p>
-</li>
-<li>
-<p>HashSet实际上是就是底层HashMap的键的集合</p>
-</li>
-<li>
-<p>因为Map中的键不允许重复,所以HashSet也不能存储重复的元素</p>
-</li>
-</ul>
-<h3 id="treeset">TreeSet</h3>
-<ul>
-<li>
-<p>TreeSet 实现了SortedSet, 可以对存储的元素进行自然排序</p>
-</li>
-<li>
-<p>TreeSet要求存储的元素必须是可比较的</p>
-<ul>
-<li>要么指定Comparator比较器</li>
-<li>没有Comparator比较器,元素的类要实现Comparable接口</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></th>
-<th><a href="#ceiling-E-">ceiling</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e) 返回Set集合中大于等于指定元素e的最小元素.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/Iterator.html">Iterator</a><E></td>
-<td><a href="#descendingIterator--">descendingIterator</a>() 返回TreeSet集合的逆序迭代.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/NavigableSet.html">NavigableSet</a><E></td>
-<td><a href="#descendingSet--">descendingSet</a>() 返回TreeSet集合的逆序.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#first--">first</a>() 返回TreeSet集合中的第一个元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#floor-E-">floor</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e) 返回Set集合中小于等于指定元素e的最大元素.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/SortedSet.html">SortedSet</a><E></td>
-<td><a href="#headSet-E-">headSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> toElement) 返回TreeSet集合从开始到指定元素toElement之间的视图</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/NavigableSet.html">NavigableSet</a><E></td>
-<td><a href="#headSet-E-boolean-">headSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> toElement, boolean inclusive).</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#higher-E-">higher</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e). 返回TreeSet集合中大于指定元素e的最小元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#last--">last</a>()返回TreeSet集合最后一个元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#lower-E-">lower</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> e) 返回TreeSet集合中小于指定元素e的最大元素</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#pollFirst--">pollFirst</a>() 删除TreeSet集合的第一个元素,并把删除的元素返回.</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a></td>
-<td><a href="#pollLast--">pollLast</a>()删除TreeSet集合的最后一个元素,并把删除的元素返回</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/SortedSet.html">SortedSet</a><E></td>
-<td><a href="#subSet-E-E-">subSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> fromElement, <a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> toElement) 返回TreeSet指定范围[fromElement, toElement)内的视图 .</td>
-</tr>
-<tr>
-<td><a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/SortedSet.html">SortedSet</a><E></td>
-<td><a href="#tailSet-E-">tailSet</a>(<a href="mk:MSITStore:D:%5Ccourse%5C03-JavaSE%5Cresources%5Cjdk1_8.chm::/java/util/TreeSet.html">E</a> fromElement).返回从指定元素fromElement到最后的一个子视图</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意:</strong></p>
-<ul>
-<li>
-<p>TreeSet集合的contains()/remove()方法是根据Comparator或者Comparable的比较结果是否为0来判断元素是否存在</p>
-</li>
-<li>
-<p>如何选择Comparator还是Comparable??</p>
-<p>通过Comparator可以定义多种比较器</p>
-<p>类实现了Comparable接口之后 ,排序规则就固定了, 可以把它当作默认的排序</p>
-</li>
-</ul>
-<h2 id="迭代器">迭代器</h2>
-<p><strong>集合继承Iterable接口，用集合的iteartor()方法得到迭代器对象</strong></p>
-<h3 id="collection集合中使用迭代器">Collection集合中使用迭代器</h3>
-<pre><code class="language-java">Iterator&lt;String&gt; iterator = collection.iterator();
-		/*
-		 * 1)刚刚获得迭代器对象时, 迭代器的游标指向第一个元素的前面
-		 * 2) hasNext()判断是否还有没有访问到的元素
-		 * 3) next()把下一个没访问的元素返回, 游标下移
-		 */
-		while( iterator.hasNext()){
-			String next = iterator.next();
-			System.out.println( next );
-		}
-</code></pre>
-<p>###迭代器中有两个重要方法</p>
-<ul>
-<li>hasNext() 判断游标后面还有 没有访问到的元素</li>
-<li>next() 把下一个没有访问的元素返回，游标下移</li>
-</ul>
-<h3 id="使用迭代器的注意事项">使用迭代器的注意事项</h3>
-<ul>
-<li>
-<p>每次迭代完后，游标就在最后一个元素后面，如果我们还想使用迭代器我们需要重新获取</p>
-</li>
-<li>
-<pre><code class="language-java">Iterator&lt;String&gt; iterator = collection.iterator();
-      while(iterator.hasNext()){
-          collection.remove(&quot;abc&quot;);
-      
-</code></pre>
-</li>
-</ul>
-<pre><code>  **这段代码是错误的**
-
-  我们阅读源码会发现：
-
-  Iterator在创建的时候会返回一个Itr对象
-
-  源码：
-
-  ```java
-      public Iterator&lt;E&gt; iterator() {
-          return new Itr();
-      }
-</code></pre>
-<p>而这个Itr是集合的内部类，我们以ArrayList分析</p>
-<pre><code class="language-java">  private class Itr implements Iterator&lt;E&gt; {
-      int cursor;       // index of next element to return
-      int lastRet = -1; // index of last element returned; -1 if no such
-      int expectedModCount = modCount;
-
-      // prevent creating a synthetic constructor
-      Itr() {}
-
-</code></pre>
-<p>这个modCount是ArrayList的一个成员变量</p>
-<p>​</p>
-<pre><code class="language-java">protected transient int modCount = 0;
-</code></pre>
-<p>每次ArrayList进行 remove,add操作就会改变modCount的值。</p>
-<p>而迭代器的next方法会检查这两个值是否一样，不一样会抛异常。</p>
-<p><strong>结论：</strong></p>
-<p><strong>当我们创建的Iterator时，我们就不能使用集合自身的remove，add等方法了，否则我们进行迭代的时候会抛异常。由于foreach循环是底层是迭代器实现的，所以我们在foreach循环的时候也不能使用remove，add，clear等方法</strong></p>
-<h2 id="map集合">Map集合</h2>
-<h3 id="linkedhashmap">LinkedHashMap</h3>
-<pre><code class="language-java">public class LinkedHashMap&lt;K,V&gt; extends HashMap&lt;K,V&gt; implements Map&lt;K,V&gt;
-</code></pre>
-<p>继承自HashMap，一个有序的Map接口实现，这里的有序指的是元素可以按插入顺序或访问顺序排列；与HashMap相比，因为LinkedHashMap是继承自HashMap，因此LinkedHashMap：</p>
-<ul>
-<li>同样是基于散列表实现。</li>
-<li>同时实现了Serializable 和 Cloneable接口，支持序列化和克隆。</li>
-<li>并且同样不是线程安全的。</li>
-</ul>
-<p>区别是其内部维护了一个双向循环链表，该链表是有序的，可以按元素插入顺序或元素最近访问顺序(LRU)排列。</p>
-<h4 id="linkedhashmap源码分析">LinkedHashMap源码分析</h4>
-<ul>
-<li>
-<p>由于LinkedHashMap继承自HashMap，所以它不仅像HashMap那样对其进行基于哈希表和单链表的Entry数组+ next链表的存储方式，而且还结合了LinkedList的优点，为每个Entry节点增加了前驱和后继，并增加了一个为header头结点，构造了一个双向循环链表。<strong>（多一个以header为头结点的双向循环链表，也就是说，每次put进来KV，除了将其保存到对哈希表中的对应位置外，还要将其插入到双向循环链表的尾部。）</strong></p>
-</li>
-<li>
-<p>LinkedHashMap的属性比HashMap多了一个accessOrder属性。<strong>当它false时，表示双向链表中的元素按照Entry插入LinkedHashMap到中的先后顺序排序</strong>，即每次put到LinkedHashMap中的Entry都放在双向链表的尾部，这样遍历双向链表时，Entry的输出顺序便和插入的顺序一致，这也是默认的双向链表的存储顺序；<strong>当它为true时，表示双向链表中的元素按照访问的先后顺序排列</strong>，可以看到，虽然Entry插入链表的顺序依然是按照其put到LinkedHashMap中的顺序，但put和get方法均有调用recordAccess方法（put方法在key相同，覆盖原有的Entry的情况下调用recordAccess方法），该方法判断accessOrder是否为true，如果是，则将当前访问的Entry（put进来的Entry或get出来的Entry）移到双向链表的尾部（key不相同时，put新Entry时，会调用addEntry，它会调用creatEntry，该方法同样将新插入的元素放入到双向链表的尾部，既符合插入的先后顺序，又符合访问的先后顺序，因为这时该Entry也被访问了），否则，什么也不做。</p>
-</li>
-<li>
-<p>构造函数中有设置accessOrder的方法，如果我们需要实现LRU算法时，就需要将accessOrder的值设定为TRUE。</p>
-</li>
-<li>
-<p>在HashMap的put方法中，如果key不为null时且哈希表中已经在存在时，循环遍历table[i]中的链表时会调用recordAccess方法，而在HashMap中这个方法是个空方法，在LinkedHashMap中则实现了该方法，该方法会判断accessOrder是否为true，如果为true，它会将当前访问的Entry（在这里指put进来的Entry）移动到双向循环链表的尾部，从而实现双向链表中的元素按照访问顺序来排序（最近访问的Entry放到链表的最后，这样多次下来，前面就是最近没有被访问的元素，在实现、LRU算法时，当双向链表中的节点数达到最大值时，将前面的元素删去即可，因为前面的元素是最近最少使用的），否则什么也不做。</p>
-</li>
-</ul>
-<h1 id="自定义类型的集合进行排序">自定义类型的集合进行排序</h1>
-<h2 id="实现comparable接口">实现comparable接口</h2>
-<pre><code class="language-java">public class SortTest1 {
-    public static void main(String[] args) {
-        List &lt;Person&gt; personList = new ArrayList&lt;&gt;();
-        personList.add(new Person(&quot;a&quot;, 15));
-        personList.add(new Person(&quot;b&quot;, 11));
-        personList.add(new Person(&quot;c&quot;, 18));
-        personList.add(new Person(&quot;d&quot;, 10));
-        Collections.sort(personList);
-        System.out.println(personList);
-    }
-
-    static class Person implements Comparable&lt;Person&gt;{
-        String name;
-        int age;
-
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Person{&quot; +
-                    &quot;name='&quot; + name + '\'' +
-                    &quot;, age=&quot; + age +
-                    '}';
-        }
-
-        @Override
-        public int compareTo(Person o) {
-            return this.age - o.age;
-        }
-    }
-}
-</code></pre>
-<h2 id="实现comparator比较器">实现comparator比较器</h2>
-<pre><code class="language-java">public class SortTest2 {
-    public static void main(String[] args) {
-        List &lt;Person&gt; personList = new ArrayList&lt;&gt;();
-        personList.add(new Person(&quot;a&quot;, 15));
-        personList.add(new Person(&quot;b&quot;, 11));
-        personList.add(new Person(&quot;c&quot;, 18));
-        personList.add(new Person(&quot;d&quot;, 10));
-        Collections.sort(personList);
-        System.out.println(personList);
-    }
-
-    static class Person implements Comparable&lt;Person&gt;{
-        String name;
-        int age;
-
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Person{&quot; +
-                    &quot;name='&quot; + name + '\'' +
-                    &quot;, age=&quot; + age +
-                    '}';
-        }
-
-        @Override
-        public int compareTo(Person o) {
-            return this.age - o.age;
-        }
-    }
-}
-</code></pre>
-<h2 id="在treeset中的一些排序和方法异常">在TreeSet中的一些排序和方法异常</h2>
-<h3 id="一创建自定义treeset时出错">一.创建自定义TreeSet时出错</h3>
-<pre><code class="language-java">public class TreeSetTest {
-    public static void main(String[] args) {
-        TreeSet&lt;Computer&gt; computers = new TreeSet&lt;&gt;();
-        computers.add(new Computer(&quot;Asus&quot;,5800,8));
-        computers.add(new Computer(&quot;Lenovo&quot;,4800,16));
-        computers.add(new Computer(&quot;Dell&quot;,3800,8));
-        computers.add(new Computer(&quot;Mac&quot;,15800,16));
-        System.out.println(computers);
-    }
-
-    static class Computer {
-        String brand;        //品牌
-        int price;            //价格
-        int memorySize;    //内存大小
-
-        public Computer(String brand, int price, int memorySize) {
-            super();
-            this.brand = brand;
-            this.price = price;
-            this.memorySize = memorySize;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Computer{&quot; +
-                    &quot;brand='&quot; + brand + '\'' +
-                    &quot;, price=&quot; + price +
-                    &quot;, memorySize=&quot; + memorySize +
-                    '}';
-        }
-    }
-}
-
-
-</code></pre>
-<p>这个程序我们运行的时候会报错，因为TreeSet是可排序的，我们的自定义类必须是可排序的，所以</p>
-<p>我们要么指定Comparator比较器，要么类实现Comparable接口。</p>
-<p>所以我们应该在改为：</p>
-<pre><code class="language-java">public class TreeSetTest {
-    public static void main(String[] args) {
-      //在定义的时候加上Comparator比较器
-        TreeSet&lt;Computer&gt; computers = new TreeSet&lt;&gt;(new Comparator&lt;Computer&gt;() {
-            @Override
-            public int compare(Computer o1, Computer o2) {
-                return o1.price - o2.price;
-            }
-        });
-        computers.add(new Computer(&quot;Asus&quot;, 5800, 8));
-        computers.add(new Computer(&quot;Lenovo&quot;, 4800, 16));
-        computers.add(new Computer(&quot;Dell&quot;, 3800, 8));
-        computers.add(new Computer(&quot;Mac&quot;, 15800, 16));
-        System.out.println(computers);
-    }
-
-    static class Computer {
-        String brand;        //品牌
-        int price;            //价格
-        int memorySize;    //内存大小
-
-        public Computer(String brand, int price, int memorySize) {
-            super();
-            this.brand = brand;
-            this.price = price;
-            this.memorySize = memorySize;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;Computer{&quot; +
-                    &quot;brand='&quot; + brand + '\'' +
-                    &quot;, price=&quot; + price +
-                    &quot;, memorySize=&quot; + memorySize +
-                    '}';
-        }
-    }
-}
-
-
-</code></pre>
-<h3 id="二指定比较器后添加失败删除方法异常">二.指定比较器后添加失败，删除方法异常。</h3>
-<p>如果我们在main方法中，添加一个和比较器的比较对象比较值一样的对象默认为一个对象，不会执行该对象。</p>
-<pre><code class="language-java">public static void main(String[] args) {
-    TreeSet&lt;Computer&gt; computers = new TreeSet&lt;&gt;(new Comparator&lt;Computer&gt;() {
-        @Override
-        public int compare(Computer o1, Computer o2) {
-            return o1.price - o2.price;
-        }
-    });
-    computers.add(new Computer(&quot;Asus&quot;, 5800, 8));
-    computers.add(new Computer(&quot;Lenovo&quot;, 4800, 16));
-    computers.add(new Computer(&quot;Dell&quot;, 3800, 8));
-    computers.add(new Computer(&quot;Mac&quot;, 15800, 16));
-    System.out.println(computers);
-  //[Computer{brand='Dell', price=3800, memorySize=8}, Computer{brand='Lenovo', price=4800, memorySize=16}, Computer{brand='Asus', price=5800, memorySize=8}, Computer{brand='Mac', price=15800, memorySize=16}]
-    computers.add((new Computer(&quot;Acer&quot;,5800,8)));
-    System.out.println(computers);
-  //[Computer{brand='Dell', price=3800, memorySize=8}, Computer{brand='Lenovo', price=4800, memorySize=16}, Computer{brand='Asus', price=5800, memorySize=8}, Computer{brand='Mac', price=15800, memorySize=16}]
-}
-
-</code></pre>
-<p><strong>而如果我们删除一个品牌为小米，price为5800，内存为8的对象时，他会删除价格为5800的华硕电脑。</strong></p>
-<p><strong>因为TreeSet执行ComparaTo方法，返回值如果为0，那么它会认为这两个对象是同一对象。如该程序中，华硕电脑和小米电脑一样的价格，它执行比较器返回0，就会认为是同一对象</strong></p>
 ]]></content>
     </entry>
 </feed>
