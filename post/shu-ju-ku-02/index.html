@@ -3,8 +3,8 @@
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>数据库02 | Kohath</title>
-<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1610213744986">
+<title>数据库02-数据模型 | Kohath</title>
+<link rel="shortcut icon" href="https://stormga.github.io//favicon.ico?v=1610213867467">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stormga.github.io//styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -87,7 +87,7 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    数据库02
+                    数据库02-数据模型
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
@@ -96,9 +96,7 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="思维导图">思维导图</h2>
-<figure data-type="image" tabindex="1"><img src="F:%5C%E5%9B%BE%E7%89%87%5Cmarkdown%5C20200325154511288.png" alt="在这里插入图片描述" loading="lazy"></figure>
-<h2 id="1数据模型的概念">1.数据模型的概念</h2>
+                    <h2 id="1数据模型的概念">1.数据模型的概念</h2>
 <ul>
 <li>在数据库中用数据模型这个工具来<code>抽象、表示和处理</code>现实世界中的数据和信息。</li>
 <li>通俗地讲数据模型就是<code>现实世界的模拟</code>。</li>
@@ -199,7 +197,7 @@
 </li>
 </ul>
 <h3 id="3两个实体型之间的联系">(3)两个实体型之间的联系</h3>
-<figure data-type="image" tabindex="2"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325115426832.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325115426832.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="1-一对一联系11">① 一对一联系（1:1）</h4>
 <p><strong>实例</strong></p>
 <ul>
@@ -241,7 +239,7 @@
 每一个教师只讲授一门课程，<br>
 每一本参考书只供一门课程使用</li>
 </ul>
-<figure data-type="image" tabindex="3"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325120932992.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325120932992.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="2-一对一联系111">② 一对一联系（1:1:1）</h4>
 <p><strong>实例</strong></p>
 <ul>
@@ -264,7 +262,7 @@
 某一职工（干部）“领导”若干名职工<br>
 一个职工仅被另外一个职工直接领导<br>
 这是一对多的联系</p>
-<figure data-type="image" tabindex="4"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325121957606.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325121957606.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="2-一对一联系11">② 一对一联系（1:1）</h4>
 <ul>
 <li>身份证可以唯一确认一个人的身份，人与身份证<code>有确认和被确认</code>的关系</li>
@@ -298,9 +296,9 @@
 <img src="https://gitee.com/kohathzz/nonopic/raw/master/2020032512311219.png" alt="在这里插入图片描述" loading="lazy"></li>
 </ul>
 <h4 id="5-联系的表示方法">⑤ 联系的表示方法</h4>
-<figure data-type="image" tabindex="5"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123154411.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123154411.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="6-联系的表示方法示例">⑥ 联系的表示方法示例</h4>
-<figure data-type="image" tabindex="6"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123207527.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325123207527.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="7-联系的属性">⑦ 联系的属性</h4>
 <ul>
 <li><code>联系本身</code>也是一种<code>实体型</code>，<code>也可以有属性</code>。如果一个联系具有属性，则这些属性也要用无向边与该联系连接起来<br>
@@ -377,7 +375,7 @@
 <h4 id="5-存储结构">⑤ 存储结构</h4>
 <p><strong>邻接法：</strong><br>
 按照层次树<code>前序遍历（T-L-R）</code>的顺序把所有记录值依次邻接存放，即通过物理空间的位置相邻来实现层次顺序。又可分为：<code>子女－兄弟链接法</code>和<code>层次序列链接法</code>。</p>
-<figure data-type="image" tabindex="7"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325133108748.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325133108748.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h5 id="❶-子女-兄弟链接法">❶ 子女-兄弟链接法</h5>
 <ul>
 <li>每个记录设两类指针，分别指向<code>最左边的子女</code>（每个记录型对应一个）和<code>最近的兄弟</code><br>
@@ -451,7 +449,7 @@ HP公司的IMAGE</li>
 成绩<br>
 表示某个学生选修某一门课程及其成绩</li>
 </ul>
-<figure data-type="image" tabindex="8"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325134902668.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325134902668.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="2-网状数据模型的操纵与完整性约束续">② 网状数据模型的操纵与完整性约束（续）</h4>
 <p><strong>网状数据库系统（如DBTG）对数据操纵加 了一些限制，提供了一定的完整性约束</strong></p>
 <ul>
@@ -471,7 +469,7 @@ HP公司的IMAGE</li>
 <li>环状链接</li>
 <li>向首链接</li>
 </ul>
-<figure data-type="image" tabindex="9"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325135208647.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325135208647.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h4 id="4-优缺点">④ 优缺点</h4>
 <ul>
 <li><strong>优点</strong><br>
@@ -526,7 +524,7 @@ DDL、DML语言复杂，用户不容易使用；</li>
 <li>图1.27中工资和扣除是可分的数据项 ,不符合关系模型要求<br>
 <img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325145852665.png" alt="在这里插入图片描述" loading="lazy"></li>
 </ul>
-<figure data-type="image" tabindex="10"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325145918799.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://gitee.com/kohathzz/nonopic/raw/master/20200325145918799.png" alt="在这里插入图片描述" loading="lazy"></figure>
 <h3 id="2关系数据模型的操纵与完整性约束">（2）关系数据模型的操纵与完整性约束</h3>
 <ul>
 <li><code>数据操作</code>是集合操作，操作对象和操作结果都是关系<br>
@@ -604,7 +602,7 @@ DDL、DML语言复杂，用户不容易使用；</li>
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
                 <a href="https://stormga.github.io/post/shu-ju-ku-01/" class="post-title gt-a-link">
-                    数据库01
+                    数据库01-概念和发展历史
                 </a>
             </div>
         
