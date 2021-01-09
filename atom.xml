@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stormga.github.io/</id>
     <title>Kohath</title>
-    <updated>2020-04-19T07:26:21.273Z</updated>
+    <updated>2021-01-09T17:33:53.745Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stormga.github.io/"/>
     <link rel="self" href="https://stormga.github.io/atom.xml"/>
     <subtitle>Every 🐦 has an 🦅&apos;s dream.</subtitle>
     <logo>https://stormga.github.io/images/avatar.png</logo>
     <icon>https://stormga.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Kohath</rights>
+    <rights>All rights reserved 2021, Kohath</rights>
     <entry>
         <title type="html"><![CDATA[负载均衡]]></title>
         <id>https://stormga.github.io/post/CLB/</id>
